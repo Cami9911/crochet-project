@@ -1,0 +1,40 @@
+.img {
+  &_card {
+    margin: 0px 50px 50px 0px;
+  }
+
+  &_content {
+    height: 271px !important;
+    max-width: 200px;
+    //min-width: 200px;
+  }
+
+  &_text {
+    text-transform: uppercase;
+    //align-items: flex-start;
+  }
+
+  &_sider {
+    background: #ded7d7 !important;
+  }
+}
+
+
+
+.full-size-img {
+  max-height: 400px;
+}
+
+.modal-carousel{
+  height: 500px;
+}
+
+.grid {
+  &_content {
+    padding: 0px 100px;
+    //background-color: rgba(229, 221, 209, 0.37);
+  }
+  &_space {
+    margin: 50px 100px;
+  }
+}

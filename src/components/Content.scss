@@ -1,0 +1,15 @@
+.content{
+  &_cmp{
+    position: relative;
+
+    .ant-tabs-nav {
+        padding-left: 200px;
+
+    }
+  }
+  &_dropdown{
+    position: absolute;
+    top: 10px;
+    right: 450px;
+  }
+}
