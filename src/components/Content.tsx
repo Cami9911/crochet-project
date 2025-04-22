@@ -1,251 +1,139 @@
-import {Tabs, TabsProps} from "antd";
-import {Content} from "antd/es/layout/layout";
-import React from "react";
+import { Tabs, TabsProps } from "antd";
+import { Content } from "antd/es/layout/layout";
+import { useState } from "react";
 import GridImages from "./GridImages.tsx";
-import './Content.scss';
-const onChange = (key: string) => {
-    //console.log(key);
-};
+import "./Content.scss";
+import allProducts from "./AllProductsData.tsx";
+import { DownOutlined } from "@ant-design/icons";
+import type { MenuProps } from "antd";
+import { Dropdown, Space } from "antd";
 
-import purse1 from "../assets/purse1.jpg";
-import purse2 from "../assets/purse2.jpg";
-import purse3 from "../assets/purse3.jpeg";
-import purse4 from "../assets/purse4.jpeg";
-import purse5 from "../assets/purse5.png";
-import purse6 from "../assets/purse6.jpg";
-import purse7 from "../assets/purse7.jpg";
-import purse8 from "../assets/purse8.jpg";
-
-import bag from "../assets/bag.jpg";
-
-import wallet1 from "../assets/wallet1.jpg";
-import wallet2 from "../assets/wallet2.jpg";
-import wallet3 from "../assets/wallet3.jpg";
-import wallet4 from "../assets/wallet4.jpg";
-import wallet5 from "../assets/wallet5.jpg";
-
-import beret1 from "../assets/beret1.jpg";
-import beret2 from "../assets/beret2.jpg";
-import beret3 from "../assets/beret3.jpg";
-import beret4 from "../assets/beret4.jpg";
-import beret5 from "../assets/beret5.jpg";
-
-import hat1 from "../assets/hat1.jpg";
-import hat2 from "../assets/hat2.jpg";
-import hat3 from "../assets/hat3.jpg";
-import hat4 from "../assets/hat4.jpg";
-import hat5 from "../assets/hat5.jpg";
-import hat6 from "../assets/hat6.jpg";
-
-const purses: TabsProps['purses'] = [
-    {
-        key: '1',
-        label: 'Geanta neagra',
-        src: purse1,
-    },
-    {
-        key: '2',
-        label: 'Geanta fundita',
-        src: purse2,
-    },
-    {
-        key: '3',
-        label: 'Geanta neagra',
-        src: purse3,
-    },
-    {
-        key: '5',
-        label: 'Geanta roz',
-        src: purse4,
-    },
-    {
-        key: '6',
-        label: 'Geanta roz',
-        src: purse5,
-    },
-    {
-        key: '7',
-        label: 'Geanta roz',
-        src: purse6,
-    },
-    {
-        key: '8',
-        label: 'Geanta roz',
-        src: purse7,
-    },
-    {
-        key: '9',
-        label: 'Geanta roz',
-        src: purse8,
-    },
+const tabitems: TabsProps["items"] = [
+  {
+    key: "all",
+    label: "Toate produsele",
+  },
+  {
+    key: "purse",
+    label: "Genti",
+  },
+  {
+    key: "bag",
+    label: "Rucsace",
+  },
+  {
+    key: "wallet",
+    label: "Portofele",
+  },
+  {
+    key: "beret",
+    label: "Berete",
+  },
+  {
+    key: "hat",
+    label: "Palarii",
+  },
 ];
 
-const bags: TabsProps['bags'] = [
-    {
-        key: '1',
-        label: 'Rucsac',
-        src: bag,
-    },
-];
-
-const wallets: TabsProps['purses'] = [
-    {
-        key: '1',
-        label: 'Geanta neagra',
-        src: wallet1,
-    },
-    {
-        key: '2',
-        label: 'Geanta neagra',
-        src: wallet2,
-    },
-    {
-        key: '3',
-        label: 'Geanta neagra',
-        src: wallet3,
-    },
-    {
-        key: '4',
-        label: 'Geanta roz',
-        src: wallet4,
-    },
-    {
-        key: '5',
-        label: 'Geanta roz',
-        src: wallet5,
-    },
-];
-
-const berets: TabsProps['berets'] = [
-    {
-        key: '1',
-        label: 'Bereta neagra',
-        src: beret1,
-    },
-    {
-        key: '2',
-        label: 'Bereta verde',
-        src: beret2,
-    },
-    {
-        key: '3',
-        label: 'Bereta albastra',
-        src: beret3,
-    },
-    {
-        key: '4',
-        label: 'Bereta gri',
-        src: beret4,
-    },
-    {
-        key: '5',
-        label: 'Bereta rosie',
-        src: beret5,
-    },
-];
-
-const hats: TabsProps['hats'] = [
-    {
-        key: '1',
-        label: 'Palarie neagra',
-        src: hat1,
-    },
-    {
-        key: '2',
-        label: 'Palarie verde',
-        src: hat2,
-    },
-    {
-        key: '3',
-        label: 'Palarie albastra',
-        src: hat3,
-    },
-    {
-        key: '4',
-        label: 'Palarie gri',
-        src: hat4,
-    },
-    {
-        key: '5',
-        label: 'Palarie rosie',
-        src: hat5,
-    },
-    {
-        key: '6',
-        label: 'Palarie roz',
-        src: hat6,
-    },
-];
-
-const tabitems: TabsProps['tabitems'] = [
-    {
-        key: '1',
-        label: 'Genti',
-        children: <GridImages items={purses}/>,
-    },
-    {
-        key: '2',
-        label: 'Rucsace',
-        children: <GridImages items={bags}/>,
-    },
-    {
-        key: '3',
-        label: 'Portofele',
-        children: <GridImages items={wallets}/>,
-    },
-    {
-        key: '4',
-        label: 'Berete',
-        children: <GridImages items={berets}/>,
-    },
-    {
-        key: '5',
-        label: 'Palarii',
-        children: <GridImages items={hats}/>,
-    },
-];
-
-import { DownOutlined, SmileOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-import { Dropdown, Space } from 'antd';
-
-const items: MenuProps['items'] = [
-    {
-        key: '1-1',
-        label: 'Genti',
-        type: 'group',
-        children: [
-            { key: '1', label: 'Option 1' },
-            { key: '2', label: 'Option 2' },
-        ],
-    },
-    {
-        key: '1-2',
-        label: 'Berete',
-        type: 'group',
-        children: [
-            { key: '3', label: 'Berete adulti' },
-            { key: '4', label: 'Berete copii' },
-        ],
-    },
+const dropdownitems: MenuProps["items"] = [
+  {
+    key: "all",
+    label: "Toate produsele",
+  },
+  {
+    key: "all-purses",
+    type: "group",
+    label: "Genti",
+    children: [
+      { key: "purse", label: "Toate gentile" },
+      { key: "purse-rose", label: "Genti Trandafir" },
+      { key: "purse-eliza", label: "Genti Eliza" },
+      { key: "purse-felicia", label: "Genti Felicia" },
+      { key: "purse-andra", label: "Genti Andra" },
+      { key: "purse-florina", label: "Genti Florina" },
+      { key: "purse-roxen", label: "Genti Roxen" },
+      { key: "purse-amalia", label: "Genti Amalia" },
+      { key: "purse-sonia", label: "Genti Sonia" },
+    ],
+  },
+  {
+    key: "all-berets",
+    type: "group",
+    label: "Berete",
+    children: [
+      { key: "beret", label: "Toate beretele" },
+      { key: "beret-adult", label: "Berete adulti" },
+      { key: "beret-child", label: "Berete copii" },
+    ],
+  },
 ];
 
 const ContentCmp = () => {
-    return (
-        <Content style={{paddingTop: "60px"}}>
-            <div className="content_cmp">
-                <Tabs defaultActiveKey="1" items={tabitems} onChange={onChange} className="content_tab" />
-
-                <Dropdown menu={{ items }} >
-                    <a className="content_dropdown" onClick={(e) => e.preventDefault()}>
-                        <Space>
-                            Categorii
-                            <DownOutlined />
-                        </Space>
-                    </a>
-                </Dropdown>
-            </div>
-        </Content>
+  const filterItems: MenuProps["onClick"] = (obj) => {
+    const filteredAllitems = allProducts.filter((item) =>
+      item.key.includes(obj.key)
     );
+    setAllItems(filteredAllitems);
+  };
+
+  // useEffect(() => {
+  //     const filtered = dropdownitems.filter((item) => {
+  //         return item.key.includes('purses');
+  //
+  //     });
+  //     setDropdownItems(filtered);
+
+  // }, []);
+  const onChange = (key: string) => {
+    // set dropdown options for each tab
+    const filteredDropdownOptions = dropdownitems.filter((item) =>
+      item?.key?.toString().includes(key)
+    );
+    setDropdownItems(filteredDropdownOptions);
+    setDropdownState(filteredDropdownOptions.length === 0);
+
+    // set items for each tab
+    const filteredTabItems = allProducts.filter((item) =>
+      item.key.includes(key)
+    );
+    setAllItems(filteredTabItems);
+  };
+
+  const [dropdownState, setDropdownState] = useState(false);
+  const [allTabsItems, setAllItems] = useState(allProducts);
+  const [tabsItems] = useState(tabitems);
+  const [dropdownItems, setDropdownItems] = useState(dropdownitems);
+
+  return (
+    <Content style={{ paddingTop: "60px" }}>
+      <div className="content_cmp">
+        <Tabs
+          defaultActiveKey="1"
+          onChange={onChange}
+          className="content_tab"
+          items={tabsItems.map(({ key, label }) => ({
+            key,
+            label,
+            children: <GridImages items={allTabsItems} />, // Replace with the content of each tab
+          }))}
+        ></Tabs>
+
+        <Dropdown
+          disabled={dropdownState}
+          menu={{
+            items: dropdownItems,
+            onClick: filterItems,
+          }}
+        >
+          <a className="content_dropdown" onClick={(e) => e.preventDefault()}>
+            <Space>
+              Categorii
+              <DownOutlined />
+            </Space>
+          </a>
+        </Dropdown>
+      </div>
+    </Content>
+  );
 };
 export default ContentCmp;

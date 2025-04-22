@@ -1,59 +1,62 @@
-import {Card, Modal, Space, Image, Divider} from "antd";
-import {Content} from "antd/es/layout/layout";
-import React, {useState} from "react";
-import Meta from "antd/es/card/Meta";
-import './Grids.scss';
-import CarouselCmp from "./Carousel.tsx";
-import hat6 from "../assets/hat6.jpg";
-import Sider from "antd/es/layout/Sider";
+import { Modal, Space, Image } from "antd";
+import { Content } from "antd/es/layout/layout";
+import { useState } from "react";
+import "./Grids.scss";
 
-const GridImages = (items) => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+interface GridItem {
+  src: string;
+  key: string;
+  label: string;
+}
 
+interface GridCmpProps {
+  items: GridItem[];
+}
 
-    return (
-        <Content className="grid_content">
-            {/*<Divider/>*/}
-            <Space wrap size="middle" className="grid_space">
-                {items.items?.map(({key, label, src, carouselItems}) => {
-                    const showModal = () => {
-                        setIsModalOpen(true);
-                    };
+const GridImages: React.FC<GridCmpProps> = ({ items }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-                    const handleOk = () => {
-                        setIsModalOpen(false);
-                    };
+  return (
+    <Content className="grid_content">
+      {/*<Divider/>*/}
+      <Space wrap size="middle" className="grid_space">
+        {items?.map(({ key, label, src }) => {
+          //   const showModal = () => {
+          //     setIsModalOpen(true);
+          //   };
 
-                    const handleCancel = () => {
-                        setIsModalOpen(false);
-                    };
-                    return <div key={key}>
+          const handleOk = () => {
+            setIsModalOpen(false);
+          };
 
-                        <div className="img_card">
-                            <Image
-                                alt="example"
-                                className="img_content"
-                                src={src}
-                            />
-                            <p className="img_text">{label}</p>
-                            {/*<Sider className="img_sider"/>*/}
-                        </div>
-                        {/*onClick={showModal}*/}
+          const handleCancel = () => {
+            setIsModalOpen(false);
+          };
 
-                        <Modal
-                            title="Basic Modal"
-                            open={isModalOpen}
-                            onOk={handleOk}
-                            onCancel={handleCancel}
-                            footer={null}>
-                            <Image src={src} alt="alt" className="full-size-img"/>
-                            {/*<CarouselCmp items={carouselItems}/>*/}
-                        </Modal>
-                    </div>
-                })}
-            </Space>
+          return (
+            <div key={key}>
+              <div className="img_card">
+                <Image alt="example" className="img_content" src={src} />
+                <p className="img_text">{label}</p>
+                {/*<Sider className="img_sider"/>*/}
+              </div>
+              {/*onClick={showModal}*/}
 
-        </Content>
-    );
+              <Modal
+                title="Basic Modal"
+                open={isModalOpen}
+                onOk={handleOk}
+                onCancel={handleCancel}
+                footer={null}
+              >
+                <Image src={src} alt="alt" className="full-size-img" />
+                {/*<CarouselCmp items={carouselItems}/>*/}
+              </Modal>
+            </div>
+          );
+        })}
+      </Space>
+    </Content>
+  );
 };
 export default GridImages;

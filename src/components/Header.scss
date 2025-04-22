@@ -1,11 +1,9 @@
-.header{
-  &_content{
-  }
+.header {
   &_image {
     height: 400px !important;
     object-fit: cover;
   }
-  &_text{
+  &_text {
     position: absolute;
     top: 22%;
     left: 50%;
@@ -18,7 +16,6 @@
   }
 }
 
-  .ant-image {
-    width: 100%;
-  }
-
+.ant-image {
+  width: 100%;
+}
