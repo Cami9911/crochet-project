@@ -11,7 +11,7 @@ const onSearch: SearchProps["onSearch"] = (value, _e, info) =>
 
 const Header: React.FC = () => {
   return (
-    <Row gutter={[16, 16]} align="middle" className="h-32 xs:h-16 md:h-16 pt-8">
+    <Row gutter={[16, 16]} align="middle" className="h-32 xs:h-16 md:h-16 ">
       <Col xs={{ span: 12, order: 1 }} md={{ span: 5, order: 1 }}>
         <div className="logo">Logo</div>
       </Col>

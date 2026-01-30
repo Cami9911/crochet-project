@@ -1,16 +1,20 @@
-import { Layout } from "antd";
-import ContentCmp from "../components/Content.tsx";
+import { Divider, Layout } from "antd";
+// import ContentCmp from "../components/Content.tsx";
 import FooterCmp from "../components/Footer.tsx";
 import Header from "../components/new-project/header/Header.tsx";
+import SideMenu from "../components/SideMenu.tsx";
+import HorizontalFilters from "../components/new-project/header/HorizontalFilters.tsx";
 
 const Home = () => {
   return (
     <Layout className="px-4 sm:px-6 md:px-12 lg:px-32">
       <Header></Header>
+      <Divider />
       <Layout>
-        {/*<SideMenu></SideMenu>*/}
+        <SideMenu></SideMenu>
+        <HorizontalFilters />
         {/*<Routing/>*/}
-        <ContentCmp></ContentCmp>
+        {/* <ContentCmp></ContentCmp> */}
       </Layout>
       <FooterCmp></FooterCmp>
     </Layout>
