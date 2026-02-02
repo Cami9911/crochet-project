@@ -52,7 +52,7 @@ const SideMenu = () => {
     navigate(key);
   };
   return (
-    <Sider width={200} className="sider bg-[#f5f5f5]">
+    <Sider width={200} className="hidden sm:block sider bg-[#f5f5f5]">
       <Menu
         // mode="inline"
         className="side-menu pt-8 bg-[#f5f5f5]"

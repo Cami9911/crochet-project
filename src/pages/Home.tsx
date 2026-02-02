@@ -1,9 +1,10 @@
-import { Divider, Layout } from "antd";
+import { Divider, Flex, Layout } from "antd";
 // import ContentCmp from "../components/Content.tsx";
 import FooterCmp from "../components/Footer.tsx";
 import Header from "../components/new-project/header/Header.tsx";
 import SideMenu from "../components/SideMenu.tsx";
 import HorizontalFilters from "../components/new-project/header/HorizontalFilters.tsx";
+import GridContent from "../components/new-project/GridContent.tsx";
 
 const Home = () => {
   return (
@@ -12,7 +13,10 @@ const Home = () => {
       <Divider />
       <Layout>
         <SideMenu></SideMenu>
-        <HorizontalFilters />
+        <Flex vertical>
+          <HorizontalFilters />
+          <GridContent />
+        </Flex>
         {/*<Routing/>*/}
         {/* <ContentCmp></ContentCmp> */}
       </Layout>
