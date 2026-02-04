@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@theme {
+  --color-white-bg: #fff;
+}
 
 *,
 *::before,
@@ -6,11 +9,15 @@
   box-sizing: border-box;
 }
 
+#root {
+  background: #fff;
+}
 html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: #fff;
 }
 
 body {
@@ -19,6 +26,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* background: #fff;
-  color: #111; */
+  background-color: #fff;
+}
+
+.ant-layout,
+.ant-layout-footer {
+  background: #fff !important;
 }

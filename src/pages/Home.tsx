@@ -8,14 +8,18 @@ import GridContent from "../components/new-project/GridContent.tsx";
 
 const Home = () => {
   return (
-    <Layout className="px-4 sm:px-6 md:px-12 lg:px-32">
-      <Header></Header>
-      <Divider />
+    <Layout className="w-full">
+      <div className="bg-white-bg sticky top-0 z-1000 ">
+        <Header></Header>
+        <Divider />
+      </div>
       <Layout>
-        <SideMenu></SideMenu>
-        <Flex vertical>
-          <HorizontalFilters />
-          <GridContent />
+        <Flex gap={"middle"}>
+          <SideMenu></SideMenu>
+          <Flex vertical gap={"middle"}>
+            <HorizontalFilters />
+            <GridContent />
+          </Flex>
         </Flex>
         {/*<Routing/>*/}
         {/* <ContentCmp></ContentCmp> */}

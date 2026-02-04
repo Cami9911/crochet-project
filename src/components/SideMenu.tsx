@@ -13,11 +13,11 @@ const items: MenuProps["items"] = [
     label: "Genti",
   },
   {
-    key: "/purses",
+    key: "/purses-elegant",
     label: "Genti elegante",
   },
   {
-    key: "/purses",
+    key: "/purses-casual",
     label: "Genti casual",
   },
   {
@@ -33,11 +33,11 @@ const items: MenuProps["items"] = [
     label: "Berete",
   },
   {
-    key: "/berets",
+    key: "/berets-children",
     label: "Berete copii",
   },
   {
-    key: "/berets",
+    key: "/berets-adults",
     label: "Berete adulti",
   },
   {
@@ -48,14 +48,26 @@ const items: MenuProps["items"] = [
 
 const SideMenu = () => {
   const navigate = useNavigate();
+
   const handleMenuClick: MenuProps["onClick"] = ({ key }) => {
     navigate(key);
   };
+
   return (
-    <Sider width={200} className="hidden sm:block sider bg-[#f5f5f5]">
+    <Sider
+      width={200}
+      className="hidden sm:block sider bg-white-bg"
+      style={{
+        position: "sticky",
+        top: 137,
+        alignSelf: "flex-start",
+        height: `calc(100vh - 80px)`,
+        overflow: "auto",
+      }}
+    >
       <Menu
         // mode="inline"
-        className="side-menu pt-8 bg-[#f5f5f5]"
+        className="side-menu pt-8 bg-white-bg"
         defaultSelectedKeys={["/all"]}
         defaultOpenKeys={["sub1"]}
         style={{ height: "100%" }}
