@@ -1,8 +1,9 @@
 @import "tailwindcss";
 @theme {
   --color-white-bg: #fff;
-
-  --breakpoint-2md: 55rem;
+}
+@theme {
+  --breakpoint-2md: 60rem;
 }
 
 *,

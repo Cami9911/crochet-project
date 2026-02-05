@@ -61,8 +61,6 @@ const SideMenu = () => {
         position: "sticky",
         top: 136,
         alignSelf: "flex-start",
-        height: `calc(100vh - 80px)`,
-        overflow: "auto",
       }}
     >
       <Menu

@@ -7,7 +7,7 @@ const HorizontalFilters: React.FC = () => (
     className="sticky z-900 bg-white-bg"
     style={{ top: "136px" }}
   >
-    <div className="flex p-2 gap-4 overflow-x-auto whitespace-nowrap lg:max-w-full md:max-w-md sm:max-w-sm max-w-84">
+    <div className="flex p-2 gap-4 overflow-x-auto whitespace-nowrap lg:max-w-full min-[880px]:max-w-146 min-[768px]:max-w-md min-[640px]:max-w-sm min-[460px]:max-w-124 max-w-64">
       <Button>Culoare</Button>
       <Button>Marimea posetei</Button>
       <Button>Tipul manerului gentii</Button>
