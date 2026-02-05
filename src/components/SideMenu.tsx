@@ -55,11 +55,11 @@ const SideMenu = () => {
 
   return (
     <Sider
-      width={200}
+      // width={200}
       className="hidden sm:block sider bg-white-bg"
       style={{
         position: "sticky",
-        top: 137,
+        top: 136,
         alignSelf: "flex-start",
         height: `calc(100vh - 80px)`,
         overflow: "auto",

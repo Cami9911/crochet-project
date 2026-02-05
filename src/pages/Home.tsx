@@ -8,7 +8,7 @@ import GridContent from "../components/new-project/GridContent.tsx";
 
 const Home = () => {
   return (
-    <Layout className="w-full">
+    <Layout className="px-4 sm:px-6 md:px-12 lg:px-32">
       <div className="bg-white-bg sticky top-0 z-1000 ">
         <Header></Header>
         <Divider />
