@@ -1,17 +1,36 @@
-import { Layout, Image } from "antd";
-import "./Header.scss";
-import Cover from "../assets/cover.jpg";
+import { Input, Row, Col } from "antd";
+import type { GetProps } from "antd";
 
-const { Content } = Layout;
+type SearchProps = GetProps<typeof Input.Search>;
 
-const HeaderMenu = () => {
+const { Search } = Input;
+
+const onSearch: SearchProps["onSearch"] = (value, _e, info) =>
+  console.log(info?.source, value);
+
+const Header: React.FC = () => {
   return (
-    <Content style={{}}>
-      <div>
-        <Image className="header_image" src={Cover} preview={false} />
-      </div>
-      <p className="header_text">Stela's Crochet</p>
-    </Content>
+    <Row
+      // gutter={[16, 16]}
+      align="middle"
+      className="h-24 xs:h-16 md:h-16 md:mt-6 "
+    >
+      <Col xs={{ span: 12, order: 1 }} md={{ span: 5, order: 1 }}>
+        <div className="logo">Logo</div>
+      </Col>
+
+      <Col xs={{ span: 24, order: 3 }} md={{ span: 14, order: 2 }}>
+        <Search size="large" onSearch={onSearch} />
+      </Col>
+
+      <Col
+        xs={{ span: 12, order: 2 }}
+        md={{ span: 5, order: 3 }}
+        style={{ textAlign: "right" }}
+      >
+        <div className="contact">Contact</div>
+      </Col>
+    </Row>
   );
 };
-export default HeaderMenu;
+export default Header;

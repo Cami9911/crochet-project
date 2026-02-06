@@ -1,9 +1,9 @@
 import { Divider, Flex, Layout } from "antd";
 // import ContentCmp from "../components/Content.tsx";
 import FooterCmp from "../components/Footer.tsx";
-import Header from "../components/new-project/header/Header.tsx";
+import Header from "../components/Header.tsx";
 import SideMenu from "../components/SideMenu.tsx";
-import HorizontalFilters from "../components/new-project/header/HorizontalFilters.tsx";
+import HorizontalFilters from "../components/HorizontalFilters.tsx";
 import GridContent from "../components/new-project/GridContent.tsx";
 
 const Home = () => {
@@ -11,12 +11,12 @@ const Home = () => {
     <Layout className="px-4 sm:px-6 md:px-12 lg:px-32">
       <div className="bg-white-bg sticky top-0 z-1000 ">
         <Header></Header>
-        <Divider />
+        <Divider className="mb-2! mt-0! sm:my-6!" />
       </div>
       <Layout>
         <Flex gap={"middle"}>
           <SideMenu></SideMenu>
-          <Flex vertical gap={"middle"}>
+          <Flex vertical>
             <HorizontalFilters />
             <GridContent />
           </Flex>

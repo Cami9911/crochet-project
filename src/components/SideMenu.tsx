@@ -56,16 +56,16 @@ const SideMenu = () => {
   return (
     <Sider
       // width={200}
-      className="hidden sm:block sider bg-white-bg"
+      className="hidden lg:block sider bg-white-bg"
       style={{
         position: "sticky",
-        top: 136,
+        top: 137,
         alignSelf: "flex-start",
       }}
     >
       <Menu
         // mode="inline"
-        className="side-menu pt-8 bg-white-bg"
+        className="side-menu pt-8 bg-white-bg border-0!"
         defaultSelectedKeys={["/all"]}
         defaultOpenKeys={["sub1"]}
         style={{ height: "100%" }}

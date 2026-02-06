@@ -1,22 +1,17 @@
 import { Image, Row, Col } from "antd";
 import { Content } from "antd/es/layout/layout";
 import allProducts from "../AllProductsData";
+import ControlFilters from "../filters/ControlFilters";
 
 const GridContent: React.FC = () => {
-  //   const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
-    <Content className="grid_content">
+    <Content className="relative">
+      <ControlFilters />
+
       <Row gutter={16}>
         {allProducts?.map(({ key, label, src }) => {
           return (
-            <Col
-              className="gutter-row"
-              span={12}
-              sm={{ span: 8 }}
-              lg={{ span: 6 }}
-              key={key}
-            >
+            <Col className="gutter-row" span={12} lg={{ span: 6 }} key={key}>
               <Image alt="example" className="" src={src} />
               <div>{label}</div>
             </Col>
