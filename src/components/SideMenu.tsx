@@ -9,19 +9,19 @@ const items: MenuProps["items"] = [
     label: "Toate produsele",
   },
   {
-    key: "/purses",
+    key: "/bags",
     label: "Genti",
   },
   {
-    key: "/purses-elegant",
+    key: "/bags-elegante",
     label: "Genti elegante",
   },
   {
-    key: "/purses-casual",
+    key: "/bags-casual",
     label: "Genti casual",
   },
   {
-    key: "/bags",
+    key: "/backpacks",
     label: "Rucsace",
   },
   {
@@ -67,7 +67,7 @@ const SideMenu = () => {
         // mode="inline"
         className="side-menu pt-8 bg-white-bg border-0!"
         defaultSelectedKeys={["/all"]}
-        defaultOpenKeys={["sub1"]}
+        defaultOpenKeys={["/all"]}
         style={{ height: "100%" }}
         items={items}
         onClick={handleMenuClick}

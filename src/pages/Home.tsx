@@ -4,7 +4,7 @@ import FooterCmp from "../components/Footer.tsx";
 import Header from "../components/Header.tsx";
 import SideMenu from "../components/SideMenu.tsx";
 import HorizontalFilters from "../components/HorizontalFilters.tsx";
-import GridContent from "../components/new-project/GridContent.tsx";
+import GridContent from "../components/GridContent.tsx";
 
 const Home = () => {
   return (
