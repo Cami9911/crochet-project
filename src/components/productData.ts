@@ -12,7 +12,7 @@ export const products = [
   {
     key: "all-purse-roxen-1",
     category: "Geanta",
-    color: "Visiniu",
+    color: "visiniu",
     size: "small",
     material: "-",
     handle: "handle",
@@ -22,7 +22,7 @@ export const products = [
   {
     key: "all-purse-roxen-2",
     category: "Geanta",
-    color: "Visiniu",
+    color: "visiniu",
     size: "small",
     material: "-",
     handle: "strap-handle",
@@ -32,7 +32,7 @@ export const products = [
   {
     key: "all-purse-roxen-3",
     category: "Geanta",
-    color: "Verde",
+    color: "verde",
     size: "small",
     material: "-",
     handle: "strap-handle",
@@ -52,7 +52,7 @@ export const products = [
   {
     key: "all-purse-felicia-1",
     category: "Geanta",
-    color: "Roz",
+    color: "roz",
     size: "medium",
     material: "-",
     handle: "handle",
@@ -92,7 +92,7 @@ export const products = [
   {
     key: "all-purse-florina-2",
     category: "Geanta",
-    color: "Rosu",
+    color: "rosu",
     size: "medium",
     material: "-",
     handle: "strap-handle",
@@ -102,7 +102,7 @@ export const products = [
   {
     key: "all-purse-florina-3",
     category: "Geanta",
-    color: "Rosu",
+    color: "rosu",
     size: "medium",
     material: "-",
     handle: "strap",
@@ -132,7 +132,7 @@ export const products = [
   {
     key: "all-purse-andra-1",
     category: "Geanta",
-    color: "Crem",
+    color: "crem",
     size: "small",
     material: "-",
     handle: "strap-handle",
@@ -152,7 +152,7 @@ export const products = [
   {
     key: "all-purse-andra-4",
     category: "Geanta",
-    color: "Roz",
+    color: "roz",
     size: "small",
     material: "-",
     handle: "handle",
@@ -172,7 +172,7 @@ export const products = [
   {
     key: "all-purse-andra-6",
     category: "Geanta",
-    color: "Roz",
+    color: "roz",
     size: "small",
     material: "-",
     handle: "handle",
@@ -212,7 +212,7 @@ export const products = [
   {
     key: "all-purse-rose-4",
     category: "Geanta",
-    color: "Gri",
+    color: "gri",
     size: "small",
     material: "-",
     handle: "strap-handle",
@@ -222,7 +222,7 @@ export const products = [
   {
     key: "all-purse-rose-5",
     category: "Geanta",
-    color: "Alb",
+    color: "alb",
     size: "small",
     material: "-",
     handle: "strap",
@@ -232,7 +232,7 @@ export const products = [
   {
     key: "all-purse-eliza-1",
     category: "Geanta",
-    color: "Gri",
+    color: "gri",
     size: "small",
     material: "-",
     handle: "strap",
@@ -242,7 +242,7 @@ export const products = [
   {
     key: "all-purse-eliza-2",
     category: "Geanta",
-    color: "Gri",
+    color: "gri",
     size: "small",
     material: "-",
     handle: "strap",
@@ -252,7 +252,7 @@ export const products = [
   {
     key: "all-purse-eliza-3",
     category: "Geanta",
-    color: "Crem",
+    color: "crem",
     size: "small",
     material: "-",
     handle: "strap",
@@ -262,7 +262,7 @@ export const products = [
   {
     key: "all-purse-eliza-4",
     category: "Geanta",
-    color: "Gri",
+    color: "gri",
     size: "small",
     material: "-",
     handle: "strap",
@@ -272,7 +272,7 @@ export const products = [
   {
     key: "all-purse-eliza-5",
     category: "Geanta",
-    color: "Black",
+    color: "black",
     size: "small",
     material: "-",
     handle: "strap",
@@ -282,7 +282,7 @@ export const products = [
   {
     key: "all-purse-eliza-6",
     category: "Geanta",
-    color: "Alb",
+    color: "alb",
     size: "small",
     material: "-",
     handle: "strap",
@@ -292,7 +292,7 @@ export const products = [
   {
     key: "all-purse-eliza-7",
     category: "Geanta",
-    color: "Crem",
+    color: "crem",
     size: "small",
     material: "-",
     handle: "strap",
@@ -312,7 +312,7 @@ export const products = [
   {
     key: "all-purse-eliza-9",
     category: "Geanta",
-    color: "Gri",
+    color: "gri",
     size: "small",
     material: "-",
     handle: "strap",
@@ -332,7 +332,7 @@ export const products = [
   {
     key: "all-purse-amalia-1",
     category: "Geanta",
-    color: "Bej",
+    color: "bej",
     size: "small",
     material: "-",
     handle: "strap-handle",
@@ -342,7 +342,7 @@ export const products = [
   {
     key: "all-purse-amalia-2",
     category: "Geanta",
-    color: "Roz",
+    color: "roz",
     size: "small",
     material: "-",
     handle: "strap-handle",
@@ -352,7 +352,7 @@ export const products = [
   {
     key: "all-purse-amalia-3",
     category: "Geanta",
-    color: "Negru",
+    color: "negru",
     size: "small",
     material: "-",
     handle: "strap",
@@ -362,7 +362,7 @@ export const products = [
   {
     key: "all-purse-amalia-4",
     category: "Geanta",
-    color: "Cafea",
+    color: "cafea",
     size: "small",
     material: "-",
     handle: "strap-handle",
@@ -372,7 +372,7 @@ export const products = [
   {
     key: "all-purse-amalia-5",
     category: "Geanta",
-    color: "Gri",
+    color: "gri",
     size: "small",
     material: "-",
     handle: "strap-handle",
@@ -382,7 +382,7 @@ export const products = [
   {
     key: "all-purse-amalia-6",
     category: "Geanta",
-    color: "Crem",
+    color: "crem",
     size: "small",
     material: "-",
     handle: "strap-handle",
@@ -392,7 +392,7 @@ export const products = [
   {
     key: "all-purse-amalia-7",
     category: "Geanta",
-    color: "Albastru",
+    color: "albastru",
     size: "small",
     material: "-",
     handle: "strap-handle",
@@ -402,7 +402,7 @@ export const products = [
   {
     key: "all-purse-amalia-8",
     category: "Geanta",
-    color: "Albastru",
+    color: "albastru",
     size: "small",
     material: "-",
     handle: "strap-handle",
@@ -412,7 +412,7 @@ export const products = [
   {
     key: "all-purse-amalia-9",
     category: "Geanta",
-    color: "Gri",
+    color: "gri",
     size: "small",
     material: "-",
     handle: "strap-handle",
@@ -422,7 +422,7 @@ export const products = [
   {
     key: "all-purse-amalia-10",
     category: "Geanta",
-    color: "Negru",
+    color: "negru",
     size: "small",
     material: "-",
     handle: "strap",
@@ -432,7 +432,7 @@ export const products = [
   {
     key: "all-bag-1",
     category: "Rucsac",
-    color: "Negru",
+    color: "negru",
     size: "big",
     material: "-",
     handle: "strap",
@@ -442,7 +442,7 @@ export const products = [
   {
     key: "all-wallet-1",
     category: "Portofel",
-    color: "Albastru",
+    color: "albastru",
     size: "small",
     material: "-",
     handle: "handle",
@@ -462,7 +462,7 @@ export const products = [
   {
     key: "all-wallet-3",
     category: "Portofel",
-    color: "Rosu",
+    color: "rosu",
     size: "small",
     material: "-",
     handle: "handle",
@@ -472,7 +472,7 @@ export const products = [
   {
     key: "all-wallet-4",
     category: "Portofel",
-    color: "Verde",
+    color: "verde",
     size: "small",
     material: "-",
     handle: "handle",
@@ -482,7 +482,7 @@ export const products = [
   {
     key: "all-wallet-5",
     category: "Portofel",
-    color: "Rosu",
+    color: "rosu",
     size: "small",
     material: "-",
     handle: "handle",
@@ -492,7 +492,7 @@ export const products = [
   {
     key: "all-beret-adult-1",
     category: "Bereta",
-    color: "Negru",
+    color: "negru",
     size: "universal",
     material: "-",
     handle: "-",
@@ -502,7 +502,7 @@ export const products = [
   {
     key: "all-beret-adult-2",
     category: "Bereta",
-    color: "Verde",
+    color: "verde",
     size: "universal",
     material: "-",
     handle: "-",
@@ -512,7 +512,7 @@ export const products = [
   {
     key: "all-beret-adult-3",
     category: "Bereta",
-    color: "Albastru",
+    color: "albastru",
     size: "universal",
     material: "-",
     handle: "-",
@@ -522,7 +522,7 @@ export const products = [
   {
     key: "all-beret-adult-4",
     category: "Bereta",
-    color: "Gri",
+    color: "gri",
     size: "universal",
     material: "-",
     handle: "-",
@@ -532,7 +532,7 @@ export const products = [
   {
     key: "all-beret-child-1",
     category: "Bereta",
-    color: "Rosu",
+    color: "rosu",
     size: "universal",
     material: "-",
     handle: "-",
@@ -552,7 +552,7 @@ export const products = [
   {
     key: "all-hat2",
     category: "Palarie",
-    color: "Crem",
+    color: "crem",
     size: "universal",
     material: "-",
     handle: "-",
@@ -572,7 +572,7 @@ export const products = [
   {
     key: "all-hat4",
     category: "Palarie",
-    color: "Bej",
+    color: "bej",
     size: "universal",
     material: "-",
     handle: "-",
@@ -582,7 +582,7 @@ export const products = [
   {
     key: "all-hat5",
     category: "Palarie",
-    color: "Gri",
+    color: "gri",
     size: "universal",
     material: "-",
     handle: "-",
@@ -592,7 +592,7 @@ export const products = [
   {
     key: "all-hat6",
     category: "Palarie",
-    color: "Crem",
+    color: "crem",
     size: "universal",
     material: "-",
     handle: "-",
