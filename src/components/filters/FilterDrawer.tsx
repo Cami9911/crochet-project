@@ -1,81 +1,52 @@
 import React, { useState } from "react";
-import { Button, Drawer, Flex } from "antd";
-import ColorsFilter from "./ColorsFilter";
-import { useSearchParams } from "react-router-dom";
+import { Drawer } from "antd";
+import { useAtomValue } from "jotai";
+import { openedFilterDrawerAtom } from "../../storageAtoms";
+import FilterDrawerFooter from "./FilterDrawerFooter";
+import FilterDrawerContent from "./FilterDrawerContent";
 
 interface FilterDrawerProps {
   handleClose: () => void;
   open: boolean;
 }
 
+interface DataType {
+  key: string;
+  name: string;
+}
+
 const FilterDrawer: React.FC<FilterDrawerProps> = ({ handleClose, open }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
   const [resetColorsKey, setResetColorsKey] = useState(0);
+  const [selectedFilter, setSelectedFilter] = useState<DataType>({
+    key: "all-filters",
+    name: "all-filters",
+  });
 
-  const toggleColors = (colorName: string) => {
-    const current = new Set(searchParams.getAll("color")); //negru
-    const next = new URLSearchParams(searchParams); //create a copy of all url params
-
-    // remove all first, then re-add (easiest to keep clean)
-    next.delete("color");
-
-    if (current.has(colorName)) current.delete(colorName);
-    else current.add(colorName);
-
-    // re-add to URL
-    [...current].forEach((c) => next.append("color", c));
-
-    setSearchParams(next);
-  };
-
-  const removeAllColors = () => {
-    setResetColorsKey((k) => k + 1);
-
-    const next = new URLSearchParams(searchParams);
-    next.delete("color");
-    setSearchParams(next);
-  };
-
-  const footer: React.ReactNode = (
-    <Flex gap="middle" justify="flex-end">
-      <Button
-        onClick={() => removeAllColors()}
-        styles={{
-          root: {
-            borderColor: "#ccc",
-            color: "#171717",
-            backgroundColor: "#fff",
-          },
-        }}
-      >
-        Eliminare
-      </Button>
-      <Button
-        type="primary"
-        styles={{ root: { backgroundColor: "#171717" } }}
-        onClick={() => handleClose()}
-      >
-        Vezi
-      </Button>
-    </Flex>
-  );
+  const openedFilterDrawer = useAtomValue(openedFilterDrawerAtom);
 
   return (
-    <>
-      <Drawer
-        title="Basic Drawer"
-        closable={{ "aria-label": "Close Button" }}
-        onClose={handleClose}
-        open={open}
-        footer={footer}
-      >
-        <ColorsFilter
-          // selectedColors={selectedColors}
-          onToggleColors={toggleColors}
-          resetKey={resetColorsKey}
+    <Drawer
+      title={
+        selectedFilter.name === "all-filters"
+          ? "Toate filtrele"
+          : selectedFilter.name
+      }
+      className={openedFilterDrawer === "all-filters" ? "filter-drawer" : ""}
+      closable={{ "aria-label": "Close Button" }}
+      onClose={handleClose}
+      open={open}
+      footer={
+        <FilterDrawerFooter
+          handleClose={handleClose}
+          setResetColorsKey={setResetColorsKey}
         />
-      </Drawer>
-    </>
+      }
+    >
+      <FilterDrawerContent
+        resetColorsKey={resetColorsKey}
+        setSelectedFilter={setSelectedFilter}
+      />
+    </Drawer>
   );
 };
 

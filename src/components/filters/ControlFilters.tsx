@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import { Button } from "antd";
 import FilterDrawer from "./FilterDrawer";
 import SorterDrawer from "./SorterDrawer";
+import { useSetAtom } from "jotai";
+import { openedFilterDrawerAtom } from "../../storageAtoms";
 
 const ControlFilters: React.FC = () => {
+  const setOpenedFilterDrawer = useSetAtom(openedFilterDrawerAtom);
+
   const [openFilterDrawer, setOpenFilterDrawer] = useState(false);
   const [openSorterDrawer, setOpenSorterDrawer] = useState(false);
 
@@ -12,6 +16,7 @@ const ControlFilters: React.FC = () => {
   };
 
   const onCloseFilterDrawer = () => {
+    setOpenedFilterDrawer("all-filters");
     setOpenFilterDrawer(false);
   };
 
