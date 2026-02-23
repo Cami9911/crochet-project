@@ -1,5 +1,5 @@
 import { useAtomValue, useSetAtom } from "jotai";
-import { openedFilterDrawerAtom, selectedFilterAtom } from "../../storageAtoms";
+import { selectedFilterAtom } from "../../storageAtoms";
 import { Table, TableProps } from "antd";
 import { RightOutlined } from "@ant-design/icons";
 import ColorsFilter from "./ColorsFilter";
@@ -19,11 +19,13 @@ const columns: TableProps<DataType>["columns"] = [
     title: "",
     dataIndex: "name",
     key: "name",
+    width: "85%",
+    render: (text) => <span className="p-2">{text}</span>,
   },
   {
     title: "Action",
     key: "action",
-    render: () => <RightOutlined />,
+    render: () => <RightOutlined className="text-grey-icons!" />,
   },
 ];
 
@@ -57,17 +59,14 @@ const data: DataType[] = [
 const FilterDrawerContent: React.FC<filtersGridProps> = ({
   resetColorsKey,
 }) => {
-  const setOpenedFilterDrawer = useSetAtom(openedFilterDrawerAtom);
-  const openedFilterDrawer = useAtomValue(openedFilterDrawerAtom);
-
   const setSelectedFilter = useSetAtom(selectedFilterAtom);
+  const selectedFilter = useAtomValue(selectedFilterAtom);
 
   const [searchParams, setSearchParams] = useSearchParams();
 
   const selectOneFilter = (record: DataType) => {
     console.log(record);
     setSelectedFilter(record);
-    setOpenedFilterDrawer(record.key);
   };
 
   const toggleColors = (colorName: string) => {
@@ -88,7 +87,7 @@ const FilterDrawerContent: React.FC<filtersGridProps> = ({
 
   return (
     <>
-      {openedFilterDrawer === "all-filters" && (
+      {selectedFilter.key === "all-filters" && (
         <Table<DataType>
           className={"filter-grid"}
           columns={columns}
@@ -105,7 +104,7 @@ const FilterDrawerContent: React.FC<filtersGridProps> = ({
           })}
         />
       )}
-      {openedFilterDrawer === "colors" && (
+      {selectedFilter.key === "colors" && (
         <ColorsFilter onToggleColors={toggleColors} resetKey={resetColorsKey} />
       )}
     </>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Drawer, Space, Table, TableProps } from "antd";
 import "./Drawer.scss";
-import { isOpenedSorterDrawerAtom } from "../../storageAtoms";
+import { isOpenSorterDrawerAtom } from "../../storageAtoms";
 import { useAtomValue } from "jotai";
 
 interface SorterDrawerProps {
@@ -42,7 +42,7 @@ const data: DataType[] = [
 ];
 
 const SorterDrawer: React.FC<SorterDrawerProps> = ({ handleClose }) => {
-  const isOpenedSorterDrawer = useAtomValue(isOpenedSorterDrawerAtom);
+  const isOpenedSorterDrawer = useAtomValue(isOpenSorterDrawerAtom);
 
   return (
     <>

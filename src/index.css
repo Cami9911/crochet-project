@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @theme {
   --color-white-bg: #fff;
+  --color-grey-icons: rgba(0, 0, 0, 0.45);
 }
 @theme {
   --breakpoint-2md: 60rem;

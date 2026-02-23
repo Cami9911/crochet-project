@@ -97,17 +97,17 @@ const ColorsFilter: React.FC<ColorsFiltersProps> = ({
   }, [resetKey]);
 
   return (
-    <Row gutter={[8, 16]}>
-      <Checkbox.Group
-        style={{ width: "100%" }}
-        value={selectedColors}
-        onChange={onChange}
-      >
+    <Checkbox.Group
+      style={{ width: "100%" }}
+      value={selectedColors}
+      onChange={onChange}
+    >
+      <Row gutter={[8, 16]}>
         {colors.map(({ name, code }) => {
           const checked = selectedColors.includes(name);
 
           return (
-            <Col key={name} xs={{ span: 5 }} lg={{ span: 6 }}>
+            <Col key={name} span={6}>
               <button className="w-full" onClick={() => onToggleButton(name)}>
                 <div
                   className=" relative h-12 border border-gray-200 transition-all duration-200 hover:scale-105 cursor-pointer rounded-md"
@@ -126,8 +126,8 @@ const ColorsFilter: React.FC<ColorsFiltersProps> = ({
             </Col>
           );
         })}
-      </Checkbox.Group>
-    </Row>
+      </Row>
+    </Checkbox.Group>
   );
 };
 

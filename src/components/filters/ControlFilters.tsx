@@ -4,24 +4,24 @@ import FilterDrawer from "./FilterDrawer";
 import SorterDrawer from "./SorterDrawer";
 import { useSetAtom } from "jotai";
 import {
-  isOpenedFilterDrawerAtom,
-  isOpenedSorterDrawerAtom,
-  openedFilterDrawerAtom,
+  isOpenFilterDrawerAtom,
+  isOpenSorterDrawerAtom,
+  selectedFilterAtom,
 } from "../../storageAtoms";
 
 const ControlFilters: React.FC = () => {
-  const setOpenedFilterDrawer = useSetAtom(openedFilterDrawerAtom);
+  const setisOpenFilterDrawer = useSetAtom(isOpenFilterDrawerAtom);
+  const setIsOpenedSorterDrawer = useSetAtom(isOpenSorterDrawerAtom);
 
-  const setIsOpenedFilterDrawer = useSetAtom(isOpenedFilterDrawerAtom);
-  const setIsOpenedSorterDrawer = useSetAtom(isOpenedSorterDrawerAtom);
+  const setSelectedFilter = useSetAtom(selectedFilterAtom);
 
   const showFilterDrawer = () => {
-    setIsOpenedFilterDrawer(true);
+    setisOpenFilterDrawer(true);
   };
 
   const onCloseFilterDrawer = () => {
-    setOpenedFilterDrawer("all-filters");
-    setIsOpenedFilterDrawer(false);
+    setSelectedFilter({ key: "all-filters", name: "all-filters" });
+    setisOpenFilterDrawer(false);
   };
 
   const showSorterDrawer = () => {

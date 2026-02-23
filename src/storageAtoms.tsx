@@ -1,20 +1,15 @@
 import { atomWithStorage } from "jotai/utils";
 
-export const openedFilterDrawerAtom = atomWithStorage(
-  "openedFilterDrawer",
-  "all-filters",
-);
-
 export const selectedFilterAtom = atomWithStorage("selectedFilter", {
   key: "all-filters",
   name: "all-filters",
 });
 
-export const isOpenedFilterDrawerAtom = atomWithStorage(
+export const isOpenFilterDrawerAtom = atomWithStorage(
   "isOpenFilterDrawer",
   false,
 );
-export const isOpenedSorterDrawerAtom = atomWithStorage(
+export const isOpenSorterDrawerAtom = atomWithStorage(
   "isOpenSorterDrawer",
   false,
 );
