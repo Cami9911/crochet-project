@@ -1,10 +1,11 @@
 import React from "react";
 import { Drawer, Space, Table, TableProps } from "antd";
 import "./Drawer.scss";
+import { isOpenedSorterDrawerAtom } from "../../storageAtoms";
+import { useAtomValue } from "jotai";
 
 interface SorterDrawerProps {
   handleClose: () => void;
-  open: boolean;
 }
 
 interface DataType {
@@ -40,14 +41,16 @@ const data: DataType[] = [
   },
 ];
 
-const SorterDrawer: React.FC<SorterDrawerProps> = ({ handleClose, open }) => {
+const SorterDrawer: React.FC<SorterDrawerProps> = ({ handleClose }) => {
+  const isOpenedSorterDrawer = useAtomValue(isOpenedSorterDrawerAtom);
+
   return (
     <>
       <Drawer
         title="Sortare"
         closable={{ "aria-label": "Close Button" }}
         onClose={handleClose}
-        open={open}
+        open={isOpenedSorterDrawer}
         className="sorter-drawer"
       >
         <Table<DataType>

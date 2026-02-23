@@ -1,5 +1,5 @@
 import { useAtomValue, useSetAtom } from "jotai";
-import { openedFilterDrawerAtom } from "../../storageAtoms";
+import { openedFilterDrawerAtom, selectedFilterAtom } from "../../storageAtoms";
 import { Table, TableProps } from "antd";
 import { RightOutlined } from "@ant-design/icons";
 import ColorsFilter from "./ColorsFilter";
@@ -7,7 +7,6 @@ import { useSearchParams } from "react-router-dom";
 
 interface filtersGridProps {
   resetColorsKey: number;
-  setSelectedFilter: React.Dispatch<React.SetStateAction<DataType>>;
 }
 
 interface DataType {
@@ -57,10 +56,11 @@ const data: DataType[] = [
 
 const FilterDrawerContent: React.FC<filtersGridProps> = ({
   resetColorsKey,
-  setSelectedFilter,
 }) => {
   const setOpenedFilterDrawer = useSetAtom(openedFilterDrawerAtom);
   const openedFilterDrawer = useAtomValue(openedFilterDrawerAtom);
+
+  const setSelectedFilter = useSetAtom(selectedFilterAtom);
 
   const [searchParams, setSearchParams] = useSearchParams();
 
