@@ -22,7 +22,14 @@ const HorizontalFilters: React.FC = () => {
         >
           Culoare
         </Button>
-        <Button>Marimea posetei</Button>
+        <Button
+          onClick={() => {
+            setisOpenFilterDrawer(true);
+            setSelectedFilter({ key: "size", name: "Dimensiune" });
+          }}
+        >
+          Marimea posetei
+        </Button>
         <Button>Material</Button>
         <Button>Tipul manerului gentii</Button>
         <Button>Tip de geanta</Button>

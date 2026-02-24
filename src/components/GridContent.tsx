@@ -13,6 +13,7 @@ const GridContent: React.FC = () => {
 
   const [searchParams] = useSearchParams();
   const selectedColors = searchParams.getAll("color");
+  const selectedSizes = searchParams.getAll("size");
 
   const filteredProducts = useMemo(() => {
     const routePredicate = routeToFilter[pathname] ?? (() => true);
@@ -20,12 +21,15 @@ const GridContent: React.FC = () => {
     return allProducts.filter((p) => {
       const okRoute = routePredicate(p);
 
-      const okColor =
+      const filterColors =
         selectedColors.length === 0 || selectedColors.includes(p.color);
 
-      return okRoute && okColor;
+      const filterSizes =
+        selectedSizes.length === 0 || selectedSizes.includes(p.size);
+
+      return okRoute && filterColors && filterSizes;
     });
-  }, [pathname, selectedColors]);
+  }, [pathname, selectedColors, selectedSizes]);
 
   return (
     <Content className="relative">

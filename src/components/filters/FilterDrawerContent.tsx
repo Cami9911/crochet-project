@@ -4,6 +4,7 @@ import { Table, TableProps } from "antd";
 import { RightOutlined } from "@ant-design/icons";
 import ColorsFilter from "./ColorsFilter";
 import { useSearchParams } from "react-router-dom";
+import SizeFilters from "./SIzeFilters";
 
 interface filtersGridProps {
   resetColorsKey: number;
@@ -39,19 +40,19 @@ const data: DataType[] = [
     name: "Material",
   },
   {
-    key: "3",
+    key: "size",
     name: "Dimensiune",
   },
   {
-    key: "4",
+    key: "handle",
     name: "Tipul manerului gentii",
   },
   {
-    key: "5",
+    key: "style",
     name: "Stil",
   },
   {
-    key: "6",
+    key: "category",
     name: "Categorie",
   },
 ];
@@ -69,18 +70,18 @@ const FilterDrawerContent: React.FC<filtersGridProps> = ({
     setSelectedFilter(record);
   };
 
-  const toggleColors = (colorName: string) => {
-    const current = new Set(searchParams.getAll("color")); //negru
+  const toggleFilters = (filter: string, paramName: string) => {
+    const current = new Set(searchParams.getAll(filter)); //negru
     const next = new URLSearchParams(searchParams); //create a copy of all url params
 
     // remove all first, then re-add (easiest to keep clean)
-    next.delete("color");
+    next.delete(filter);
 
-    if (current.has(colorName)) current.delete(colorName);
-    else current.add(colorName);
+    if (current.has(paramName)) current.delete(paramName);
+    else current.add(paramName);
 
     // re-add to URL
-    [...current].forEach((c) => next.append("color", c));
+    [...current].forEach((c) => next.append(filter, c));
 
     setSearchParams(next);
   };
@@ -105,7 +106,16 @@ const FilterDrawerContent: React.FC<filtersGridProps> = ({
         />
       )}
       {selectedFilter.key === "colors" && (
-        <ColorsFilter onToggleColors={toggleColors} resetKey={resetColorsKey} />
+        <ColorsFilter
+          onToggleFilters={toggleFilters}
+          resetKey={resetColorsKey}
+        />
+      )}
+      {selectedFilter.key === "size" && (
+        <SizeFilters
+          onToggleFilters={toggleFilters}
+          resetKey={resetColorsKey}
+        />
       )}
     </>
   );

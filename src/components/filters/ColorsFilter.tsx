@@ -61,12 +61,12 @@ const colors = [
 ];
 
 type ColorsFiltersProps = {
-  onToggleColors: (color: string) => void;
+  onToggleFilters: (filter: string, color: string) => void;
   resetKey: number;
 };
 
 const ColorsFilter: React.FC<ColorsFiltersProps> = ({
-  onToggleColors,
+  onToggleFilters,
   resetKey,
 }) => {
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
@@ -89,7 +89,7 @@ const ColorsFilter: React.FC<ColorsFiltersProps> = ({
       return next;
     });
 
-    onToggleColors(name);
+    onToggleFilters("color", name);
   };
 
   useEffect(() => {

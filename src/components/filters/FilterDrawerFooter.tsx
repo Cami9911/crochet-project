@@ -16,6 +16,7 @@ const FilterDrawerFooter: React.FC<drawerFooterProps> = ({
 
     const next = new URLSearchParams(searchParams);
     next.delete("color");
+    next.delete("size");
     setSearchParams(next);
   };
 
