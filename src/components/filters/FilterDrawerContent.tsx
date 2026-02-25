@@ -4,18 +4,15 @@ import { Table, TableProps } from "antd";
 import { RightOutlined } from "@ant-design/icons";
 import ColorsFilter from "./ColorsFilter";
 import { useSearchParams } from "react-router-dom";
-import SizeFilters from "./SIzeFilters";
+import FiltersSelection from "./FiltersSelection";
+import { filters, sizes, handles, styles } from "../filtersData";
+import { FilterProps } from "../types";
 
-interface filtersGridProps {
+interface FilterDrawerContentProps {
   resetColorsKey: number;
 }
 
-interface DataType {
-  key: string;
-  name: string;
-}
-
-const columns: TableProps<DataType>["columns"] = [
+const columns: TableProps<FilterProps>["columns"] = [
   {
     title: "",
     dataIndex: "name",
@@ -30,34 +27,7 @@ const columns: TableProps<DataType>["columns"] = [
   },
 ];
 
-const data: DataType[] = [
-  {
-    key: "colors",
-    name: "Culoare",
-  },
-  {
-    key: "material",
-    name: "Material",
-  },
-  {
-    key: "size",
-    name: "Dimensiune",
-  },
-  {
-    key: "handle",
-    name: "Tipul manerului gentii",
-  },
-  {
-    key: "style",
-    name: "Stil",
-  },
-  {
-    key: "category",
-    name: "Categorie",
-  },
-];
-
-const FilterDrawerContent: React.FC<filtersGridProps> = ({
+const FilterDrawerContent: React.FC<FilterDrawerContentProps> = ({
   resetColorsKey,
 }) => {
   const setSelectedFilter = useSetAtom(selectedFilterAtom);
@@ -65,7 +35,7 @@ const FilterDrawerContent: React.FC<filtersGridProps> = ({
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const selectOneFilter = (record: DataType) => {
+  const selectOneFilter = (record: FilterProps) => {
     console.log(record);
     setSelectedFilter(record);
   };
@@ -89,10 +59,10 @@ const FilterDrawerContent: React.FC<filtersGridProps> = ({
   return (
     <>
       {selectedFilter.key === "all-filters" && (
-        <Table<DataType>
+        <Table<FilterProps>
           className={"filter-grid"}
           columns={columns}
-          dataSource={data}
+          dataSource={filters}
           pagination={false}
           showHeader={false}
           // rowClassName={(record) =>
@@ -105,16 +75,34 @@ const FilterDrawerContent: React.FC<filtersGridProps> = ({
           })}
         />
       )}
-      {selectedFilter.key === "colors" && (
+      {selectedFilter.key === "color" && (
         <ColorsFilter
           onToggleFilters={toggleFilters}
           resetKey={resetColorsKey}
         />
       )}
       {selectedFilter.key === "size" && (
-        <SizeFilters
+        <FiltersSelection
           onToggleFilters={toggleFilters}
           resetKey={resetColorsKey}
+          filtersData={sizes}
+          keyToCheck="size"
+        />
+      )}
+      {selectedFilter.key === "handle" && (
+        <FiltersSelection
+          onToggleFilters={toggleFilters}
+          resetKey={resetColorsKey}
+          filtersData={handles}
+          keyToCheck="handle"
+        />
+      )}
+      {selectedFilter.key === "style" && (
+        <FiltersSelection
+          onToggleFilters={toggleFilters}
+          resetKey={resetColorsKey}
+          filtersData={styles}
+          keyToCheck="style"
         />
       )}
     </>

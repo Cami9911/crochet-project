@@ -5,7 +5,7 @@ export interface Product {
   size: string;
   material: string;
   handle: string;
-  occasion: string;
+  style: string;
   image: string;
 }
 
@@ -13,8 +13,8 @@ export const routeToFilter: Record<string, (p: Product) => boolean> = {
   "/all": () => true,
 
   "/bags": (p) => p.category === "Geanta",
-  "/bags-elegante": (p) => p.category === "Geanta" && p.occasion === "elegante",
-  "/bags-casual": (p) => p.category === "Geanta" && p.occasion === "casual",
+  "/bags-elegante": (p) => p.category === "Geanta" && p.style === "elegante",
+  "/bags-casual": (p) => p.category === "Geanta" && p.style === "casual",
 
   "/backpacks": (p) => p.category === "Rucsac",
   "/wallets": (p) => p.category === "Portofel",

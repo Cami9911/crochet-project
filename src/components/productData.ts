@@ -6,7 +6,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap",
-    occasion: "elegante",
+    style: "elegante",
     image: "purse1.jpg",
   },
   {
@@ -15,8 +15,8 @@ export const products = [
     color: "visiniu",
     size: "small",
     material: "-",
-    handle: "handle",
-    occasion: "casual",
+    handle: "strap-handle",
+    style: "casual",
     image: "purse-roxen-1.jpg",
   },
   {
@@ -26,7 +26,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap-handle",
-    occasion: "casual",
+    style: "casual",
     image: "purse-roxen-2.jpg",
   },
   {
@@ -36,7 +36,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap-handle",
-    occasion: "casual",
+    style: "casual",
     image: "purse-roxen-3.jpg",
   },
   {
@@ -46,7 +46,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap",
-    occasion: "casual",
+    style: "casual",
     image: "purse-roxen-4.jpg",
   },
   {
@@ -56,7 +56,7 @@ export const products = [
     size: "medium",
     material: "-",
     handle: "handle",
-    occasion: "elegante",
+    style: "elegante",
     image: "purse-felicia-1.jpeg",
   },
   {
@@ -66,7 +66,7 @@ export const products = [
     size: "medium",
     material: "-",
     handle: "handle",
-    occasion: "elegante",
+    style: "elegante",
     image: "purse-felicia-2.jpeg",
   },
   {
@@ -76,7 +76,7 @@ export const products = [
     size: "mare",
     material: "-",
     handle: "strap",
-    occasion: "casual",
+    style: "casual",
     image: "purse-sonia-1.png",
   },
   {
@@ -86,7 +86,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap",
-    occasion: "casual",
+    style: "casual",
     image: "purse-florina-1.jpg",
   },
   {
@@ -96,7 +96,7 @@ export const products = [
     size: "medium",
     material: "-",
     handle: "strap-handle",
-    occasion: "casual-elegante",
+    style: "casual-elegante",
     image: "purse-florina-2.jpg",
   },
   {
@@ -106,7 +106,7 @@ export const products = [
     size: "medium",
     material: "-",
     handle: "strap",
-    occasion: "casual",
+    style: "casual",
     image: "purse-florina-3.jpg",
   },
   {
@@ -116,7 +116,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap",
-    occasion: "casual",
+    style: "casual",
     image: "purse-florina-4.jpg",
   },
   {
@@ -126,7 +126,7 @@ export const products = [
     size: "medium",
     material: "-",
     handle: "strap-handle",
-    occasion: "casual",
+    style: "casual",
     image: "purse-florina-5.jpg",
   },
   {
@@ -136,7 +136,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap-handle",
-    occasion: "casual",
+    style: "casual",
     image: "purse-andra-1.jpg",
   },
   {
@@ -146,7 +146,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap-handle",
-    occasion: "casual",
+    style: "casual",
     image: "purse-andra-2.jpg",
   },
   {
@@ -156,7 +156,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "handle",
-    occasion: "elegante",
+    style: "elegante",
     image: "purse-andra-4.jpg",
   },
   {
@@ -166,7 +166,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap",
-    occasion: "casual-elegante",
+    style: "casual-elegante",
     image: "purse-andra-5.jpg",
   },
   {
@@ -176,7 +176,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "handle",
-    occasion: "elegante",
+    style: "elegante",
     image: "purse-andra-6.jpg",
   },
   {
@@ -186,7 +186,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "handle",
-    occasion: "casual",
+    style: "casual",
     image: "purse6.jpg",
   },
   {
@@ -196,7 +196,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "handle",
-    occasion: "casual",
+    style: "casual",
     image: "purse_black_rose.jpg",
   },
   {
@@ -206,7 +206,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap-handle",
-    occasion: "casual",
+    style: "casual",
     image: "purse_black_rose2.jpg",
   },
   {
@@ -216,7 +216,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap-handle",
-    occasion: "casual",
+    style: "casual",
     image: "purse_grey_rose.jpg",
   },
   {
@@ -226,7 +226,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap",
-    occasion: "elegante",
+    style: "elegante",
     image: "purse_white_rose.jpg",
   },
   {
@@ -236,7 +236,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap",
-    occasion: "casual",
+    style: "casual",
     image: "purse-eliza-1.jpg",
   },
   {
@@ -246,7 +246,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap",
-    occasion: "casual",
+    style: "casual",
     image: "purse-eliza-2.jpg",
   },
   {
@@ -256,7 +256,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap",
-    occasion: "casual",
+    style: "casual",
     image: "purse-eliza-3.jpg",
   },
   {
@@ -266,7 +266,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap",
-    occasion: "casual",
+    style: "casual",
     image: "purse-eliza-4.jpg",
   },
   {
@@ -276,7 +276,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap",
-    occasion: "casual",
+    style: "casual",
     image: "purse-eliza-5.jpg",
   },
   {
@@ -286,7 +286,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap",
-    occasion: "elegante",
+    style: "elegante",
     image: "purse-eliza-6.jpg",
   },
   {
@@ -296,7 +296,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap",
-    occasion: "casual",
+    style: "casual",
     image: "purse-eliza-7.jpg",
   },
   {
@@ -306,7 +306,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap",
-    occasion: "casual",
+    style: "casual",
     image: "purse-eliza-8.jpg",
   },
   {
@@ -316,7 +316,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap",
-    occasion: "casual",
+    style: "casual",
     image: "purse-eliza-9.jpg",
   },
   {
@@ -326,7 +326,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap",
-    occasion: "casual",
+    style: "casual",
     image: "purse-eliza-10.jpg",
   },
   {
@@ -336,7 +336,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap-handle",
-    occasion: "casual-elegante",
+    style: "casual-elegante",
     image: "purse-amalia-1.jpg",
   },
   {
@@ -346,7 +346,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap-handle",
-    occasion: "casual-elegante",
+    style: "casual-elegante",
     image: "purse-amalia-2.jpg",
   },
   {
@@ -356,7 +356,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap",
-    occasion: "casual-elegante",
+    style: "casual-elegante",
     image: "purse-amalia-3.jpg",
   },
   {
@@ -366,7 +366,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap-handle",
-    occasion: "casual-elegante",
+    style: "casual-elegante",
     image: "purse-amalia-4.jpg",
   },
   {
@@ -376,7 +376,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap-handle",
-    occasion: "casual-elegante",
+    style: "casual-elegante",
     image: "purse-amalia-5.jpg",
   },
   {
@@ -386,7 +386,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap-handle",
-    occasion: "casual-elegante",
+    style: "casual-elegante",
     image: "purse-amalia-6.jpg",
   },
   {
@@ -396,7 +396,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap-handle",
-    occasion: "casual-elegante",
+    style: "casual-elegante",
     image: "purse-amalia-7.jpg",
   },
   {
@@ -406,7 +406,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap-handle",
-    occasion: "casual-elegante",
+    style: "casual-elegante",
     image: "purse-amalia-8.jpg",
   },
   {
@@ -416,7 +416,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap-handle",
-    occasion: "casual-elegante",
+    style: "casual-elegante",
     image: "purse-amalia-9.jpg",
   },
   {
@@ -426,7 +426,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "strap",
-    occasion: "casual",
+    style: "casual",
     image: "purse-amalia-10.jpg",
   },
   {
@@ -436,7 +436,7 @@ export const products = [
     size: "big",
     material: "-",
     handle: "strap",
-    occasion: "casual",
+    style: "casual",
     image: "bag.jpg",
   },
   {
@@ -446,7 +446,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "handle",
-    occasion: "casual",
+    style: "casual",
     image: "wallet1.jpg",
   },
   {
@@ -456,7 +456,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "handle",
-    occasion: "casual",
+    style: "casual",
     image: "wallet2.jpg",
   },
   {
@@ -466,7 +466,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "handle",
-    occasion: "casual",
+    style: "casual",
     image: "wallet3.jpg",
   },
   {
@@ -476,7 +476,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "handle",
-    occasion: "casual",
+    style: "casual",
     image: "wallet4.jpg",
   },
   {
@@ -486,7 +486,7 @@ export const products = [
     size: "small",
     material: "-",
     handle: "handle",
-    occasion: "casual",
+    style: "casual",
     image: "wallet5.jpg",
   },
   {
@@ -496,7 +496,7 @@ export const products = [
     size: "universal",
     material: "-",
     handle: "-",
-    occasion: "casual",
+    style: "casual",
     image: "beret1.jpg",
   },
   {
@@ -506,7 +506,7 @@ export const products = [
     size: "universal",
     material: "-",
     handle: "-",
-    occasion: "casual",
+    style: "casual",
     image: "beret2.jpg",
   },
   {
@@ -516,7 +516,7 @@ export const products = [
     size: "universal",
     material: "-",
     handle: "-",
-    occasion: "casual",
+    style: "casual",
     image: "beret3.jpg",
   },
   {
@@ -526,7 +526,7 @@ export const products = [
     size: "universal",
     material: "-",
     handle: "-",
-    occasion: "casual",
+    style: "casual",
     image: "beret4.jpg",
   },
   {
@@ -536,7 +536,7 @@ export const products = [
     size: "universal",
     material: "-",
     handle: "-",
-    occasion: "casual",
+    style: "casual",
     image: "beret5.jpg",
   },
   {
@@ -546,7 +546,7 @@ export const products = [
     size: "universal",
     material: "-",
     handle: "-",
-    occasion: "casual-elegante",
+    style: "casual-elegante",
     image: "hat1.jpg",
   },
   {
@@ -556,7 +556,7 @@ export const products = [
     size: "universal",
     material: "-",
     handle: "-",
-    occasion: "casual-elegante",
+    style: "casual-elegante",
     image: "hat2.jpg",
   },
   {
@@ -566,7 +566,7 @@ export const products = [
     size: "universal",
     material: "-",
     handle: "-",
-    occasion: "casual-elegante",
+    style: "casual-elegante",
     image: "hat3.jpg",
   },
   {
@@ -576,7 +576,7 @@ export const products = [
     size: "universal",
     material: "-",
     handle: "-",
-    occasion: "casual-elegante",
+    style: "casual-elegante",
     image: "hat4.jpg",
   },
   {
@@ -586,7 +586,7 @@ export const products = [
     size: "universal",
     material: "-",
     handle: "-",
-    occasion: "casual-elegante",
+    style: "casual-elegante",
     image: "hat5.jpg",
   },
   {
@@ -596,7 +596,7 @@ export const products = [
     size: "universal",
     material: "-",
     handle: "-",
-    occasion: "casual-elegante",
+    style: "casual-elegante",
     image: "hat6.jpg",
   },
 ];

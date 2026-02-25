@@ -17,7 +17,7 @@ const HorizontalFilters: React.FC = () => {
         <Button
           onClick={() => {
             setisOpenFilterDrawer(true);
-            setSelectedFilter({ key: "colors", name: "Culoare" });
+            setSelectedFilter({ key: "color", name: "Culoare" });
           }}
         >
           Culoare
@@ -31,8 +31,25 @@ const HorizontalFilters: React.FC = () => {
           Marimea posetei
         </Button>
         <Button>Material</Button>
-        <Button>Tipul manerului gentii</Button>
-        <Button>Tip de geanta</Button>
+        <Button
+          onClick={() => {
+            setisOpenFilterDrawer(true);
+            setSelectedFilter({
+              key: "handle",
+              name: "Tipul manerului gentii",
+            });
+          }}
+        >
+          Tipul manerului gentii
+        </Button>
+        <Button
+          onClick={() => {
+            setisOpenFilterDrawer(true);
+            setSelectedFilter({ key: "style", name: "Stil" });
+          }}
+        >
+          Stilul gentii
+        </Button>
       </div>
     </Flex>
   );

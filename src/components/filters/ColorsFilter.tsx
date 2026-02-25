@@ -1,64 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Checkbox, Col, GetProp, Row } from "antd";
-
-const colors = [
-  {
-    name: "negru",
-    code: "#000",
-  },
-  {
-    name: "alb",
-    code: "#fff",
-  },
-  {
-    name: "gri",
-    code: "rgb(216, 211, 217)",
-  },
-  {
-    name: "crem",
-    code: "rgb(245, 245, 220)",
-  },
-  {
-    name: "bej",
-    code: "rgb(222, 206, 165)",
-  },
-  {
-    name: "portocaliu",
-    code: "rgb(223, 136, 73)",
-  },
-  {
-    name: "maro",
-    code: "rgb(115, 69, 38)",
-  },
-  {
-    name: "visiniu",
-    code: "rgb(136, 7, 32)",
-  },
-  {
-    name: "rosu",
-    code: "rgb(202, 43, 43)",
-  },
-  {
-    name: "roz",
-    code: "rgb(201, 131, 168)",
-  },
-  {
-    name: "violet",
-    code: "rgb(118, 91, 139)",
-  },
-  {
-    name: "albastru",
-    code: "rgb(70, 110, 160)",
-  },
-  {
-    name: "turcoaz",
-    code: "rgb(80, 172, 180)",
-  },
-  {
-    name: "verde",
-    code: "rgb(96, 144, 109)",
-  },
-];
+import { colors } from "../filtersData";
 
 type ColorsFiltersProps = {
   onToggleFilters: (filter: string, color: string) => void;

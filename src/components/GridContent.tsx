@@ -8,12 +8,12 @@ import { useMemo } from "react";
 
 const GridContent: React.FC = () => {
   const { pathname } = useLocation();
-  // const predicate = routeToFilter[pathname] ?? (() => true);
-  // const filteredProducts = allProducts.filter(predicate);
-
   const [searchParams] = useSearchParams();
+
   const selectedColors = searchParams.getAll("color");
   const selectedSizes = searchParams.getAll("size");
+  const selectedHandles = searchParams.getAll("handle");
+  const selectedStyles = searchParams.getAll("style");
 
   const filteredProducts = useMemo(() => {
     const routePredicate = routeToFilter[pathname] ?? (() => true);
@@ -27,9 +27,23 @@ const GridContent: React.FC = () => {
       const filterSizes =
         selectedSizes.length === 0 || selectedSizes.includes(p.size);
 
-      return okRoute && filterColors && filterSizes;
+      const filterHandles =
+        selectedHandles.length === 0 || selectedHandles.includes(p.handle);
+
+      const filterStyles =
+        selectedStyles.length === 0 || selectedStyles.includes(p.style);
+
+      return (
+        okRoute && filterColors && filterSizes && filterHandles && filterStyles
+      );
     });
-  }, [pathname, selectedColors, selectedSizes]);
+  }, [
+    pathname,
+    selectedColors,
+    selectedSizes,
+    selectedHandles,
+    selectedStyles,
+  ]);
 
   return (
     <Content className="relative">
