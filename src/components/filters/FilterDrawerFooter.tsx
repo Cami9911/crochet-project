@@ -3,16 +3,16 @@ import { useSearchParams } from "react-router-dom";
 
 type drawerFooterProps = {
   handleClose: () => void;
-  setResetColorsKey: React.Dispatch<React.SetStateAction<number>>;
+  setResetFiltersKey: React.Dispatch<React.SetStateAction<number>>;
 };
 const FilterDrawerFooter: React.FC<drawerFooterProps> = ({
   handleClose,
-  setResetColorsKey,
+  setResetFiltersKey,
 }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const removeAllColors = () => {
-    setResetColorsKey((k) => k + 1);
+    setResetFiltersKey((k) => k + 1);
 
     const next = new URLSearchParams(searchParams);
     next.delete("color");

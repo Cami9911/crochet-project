@@ -11,7 +11,7 @@ interface FilterDrawerProps {
 }
 
 const FilterDrawer: React.FC<FilterDrawerProps> = ({ handleClose }) => {
-  const [resetColorsKey, setResetColorsKey] = useState(0);
+  const [resetFiltersKey, setResetFiltersKey] = useState(0);
 
   const selectedFilter = useAtomValue(selectedFilterAtom);
   const setSelectedFilter = useSetAtom(selectedFilterAtom);
@@ -46,12 +46,12 @@ const FilterDrawer: React.FC<FilterDrawerProps> = ({ handleClose }) => {
       footer={
         <FilterDrawerFooter
           handleClose={handleClose}
-          setResetColorsKey={setResetColorsKey}
+          setResetFiltersKey={setResetFiltersKey}
         />
       }
       open={isOpenFilterDrawer}
     >
-      <FilterDrawerContent resetColorsKey={resetColorsKey} />
+      <FilterDrawerContent resetFiltersKey={resetFiltersKey} />
     </Drawer>
   );
 };

@@ -7,9 +7,10 @@ import { useSearchParams } from "react-router-dom";
 import FiltersSelection from "./FiltersSelection";
 import { filters, sizes, handles, styles } from "../filtersData";
 import { FilterProps } from "../types";
+import { useEffect, useState } from "react";
 
 interface FilterDrawerContentProps {
-  resetColorsKey: number;
+  resetFiltersKey: number;
 }
 
 const columns: TableProps<FilterProps>["columns"] = [
@@ -28,16 +29,23 @@ const columns: TableProps<FilterProps>["columns"] = [
 ];
 
 const FilterDrawerContent: React.FC<FilterDrawerContentProps> = ({
-  resetColorsKey,
+  resetFiltersKey,
 }) => {
   const setSelectedFilter = useSetAtom(selectedFilterAtom);
   const selectedFilter = useAtomValue(selectedFilterAtom);
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const selectOneFilter = (record: FilterProps) => {
-    console.log(record);
-    setSelectedFilter(record);
+  const [selectedFiltersValues, setSelectedFiltersValues] = useState<string[]>(
+    [],
+  );
+
+  const toggleSelection = (filter: string, name: string) => {
+    setSelectedFiltersValues((prev) =>
+      prev.includes(name) ? prev.filter((c) => c !== name) : [...prev, name],
+    );
+
+    toggleFilters(filter, name);
   };
 
   const toggleFilters = (filter: string, paramName: string) => {
@@ -56,6 +64,10 @@ const FilterDrawerContent: React.FC<FilterDrawerContentProps> = ({
     setSearchParams(next);
   };
 
+  useEffect(() => {
+    setSelectedFiltersValues([]);
+  }, [resetFiltersKey]);
+
   return (
     <>
       {selectedFilter.key === "all-filters" && (
@@ -70,37 +82,37 @@ const FilterDrawerContent: React.FC<FilterDrawerContentProps> = ({
           // }
           onRow={(record) => ({
             onClick: () => {
-              selectOneFilter(record);
+              setSelectedFilter(record);
             },
           })}
         />
       )}
       {selectedFilter.key === "color" && (
         <ColorsFilter
-          onToggleFilters={toggleFilters}
-          resetKey={resetColorsKey}
+          selectedFiltersValues={selectedFiltersValues}
+          onToggleSelection={toggleSelection}
         />
       )}
       {selectedFilter.key === "size" && (
         <FiltersSelection
-          onToggleFilters={toggleFilters}
-          resetKey={resetColorsKey}
+          selectedFiltersValues={selectedFiltersValues}
+          onToggleSelection={toggleSelection}
           filtersData={sizes}
           keyToCheck="size"
         />
       )}
       {selectedFilter.key === "handle" && (
         <FiltersSelection
-          onToggleFilters={toggleFilters}
-          resetKey={resetColorsKey}
+          selectedFiltersValues={selectedFiltersValues}
+          onToggleSelection={toggleSelection}
           filtersData={handles}
           keyToCheck="handle"
         />
       )}
       {selectedFilter.key === "style" && (
         <FiltersSelection
-          onToggleFilters={toggleFilters}
-          resetKey={resetColorsKey}
+          selectedFiltersValues={selectedFiltersValues}
+          onToggleSelection={toggleSelection}
           filtersData={styles}
           keyToCheck="style"
         />
