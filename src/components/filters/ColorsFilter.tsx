@@ -2,16 +2,16 @@ import React from "react";
 import { Col, Row } from "antd";
 import { colors } from "../filtersData";
 import { CheckOutlined } from "@ant-design/icons";
+import { selectedFiltersValuesAtom } from "../../storageAtoms";
+import { useAtomValue } from "jotai";
 
 type ColorsFiltersProps = {
-  selectedFiltersValues: string[];
   onToggleSelection: (filter: string, name: string) => void;
 };
 
-const ColorsFilter: React.FC<ColorsFiltersProps> = ({
-  selectedFiltersValues,
-  onToggleSelection,
-}) => {
+const ColorsFilter: React.FC<ColorsFiltersProps> = ({ onToggleSelection }) => {
+  const selectedFiltersValues = useAtomValue(selectedFiltersValuesAtom);
+
   return (
     <Row gutter={[8, 16]}>
       {colors.map(({ name, code }) => {

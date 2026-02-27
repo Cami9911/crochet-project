@@ -1,5 +1,7 @@
 import { Button, Flex } from "antd";
+import { useAtomValue } from "jotai";
 import { useSearchParams } from "react-router-dom";
+import { selectedFiltersValuesAtom } from "../../storageAtoms";
 
 type drawerFooterProps = {
   handleClose: () => void;
@@ -9,6 +11,8 @@ const FilterDrawerFooter: React.FC<drawerFooterProps> = ({
   handleClose,
   setResetFiltersKey,
 }) => {
+  const selectedFiltersValues = useAtomValue(selectedFiltersValuesAtom);
+
   const [searchParams, setSearchParams] = useSearchParams();
 
   const removeAllColors = () => {
@@ -20,27 +24,44 @@ const FilterDrawerFooter: React.FC<drawerFooterProps> = ({
     setSearchParams(next);
   };
 
+  const isFilterSelected = selectedFiltersValues.length > 0;
   return (
     <Flex gap="middle" justify="flex-end">
-      <Button
-        onClick={() => removeAllColors()}
-        styles={{
-          root: {
-            borderColor: "#ccc",
-            color: "#171717",
-            backgroundColor: "#fff",
-          },
-        }}
-      >
-        Eliminare
-      </Button>
-      <Button
-        type="primary"
-        styles={{ root: { backgroundColor: "#171717" } }}
-        onClick={() => handleClose()}
-      >
-        Vezi
-      </Button>
+      {!isFilterSelected && (
+        <Button
+          type="primary"
+          className="w-full"
+          styles={{ root: { backgroundColor: "#171717" } }}
+          onClick={() => handleClose()}
+        >
+          Inapoi la produse
+        </Button>
+      )}
+      {isFilterSelected && (
+        <Button
+          className="w-full"
+          onClick={() => removeAllColors()}
+          styles={{
+            root: {
+              borderColor: "#ccc",
+              color: "#171717",
+              backgroundColor: "#fff",
+            },
+          }}
+        >
+          Eliminare
+        </Button>
+      )}
+      {isFilterSelected && (
+        <Button
+          className="w-full"
+          type="primary"
+          styles={{ root: { backgroundColor: "#171717" } }}
+          onClick={() => handleClose()}
+        >
+          Vezi
+        </Button>
+      )}
     </Flex>
   );
 };

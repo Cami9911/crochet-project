@@ -1,5 +1,8 @@
 import { useAtomValue, useSetAtom } from "jotai";
-import { selectedFilterAtom } from "../../storageAtoms";
+import {
+  selectedFilterAtom,
+  selectedFiltersValuesAtom,
+} from "../../storageAtoms";
 import { Table, TableProps } from "antd";
 import { RightOutlined } from "@ant-design/icons";
 import ColorsFilter from "./ColorsFilter";
@@ -7,7 +10,7 @@ import { useSearchParams } from "react-router-dom";
 import FiltersSelection from "./FiltersSelection";
 import { filters, sizes, handles, styles } from "../filtersData";
 import { FilterProps } from "../types";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 interface FilterDrawerContentProps {
   resetFiltersKey: number;
@@ -31,14 +34,12 @@ const columns: TableProps<FilterProps>["columns"] = [
 const FilterDrawerContent: React.FC<FilterDrawerContentProps> = ({
   resetFiltersKey,
 }) => {
-  const setSelectedFilter = useSetAtom(selectedFilterAtom);
   const selectedFilter = useAtomValue(selectedFilterAtom);
+  const setSelectedFilter = useSetAtom(selectedFilterAtom);
+
+  const setSelectedFiltersValues = useSetAtom(selectedFiltersValuesAtom);
 
   const [searchParams, setSearchParams] = useSearchParams();
-
-  const [selectedFiltersValues, setSelectedFiltersValues] = useState<string[]>(
-    [],
-  );
 
   const toggleSelection = (filter: string, name: string) => {
     setSelectedFiltersValues((prev) =>
@@ -66,7 +67,7 @@ const FilterDrawerContent: React.FC<FilterDrawerContentProps> = ({
 
   useEffect(() => {
     setSelectedFiltersValues([]);
-  }, [resetFiltersKey]);
+  }, [resetFiltersKey, setSelectedFiltersValues]);
 
   return (
     <>
@@ -88,14 +89,10 @@ const FilterDrawerContent: React.FC<FilterDrawerContentProps> = ({
         />
       )}
       {selectedFilter.key === "color" && (
-        <ColorsFilter
-          selectedFiltersValues={selectedFiltersValues}
-          onToggleSelection={toggleSelection}
-        />
+        <ColorsFilter onToggleSelection={toggleSelection} />
       )}
       {selectedFilter.key === "size" && (
         <FiltersSelection
-          selectedFiltersValues={selectedFiltersValues}
           onToggleSelection={toggleSelection}
           filtersData={sizes}
           keyToCheck="size"
@@ -103,7 +100,6 @@ const FilterDrawerContent: React.FC<FilterDrawerContentProps> = ({
       )}
       {selectedFilter.key === "handle" && (
         <FiltersSelection
-          selectedFiltersValues={selectedFiltersValues}
           onToggleSelection={toggleSelection}
           filtersData={handles}
           keyToCheck="handle"
@@ -111,7 +107,6 @@ const FilterDrawerContent: React.FC<FilterDrawerContentProps> = ({
       )}
       {selectedFilter.key === "style" && (
         <FiltersSelection
-          selectedFiltersValues={selectedFiltersValues}
           onToggleSelection={toggleSelection}
           filtersData={styles}
           keyToCheck="style"

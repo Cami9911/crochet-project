@@ -1,20 +1,22 @@
 import { CheckOutlined } from "@ant-design/icons";
 import { Col, Row } from "antd";
 import { FilterProps } from "../types";
+import { selectedFiltersValuesAtom } from "../../storageAtoms";
+import { useAtomValue } from "jotai";
 
 type FiltersSelectionProps = {
-  selectedFiltersValues: string[];
   onToggleSelection: (filter: string, name: string) => void;
   filtersData: FilterProps[];
   keyToCheck: string;
 };
 
 const FiltersSelection: React.FC<FiltersSelectionProps> = ({
-  selectedFiltersValues,
   onToggleSelection,
   filtersData,
   keyToCheck,
 }) => {
+  const selectedFiltersValues = useAtomValue(selectedFiltersValuesAtom);
+
   return (
     <Row gutter={[0, 24]}>
       {filtersData.map(({ name, key }) => (

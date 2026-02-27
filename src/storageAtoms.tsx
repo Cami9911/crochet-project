@@ -13,3 +13,8 @@ export const isOpenSorterDrawerAtom = atomWithStorage(
   "isOpenSorterDrawer",
   false,
 );
+
+export const selectedFiltersValuesAtom = atomWithStorage<string[]>(
+  "selectedFiltersValues",
+  [],
+);
