@@ -1,7 +1,10 @@
-import { Button, Flex } from "antd";
+import { Badge, Button, Flex } from "antd";
 import { useAtomValue } from "jotai";
 import { useSearchParams } from "react-router-dom";
-import { selectedFiltersValuesAtom } from "../../storageAtoms";
+import {
+  selectedFiltersValuesAtom,
+  totalResultsAtom,
+} from "../../storageAtoms";
 
 type drawerFooterProps = {
   handleClose: () => void;
@@ -12,6 +15,7 @@ const FilterDrawerFooter: React.FC<drawerFooterProps> = ({
   setResetFiltersKey,
 }) => {
   const selectedFiltersValues = useAtomValue(selectedFiltersValuesAtom);
+  const totalResults = useAtomValue(totalResultsAtom);
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -59,7 +63,7 @@ const FilterDrawerFooter: React.FC<drawerFooterProps> = ({
           styles={{ root: { backgroundColor: "#171717" } }}
           onClick={() => handleClose()}
         >
-          Vezi
+          Vezi <Badge count={totalResults} />
         </Button>
       )}
     </Flex>

@@ -3,7 +3,7 @@ import {
   selectedFilterAtom,
   selectedFiltersValuesAtom,
 } from "../../storageAtoms";
-import { Table, TableProps } from "antd";
+import { Badge, Table, TableProps } from "antd";
 import { RightOutlined } from "@ant-design/icons";
 import ColorsFilter from "./ColorsFilter";
 import { useSearchParams } from "react-router-dom";
@@ -15,21 +15,6 @@ import { useEffect } from "react";
 interface FilterDrawerContentProps {
   resetFiltersKey: number;
 }
-
-const columns: TableProps<FilterProps>["columns"] = [
-  {
-    title: "",
-    dataIndex: "name",
-    key: "name",
-    width: "85%",
-    render: (text) => <span className="p-2">{text}</span>,
-  },
-  {
-    title: "Action",
-    key: "action",
-    render: () => <RightOutlined className="text-grey-icons!" />,
-  },
-];
 
 const FilterDrawerContent: React.FC<FilterDrawerContentProps> = ({
   resetFiltersKey,
@@ -64,6 +49,29 @@ const FilterDrawerContent: React.FC<FilterDrawerContentProps> = ({
 
     setSearchParams(next);
   };
+
+  const columns: TableProps<FilterProps>["columns"] = [
+    {
+      title: "",
+      dataIndex: "name",
+      key: "name",
+      width: "85%",
+      render: (_, value) => {
+        const selectionCount = searchParams.getAll(value.key).length;
+        return (
+          <div>
+            <span className="p-2">{value.name}</span>
+            <Badge count={selectionCount} color="#000" />
+          </div>
+        );
+      },
+    },
+    {
+      title: "Action",
+      key: "action",
+      render: () => <RightOutlined className="text-grey-icons!" />,
+    },
+  ];
 
   useEffect(() => {
     setSelectedFiltersValues([]);

@@ -4,9 +4,13 @@ import allProducts from "./AllProductsData";
 import ControlFilters from "./filters/ControlFilters";
 import { routeToFilter } from "./SideMenuFilters";
 import { useLocation, useSearchParams } from "react-router-dom";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
+import { useSetAtom } from "jotai";
+import { totalResultsAtom } from "../storageAtoms";
 
 const GridContent: React.FC = () => {
+  const setTotalResults = useSetAtom(totalResultsAtom);
+
   const { pathname } = useLocation();
   const [searchParams] = useSearchParams();
 
@@ -44,6 +48,10 @@ const GridContent: React.FC = () => {
     selectedHandles,
     selectedStyles,
   ]);
+
+  useEffect(() => {
+    setTotalResults(filteredProducts.length);
+  }, [filteredProducts.length, setTotalResults]);
 
   return (
     <Content className="relative">
