@@ -14,9 +14,4 @@ export const isOpenSorterDrawerAtom = atomWithStorage(
   false,
 );
 
-export const selectedFiltersValuesAtom = atomWithStorage<string[]>(
-  "selectedFiltersValues",
-  [],
-);
-
 export const totalResultsAtom = atomWithStorage<number>("totalResults", 0);

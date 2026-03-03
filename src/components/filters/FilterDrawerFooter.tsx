@@ -1,34 +1,30 @@
 import { Badge, Button, Flex } from "antd";
 import { useAtomValue } from "jotai";
 import { useSearchParams } from "react-router-dom";
-import {
-  selectedFiltersValuesAtom,
-  totalResultsAtom,
-} from "../../storageAtoms";
+import { selectedFilterAtom, totalResultsAtom } from "../../storageAtoms";
+import { filters } from "../filtersData";
 
 type drawerFooterProps = {
   handleClose: () => void;
-  setResetFiltersKey: React.Dispatch<React.SetStateAction<number>>;
 };
-const FilterDrawerFooter: React.FC<drawerFooterProps> = ({
-  handleClose,
-  setResetFiltersKey,
-}) => {
-  const selectedFiltersValues = useAtomValue(selectedFiltersValuesAtom);
+const FilterDrawerFooter: React.FC<drawerFooterProps> = ({ handleClose }) => {
+  const selectedFilter = useAtomValue(selectedFilterAtom);
   const totalResults = useAtomValue(totalResultsAtom);
 
   const [searchParams, setSearchParams] = useSearchParams();
 
   const removeAllColors = () => {
-    setResetFiltersKey((k) => k + 1);
-
     const next = new URLSearchParams(searchParams);
-    next.delete("color");
-    next.delete("size");
+
+    if (selectedFilter.key === "all-filters") {
+      filters.forEach((value) => next.delete(value.key));
+    } else {
+      next.delete(selectedFilter.key);
+    }
     setSearchParams(next);
   };
 
-  const isFilterSelected = selectedFiltersValues.length > 0;
+  const isFilterSelected = searchParams.size > 0;
   return (
     <Flex gap="middle" justify="flex-end">
       {!isFilterSelected && (

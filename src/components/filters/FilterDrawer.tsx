@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Badge, Button, Drawer } from "antd";
 import { useAtomValue, useSetAtom } from "jotai";
 import { isOpenFilterDrawerAtom, selectedFilterAtom } from "../../storageAtoms";
@@ -12,8 +12,6 @@ interface FilterDrawerProps {
 }
 
 const FilterDrawer: React.FC<FilterDrawerProps> = ({ handleClose }) => {
-  const [resetFiltersKey, setResetFiltersKey] = useState(0);
-
   const selectedFilter = useAtomValue(selectedFilterAtom);
   const setSelectedFilter = useSetAtom(selectedFilterAtom);
 
@@ -54,15 +52,10 @@ const FilterDrawer: React.FC<FilterDrawerProps> = ({ handleClose }) => {
       className={selectedFilter.name === "all-filters" ? "filter-drawer" : ""}
       closable={{ "aria-label": "Close Button", placement: "end" }}
       onClose={handleClose}
-      footer={
-        <FilterDrawerFooter
-          handleClose={handleClose}
-          setResetFiltersKey={setResetFiltersKey}
-        />
-      }
+      footer={<FilterDrawerFooter handleClose={handleClose} />}
       open={isOpenFilterDrawer}
     >
-      <FilterDrawerContent resetFiltersKey={resetFiltersKey} />
+      <FilterDrawerContent />
     </Drawer>
   );
 };

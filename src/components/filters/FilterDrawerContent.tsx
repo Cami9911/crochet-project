@@ -1,8 +1,5 @@
 import { useAtomValue, useSetAtom } from "jotai";
-import {
-  selectedFilterAtom,
-  selectedFiltersValuesAtom,
-} from "../../storageAtoms";
+import { selectedFilterAtom } from "../../storageAtoms";
 import { Badge, Table, TableProps } from "antd";
 import { RightOutlined } from "@ant-design/icons";
 import ColorsFilter from "./ColorsFilter";
@@ -10,29 +7,12 @@ import { useSearchParams } from "react-router-dom";
 import FiltersSelection from "./FiltersSelection";
 import { filters, sizes, handles, styles } from "../filtersData";
 import { FilterProps } from "../types";
-import { useEffect } from "react";
 
-interface FilterDrawerContentProps {
-  resetFiltersKey: number;
-}
-
-const FilterDrawerContent: React.FC<FilterDrawerContentProps> = ({
-  resetFiltersKey,
-}) => {
+const FilterDrawerContent: React.FC = () => {
   const selectedFilter = useAtomValue(selectedFilterAtom);
   const setSelectedFilter = useSetAtom(selectedFilterAtom);
 
-  const setSelectedFiltersValues = useSetAtom(selectedFiltersValuesAtom);
-
   const [searchParams, setSearchParams] = useSearchParams();
-
-  const toggleSelection = (filter: string, name: string) => {
-    setSelectedFiltersValues((prev) =>
-      prev.includes(name) ? prev.filter((c) => c !== name) : [...prev, name],
-    );
-
-    toggleFilters(filter, name);
-  };
 
   const toggleFilters = (filter: string, paramName: string) => {
     const current = new Set(searchParams.getAll(filter)); //negru
@@ -73,10 +53,6 @@ const FilterDrawerContent: React.FC<FilterDrawerContentProps> = ({
     },
   ];
 
-  useEffect(() => {
-    setSelectedFiltersValues([]);
-  }, [resetFiltersKey, setSelectedFiltersValues]);
-
   return (
     <>
       {selectedFilter.key === "all-filters" && (
@@ -97,25 +73,25 @@ const FilterDrawerContent: React.FC<FilterDrawerContentProps> = ({
         />
       )}
       {selectedFilter.key === "color" && (
-        <ColorsFilter onToggleSelection={toggleSelection} />
+        <ColorsFilter onToggleSelection={toggleFilters} />
       )}
       {selectedFilter.key === "size" && (
         <FiltersSelection
-          onToggleSelection={toggleSelection}
+          onToggleSelection={toggleFilters}
           filtersData={sizes}
           keyToCheck="size"
         />
       )}
       {selectedFilter.key === "handle" && (
         <FiltersSelection
-          onToggleSelection={toggleSelection}
+          onToggleSelection={toggleFilters}
           filtersData={handles}
           keyToCheck="handle"
         />
       )}
       {selectedFilter.key === "style" && (
         <FiltersSelection
-          onToggleSelection={toggleSelection}
+          onToggleSelection={toggleFilters}
           filtersData={styles}
           keyToCheck="style"
         />

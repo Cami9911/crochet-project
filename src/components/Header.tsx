@@ -20,7 +20,11 @@ const Header: React.FC = () => {
       </Col>
 
       <Col xs={{ span: 24, order: 3 }} md={{ span: 14, order: 2 }}>
-        <Search size="large" onSearch={onSearch} />
+        <Search
+          size="large"
+          onSearch={onSearch}
+          placeholder="Cauta dupa culoare, stil, tipul de produs"
+        />
       </Col>
 
       <Col
