@@ -1,12 +1,12 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home.tsx";
+import MainDashboardEntry from "./MainDashboardEntry.tsx";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="*" element={<Home />} />
+        <Route path="*" element={<MainDashboardEntry />} />
       </Routes>
     </BrowserRouter>
   );

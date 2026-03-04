@@ -3,12 +3,14 @@ import { Content } from "antd/es/layout/layout";
 import allProducts from "./AllProductsData";
 import ControlFilters from "./filters/ControlFilters";
 import { routeToFilter } from "./SideMenuFilters";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { useEffect, useMemo } from "react";
 import { useSetAtom } from "jotai";
 import { totalResultsAtom } from "../storageAtoms";
 
 const GridContent: React.FC = () => {
+  const navigate = useNavigate();
+
   const setTotalResults = useSetAtom(totalResultsAtom);
 
   const { pathname } = useLocation();
@@ -49,6 +51,10 @@ const GridContent: React.FC = () => {
     selectedStyles,
   ]);
 
+  const goToDetails = () => {
+    navigate("product-details");
+  };
+
   useEffect(() => {
     setTotalResults(filteredProducts.length);
   }, [filteredProducts.length, setTotalResults]);
@@ -60,7 +66,13 @@ const GridContent: React.FC = () => {
       <Row gutter={16}>
         {filteredProducts?.map(({ key, label, src }) => {
           return (
-            <Col className="gutter-row" span={12} lg={{ span: 6 }} key={key}>
+            <Col
+              className="gutter-row"
+              span={12}
+              lg={{ span: 6 }}
+              key={key}
+              onClick={() => goToDetails()}
+            >
               <Image alt="example" className="" src={src} />
               <div>{label}</div>
             </Col>
