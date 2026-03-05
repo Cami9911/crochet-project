@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Row } from "antd";
-import { colors } from "../filtersData";
+import { colors } from "./filtersData";
 import { CheckOutlined } from "@ant-design/icons";
 import { useSearchParams } from "react-router-dom";
 

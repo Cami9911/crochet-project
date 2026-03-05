@@ -1,7 +1,7 @@
 import React from "react";
 import { Badge, Button, Flex } from "antd";
 import { useSetAtom } from "jotai";
-import { isOpenFilterDrawerAtom, selectedFilterAtom } from "../storageAtoms";
+import { isOpenFilterDrawerAtom, selectedFilterAtom } from "../../storageAtoms";
 import { useSearchParams } from "react-router-dom";
 
 const HorizontalFilters: React.FC = () => {

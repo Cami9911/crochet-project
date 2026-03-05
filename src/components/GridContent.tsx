@@ -2,7 +2,7 @@ import { Image, Row, Col } from "antd";
 import { Content } from "antd/es/layout/layout";
 import allProducts from "./AllProductsData";
 import ControlFilters from "./filters/ControlFilters";
-import { routeToFilter } from "./SideMenuFilters";
+import { routeToFilter } from "./sidemenu/SideMenuFilters";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { useEffect, useMemo } from "react";
 import { useSetAtom } from "jotai";

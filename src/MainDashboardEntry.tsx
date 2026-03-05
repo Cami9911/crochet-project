@@ -7,7 +7,7 @@ import ProductDetails from "./pages/ProductDetails";
 
 const MainDashboardEntry = () => {
   return (
-    <Layout className="px-4 sm:px-6 md:px-12 lg:px-32">
+    <Layout className="px-4 sm:px-6 md:px-12 lg:px-40">
       <div className="bg-white-bg sticky top-0 z-1000 ">
         <Header></Header>
         <Divider className="mb-2! mt-0! sm:my-6!" />

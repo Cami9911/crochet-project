@@ -2,7 +2,7 @@ import { Badge, Button, Flex } from "antd";
 import { useAtomValue } from "jotai";
 import { useSearchParams } from "react-router-dom";
 import { selectedFilterAtom, totalResultsAtom } from "../../storageAtoms";
-import { filters } from "../filtersData";
+import { filters } from "./filtersData";
 
 type drawerFooterProps = {
   handleClose: () => void;

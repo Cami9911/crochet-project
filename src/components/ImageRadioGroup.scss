@@ -1,0 +1,15 @@
+.image-radio-group {
+  .ant-radio {
+    display: none;
+  }
+
+  .ant-radio-label,
+  .ant-radio-wrapper {
+    padding-inline-start: 0 !important;
+    padding-inline-end: 0 !important;
+  }
+
+  .ant-radio-wrapper {
+    margin-inline-end: 0 !important;
+  }
+}

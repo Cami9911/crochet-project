@@ -1,6 +1,6 @@
 import { Flex } from "antd";
-import SideMenu from "../components/SideMenu.tsx";
-import HorizontalFilters from "../components/HorizontalFilters.tsx";
+import SideMenu from "../components/sidemenu/SideMenu.tsx";
+import HorizontalFilters from "../components/filters/HorizontalFilters.tsx";
 import GridContent from "../components/GridContent.tsx";
 
 const Home = () => {
