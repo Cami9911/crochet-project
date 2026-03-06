@@ -1,5 +1,15 @@
 export const products = [
   {
+    key: "test1",
+    category: "Geanta",
+    color: "gri",
+    size: "big",
+    material: "-",
+    handle: "strap-handle",
+    style: "casual",
+    image: "test1.jpg",
+  },
+  {
     key: "all-purse1",
     category: "Geanta",
     color: "negru",
