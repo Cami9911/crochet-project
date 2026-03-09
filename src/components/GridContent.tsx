@@ -51,8 +51,8 @@ const GridContent: React.FC = () => {
     selectedStyles,
   ]);
 
-  const goToDetails = () => {
-    navigate("product-details");
+  const goToDetails = (key: string) => {
+    navigate(`product-details/${key}`);
   };
 
   useEffect(() => {
@@ -71,7 +71,7 @@ const GridContent: React.FC = () => {
               span={12}
               lg={{ span: 6 }}
               key={key}
-              onClick={() => goToDetails()}
+              onClick={() => goToDetails(key)}
             >
               <Image alt="example" className="" src={src} />
               <div>{label}</div>

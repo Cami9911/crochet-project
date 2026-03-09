@@ -24,7 +24,7 @@ function Routing() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/product-details" element={<ProductDetails />} />
+      <Route path="/product-details/:id" element={<ProductDetails />} />
     </Routes>
   );
 }

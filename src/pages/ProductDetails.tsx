@@ -4,15 +4,9 @@ import { useState } from "react";
 import ImageRadioGroup from "../components/ImageRadioGroup";
 import "./ProductDetails.scss";
 import { PlusOutlined } from "@ant-design/icons";
+import { products } from "../components/productData";
 
-import test1 from "../assets/test1.jpg";
-import test2 from "../assets/test2.jpg";
-import test3 from "../assets/test3.jpg";
-import test4 from "../assets/test4.jpg";
-import test5 from "../assets/test5.jpg";
-import test6 from "../assets/test6.jpg";
-import test7 from "../assets/test7.jpg";
-import test8 from "../assets/test8.jpg";
+import { useParams } from "react-router-dom";
 
 const text = `
   A dog is a type of domesticated animal.
@@ -33,7 +27,17 @@ const items: CollapseProps["items"] = [
   },
 ];
 
+const images = import.meta.glob("../assets/*.{png,jpg,jpeg,webp}", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>;
+
+const getImage = (imageName: string) => images[`../assets/${imageName}`];
+
 const ProductDetails: React.FC = () => {
+  const { id } = useParams();
+
+  const product = products.find((p) => p.key === id);
   const [value, setValue] = useState(1);
 
   const changeImage = (e: RadioChangeEvent) => {
@@ -46,7 +50,7 @@ const ProductDetails: React.FC = () => {
         <Row gutter={3}>
           <Col span={24} lg={{ span: 12 }}>
             <Image
-              src={test1}
+              src={product?.firstImage ? getImage(product.firstImage) : ""}
               alt="none"
               style={{
                 height: "70vh",
@@ -57,7 +61,7 @@ const ProductDetails: React.FC = () => {
           </Col>
           <Col span={24} lg={{ span: 12 }}>
             <Image
-              src={test2}
+              src={product?.secondImage ? getImage(product.secondImage) : ""}
               alt="img"
               style={{
                 height: "70vh",
@@ -68,26 +72,11 @@ const ProductDetails: React.FC = () => {
           </Col>
         </Row>
         <Row gutter={3}>
-          <Col span={12} lg={{ span: 8 }}>
-            <Image src={test3} alt="none" />
-          </Col>
-          <Col span={12} lg={{ span: 8 }}>
-            <Image src={test4} alt="img" />
-          </Col>
-          <Col span={12} lg={{ span: 8 }}>
-            <Image src={test5} alt="img" />
-          </Col>
-        </Row>
-        <Row gutter={3}>
-          <Col span={12} lg={{ span: 8 }}>
-            <Image src={test6} alt="none" />
-          </Col>
-          <Col span={12} lg={{ span: 8 }}>
-            <Image src={test7} alt="img" />
-          </Col>
-          <Col span={12} lg={{ span: 8 }}>
-            <Image src={test8} alt="img" />
-          </Col>
+          {product?.images.map((p: string) => (
+            <Col span={12} lg={{ span: 8 }}>
+              <Image src={getImage(p)} alt="none" />
+            </Col>
+          ))}
         </Row>
       </Col>
       <Col span={8} offset={1}>

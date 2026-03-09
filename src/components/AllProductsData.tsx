@@ -1,6 +1,6 @@
 import { products } from "./productData";
 
-const images = import.meta.glob("../assets/*.{png,jpg,jpeg,webp}", {
+const images = import.meta.glob("../assets/*.{png,jpg,jpeg,webp,jfif}", {
   eager: true,
   import: "default",
 }) as Record<string, string>;
@@ -13,7 +13,7 @@ const capitalizeFirst = (text: string) =>
 const AllProducts = products.map((product) => ({
   ...product,
   label: `${product.category} · ${capitalizeFirst(product.color)}`,
-  src: getImage(product.image),
+  src: getImage(product?.firstImage),
 }));
 
 export default AllProducts;
