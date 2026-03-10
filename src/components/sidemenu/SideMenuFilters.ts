@@ -1,15 +1,6 @@
-export interface Product {
-  key: string;
-  category: string;
-  color: string;
-  size: string;
-  material: string;
-  handle: string;
-  style: string;
-  image: string;
-}
+import { productType } from "../types";
 
-export const routeToFilter: Record<string, (p: Product) => boolean> = {
+export const routeToFilter: Record<string, (p: productType) => boolean> = {
   "/all": () => true,
 
   "/bags": (p) => p.category === "Geanta",

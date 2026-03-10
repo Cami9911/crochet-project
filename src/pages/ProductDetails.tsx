@@ -1,12 +1,13 @@
-import { Button, Col, CollapseProps, Image, RadioChangeEvent, Row } from "antd";
+import { Button, Col, CollapseProps, Image, Row } from "antd";
 import { Collapse } from "antd";
-import { useState } from "react";
 import ImageRadioGroup from "../components/ImageRadioGroup";
 import "./ProductDetails.scss";
 import { PlusOutlined } from "@ant-design/icons";
 import { products } from "../components/productData";
 
 import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { productType } from "../components/types";
 
 const text = `
   A dog is a type of domesticated animal.
@@ -36,13 +37,11 @@ const getImage = (imageName: string) => images[`../assets/${imageName}`];
 
 const ProductDetails: React.FC = () => {
   const { id } = useParams();
-
   const product = products.find((p) => p.key === id);
-  const [value, setValue] = useState(1);
 
-  const changeImage = (e: RadioChangeEvent) => {
-    setValue(e.target.value);
-  };
+  const [selectedProduct, setSelectedProduct] = useState<
+    productType | undefined
+  >(product);
 
   return (
     <Row>
@@ -50,7 +49,11 @@ const ProductDetails: React.FC = () => {
         <Row gutter={3}>
           <Col span={24} lg={{ span: 12 }}>
             <Image
-              src={product?.firstImage ? getImage(product.firstImage) : ""}
+              src={
+                selectedProduct?.firstImage
+                  ? getImage(selectedProduct.firstImage)
+                  : ""
+              }
               alt="none"
               style={{
                 height: "70vh",
@@ -61,7 +64,11 @@ const ProductDetails: React.FC = () => {
           </Col>
           <Col span={24} lg={{ span: 12 }}>
             <Image
-              src={product?.secondImage ? getImage(product.secondImage) : ""}
+              src={
+                selectedProduct?.secondImage
+                  ? getImage(selectedProduct.secondImage)
+                  : ""
+              }
               alt="img"
               style={{
                 height: "70vh",
@@ -72,7 +79,7 @@ const ProductDetails: React.FC = () => {
           </Col>
         </Row>
         <Row gutter={3}>
-          {product?.images.map((p: string) => (
+          {selectedProduct?.images.map((p: string) => (
             <Col span={12} lg={{ span: 8 }}>
               <Image src={getImage(p)} alt="none" />
             </Col>
@@ -83,7 +90,12 @@ const ProductDetails: React.FC = () => {
         <div className="flex justify-center h-full">
           <div className="flex flex-col w-full">
             <span>SHOULDER BAG</span>
-            <ImageRadioGroup value={value} onChange={changeImage} />
+            {selectedProduct && (
+              <ImageRadioGroup
+                defaultProduct={selectedProduct}
+                setSelectedProduct={setSelectedProduct}
+              />
+            )}
             <Button
               size="large"
               className="my-4"
