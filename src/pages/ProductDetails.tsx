@@ -1,4 +1,4 @@
-import { Button, Col, CollapseProps, Image, Row } from "antd";
+import { Button, Col, CollapseProps, Image, Row, Space } from "antd";
 import { Collapse } from "antd";
 import ImageRadioGroup from "../components/ImageRadioGroup";
 import "./ProductDetails.scss";
@@ -8,25 +8,6 @@ import { products } from "../components/productData";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { productType } from "../components/types";
-
-const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`;
-
-const items: CollapseProps["items"] = [
-  {
-    key: "1",
-    label: "DESCRIERE",
-    children: <span>{text}</span>,
-  },
-  {
-    key: "2",
-    label: "MATERIALE",
-    children: <p>{text}</p>,
-  },
-];
 
 const images = import.meta.glob("../assets/*.{png,jpg,jpeg,webp}", {
   eager: true,
@@ -42,6 +23,37 @@ const ProductDetails: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<
     productType | undefined
   >(product);
+
+  const items: CollapseProps["items"] = [
+    {
+      key: "description",
+      label: <span className="font-semibold">DESCRIERE</span>,
+      children: (
+        <Space orientation="vertical" size={"middle"}>
+          <span>{product?.description.generalDescription}</span>
+          <div className="grid">
+            <span className="font-semibold">Culoare:</span>
+            <span>{product?.color}</span>
+          </div>
+          <div className="grid">
+            <span className="font-semibold">Marime:</span>
+            <span>Lungime: {product?.description.length}</span>
+            <span>Latime: {product?.description.width}</span>
+            <span>Inaltime: {product?.description.height}</span>
+          </div>
+          <div className="grid">
+            <span className="font-semibold">Accesorii:</span>
+            <span>{product?.description.accesorii}</span>
+          </div>
+        </Space>
+      ),
+    },
+    {
+      key: "2",
+      label: <span className="font-semibold">MATERIALE</span>,
+      children: <p>{product?.materials}</p>,
+    },
+  ];
 
   return (
     <Row>
@@ -104,12 +116,12 @@ const ProductDetails: React.FC = () => {
             >
               Comanda acum
             </Button>
-            <span>Disponibilitate: produs in stoc</span>
+            <span className="mt-4">Disponibilitate: produs in stoc</span>
             <Collapse
               defaultActiveKey={["1"]}
               ghost
               items={items}
-              className="collapse-info p-0"
+              className="collapse-info p-0 mt-10!"
               expandIconPlacement="end"
               expandIcon={() => <PlusOutlined style={{ fontSize: "20px" }} />}
             />

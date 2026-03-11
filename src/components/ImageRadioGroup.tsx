@@ -18,7 +18,7 @@ const ImageRadioGroup: React.FC<ImageRadioGroupProps> = ({
   const { id } = useParams();
   const uniqueID = id?.split("F00")[0];
   const similarProducts = uniqueID
-    ? products.filter((p) => p.key.includes(uniqueID))
+    ? products.filter((p) => p.key.split("F00")[0] === uniqueID)
     : [];
 
   const images = import.meta.glob("../assets/*.{png,jpg,jpeg,webp}", {

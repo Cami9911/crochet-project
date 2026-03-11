@@ -14,6 +14,14 @@ export type productType = {
   firstImage: string;
   secondImage: string;
   images: string[];
-  description?: string;
+  description?: DescriptionItem;
   materials?: string;
+};
+
+type DescriptionItem = {
+  generalDescription: string;
+  length: number;
+  width: number;
+  height: number;
+  accesorii: string;
 };

@@ -1,6 +1,27 @@
 export const products = [
   {
-    key: "P1GREY",
+    key: "P1F00GREEN",
+    category: "Geanta",
+    color: "verde",
+    size: "big",
+    material: "-",
+    handle: "strap-handle",
+    style: "casual",
+    firstImage: "P1GREEN1.jpg",
+    secondImage: "P1GREEN2.jpg",
+    images: ["P1GREEN3.jpg", "P1GREEN4.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
+    materials: "Este confectionata din",
+  },
+  {
+    key: "P1F00GREY",
     category: "Geanta",
     color: "gri",
     size: "big",
@@ -17,8 +38,14 @@ export const products = [
       "P1GREY7.jpg",
       "P1GREY8.jpg",
     ],
-    description:
-      "Geanta are inaltimea de 20cm, lungimea de 24 cm si latimea de 12cm.",
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
     materials: "Este confectionata din",
   },
   {
@@ -32,8 +59,14 @@ export const products = [
     firstImage: "P2CREM1.jpg",
     secondImage: "P2CREM2.jpg",
     images: ["P2CREM3.jpg"],
-    description:
-      "Geanta are inaltimea de 20cm, lungimea de 24 cm si latimea de 12cm.",
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
     materials: "Este confectionata din",
   },
   {
@@ -47,8 +80,14 @@ export const products = [
     firstImage: "P2RED1.jpg",
     secondImage: "P2RED1.jpg",
     images: ["P2RED1.jpg"],
-    description:
-      "Geanta are inaltimea de 20cm, lungimea de 24 cm si latimea de 12cm.",
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
     materials: "Este confectionata din",
   },
   {
@@ -62,6 +101,14 @@ export const products = [
     firstImage: "purse1.jpg",
     secondImage: "purse1.jpg",
     images: ["purse1.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P3F00VISINIU",
@@ -74,6 +121,14 @@ export const products = [
     firstImage: "purse-roxen-1.jpg",
     secondImage: "purse-roxen-2.jpg",
     images: ["purse-roxen-1.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P3F00GREEN",
@@ -86,6 +141,14 @@ export const products = [
     firstImage: "purse-roxen-3.jpg",
     secondImage: "purse-roxen-3.jpg",
     images: ["purse-roxen-3.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P3F00BLACK",
@@ -98,6 +161,14 @@ export const products = [
     firstImage: "purse-roxen-4.jpg",
     secondImage: "purse-roxen-4.jpg",
     images: ["purse-roxen-4.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P4F00PINK",
@@ -110,6 +181,14 @@ export const products = [
     firstImage: "purse-felicia-1.jpeg",
     secondImage: "purse-felicia-1.jpeg",
     images: ["purse-felicia-1.jpeg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P4F00TURCOAZ",
@@ -122,6 +201,14 @@ export const products = [
     firstImage: "purse-felicia-2.jpeg",
     secondImage: "purse-felicia-2.jpeg",
     images: ["purse-felicia-2.jpeg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "all-purse-sonia",
@@ -134,6 +221,14 @@ export const products = [
     firstImage: "purse-sonia-1.png",
     secondImage: "purse-sonia-1.png",
     images: ["purse-sonia-1.png"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P6F00ORANGE",
@@ -146,6 +241,14 @@ export const products = [
     firstImage: "purse-florina-1.jpg",
     secondImage: "purse-florina-1.jpg",
     images: ["purse-florina-1.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P5F00RED",
@@ -158,6 +261,14 @@ export const products = [
     firstImage: "purse-florina-2.jpg",
     secondImage: "purse-florina-3.jpg",
     images: ["purse-florina-2.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P6F00GREEN",
@@ -170,6 +281,14 @@ export const products = [
     firstImage: "purse-florina-4.jpg",
     secondImage: "purse-florina-4.jpg",
     images: ["purse-florina-4.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P5F00GREEN",
@@ -182,6 +301,14 @@ export const products = [
     firstImage: "purse-florina-5.jpg",
     secondImage: "purse-florina-5.jpg",
     images: ["purse-florina-5.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P7F00CREM",
@@ -194,6 +321,14 @@ export const products = [
     firstImage: "purse-andra-1.jpg",
     secondImage: "purse-andra-1.jpg",
     images: ["purse-andra-1.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P7F00GREEN",
@@ -206,6 +341,14 @@ export const products = [
     firstImage: "purse-andra-2.jpg",
     secondImage: "purse-andra-5.jpg",
     images: ["purse-andra-2.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P7F00PINK",
@@ -218,6 +361,14 @@ export const products = [
     firstImage: "purse-andra-6.jpg",
     secondImage: "purse-andra-4.jpg",
     images: ["purse-andra-4.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P8F00BLUE",
@@ -230,6 +381,14 @@ export const products = [
     firstImage: "purse6.jpg",
     secondImage: "purse6.jpg",
     images: ["purse6.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P8F00BLACK",
@@ -242,6 +401,14 @@ export const products = [
     firstImage: "purse_black_rose.jpg",
     secondImage: "purse_black_rose.jpg",
     images: ["purse_black_rose.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P9F00BLACK",
@@ -254,6 +421,14 @@ export const products = [
     firstImage: "purse_black_rose2.jpg",
     secondImage: "purse_black_rose2.jpg",
     images: ["purse_black_rose2.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P8F00GREY",
@@ -266,6 +441,14 @@ export const products = [
     firstImage: "purse_grey_rose.jpg",
     secondImage: "purse_grey_rose.jpg",
     images: ["purse_grey_rose.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P9F00WHITE",
@@ -278,6 +461,14 @@ export const products = [
     firstImage: "purse_white_rose.jpg",
     secondImage: "purse_white_rose.jpg",
     images: ["purse_white_rose.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P10F00GREY",
@@ -290,6 +481,14 @@ export const products = [
     firstImage: "purse-eliza-1.jpg",
     secondImage: "purse-eliza-1.jpg",
     images: ["purse-eliza-1.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "all-purse-eliza-2",
@@ -302,6 +501,14 @@ export const products = [
     firstImage: "purse-eliza-2.jpg",
     secondImage: "purse-eliza-2.jpg",
     images: ["purse-eliza-2.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "all-purse-eliza-3",
@@ -314,6 +521,14 @@ export const products = [
     firstImage: "purse-eliza-3.jpg",
     secondImage: "purse-eliza-3.jpg",
     images: ["purse-eliza-3.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "all-purse-eliza-4",
@@ -326,6 +541,14 @@ export const products = [
     firstImage: "purse-eliza-4.jpg",
     secondImage: "purse-eliza-4.jpg",
     images: ["purse-eliza-4.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P10F00BLACK",
@@ -338,6 +561,14 @@ export const products = [
     firstImage: "purse-eliza-10.jpg",
     secondImage: "purse-eliza-5.jpg",
     images: ["purse-eliza-8.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P10F00WHITE",
@@ -350,6 +581,14 @@ export const products = [
     firstImage: "purse-eliza-6.jpg",
     secondImage: "purse-eliza-6.jpg",
     images: ["purse-eliza-6.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P10F00BEJ",
@@ -362,6 +601,14 @@ export const products = [
     firstImage: "purse-eliza-7.jpg",
     secondImage: "purse-eliza-7.jpg",
     images: ["purse-eliza-7.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "all-purse-eliza-9",
@@ -374,6 +621,14 @@ export const products = [
     firstImage: "purse-eliza-9.jpg",
     secondImage: "purse-eliza-9.jpg",
     images: ["purse-eliza-9.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P11F00BEJ",
@@ -386,6 +641,14 @@ export const products = [
     firstImage: "purse-amalia-1.jpg",
     secondImage: "purse-amalia-1.jpg",
     images: ["purse-amalia-1.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P11F00PINK",
@@ -398,6 +661,14 @@ export const products = [
     firstImage: "purse-amalia-2.jpg",
     secondImage: "purse-amalia-2.jpg",
     images: ["purse-amalia-2.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P12F00BLACK",
@@ -410,6 +681,14 @@ export const products = [
     firstImage: "purse-amalia-3.jpg",
     secondImage: "purse-amalia-10.jpg",
     images: ["purse-amalia-3.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P11F00BROWN",
@@ -422,6 +701,14 @@ export const products = [
     firstImage: "purse-amalia-4.jpg",
     secondImage: "purse-amalia-4.jpg",
     images: ["purse-amalia-4.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P11F00GREY",
@@ -434,6 +721,14 @@ export const products = [
     firstImage: "purse-amalia-5.jpg",
     secondImage: "purse-amalia-5.jpg",
     images: ["purse-amalia-5.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P11F00CREM",
@@ -446,6 +741,14 @@ export const products = [
     firstImage: "purse-amalia-6.jpg",
     secondImage: "purse-amalia-6.jpg",
     images: ["purse-amalia-6.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P11F00BLUE",
@@ -458,6 +761,14 @@ export const products = [
     firstImage: "purse-amalia-7.jpg",
     secondImage: "purse-amalia-7.jpg",
     images: ["purse-amalia-7.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P12F00BLUE",
@@ -470,6 +781,14 @@ export const products = [
     firstImage: "purse-amalia-8.jpg",
     secondImage: "purse-amalia-8.jpg",
     images: ["purse-amalia-8.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "P11F00LIGHTGREY",
@@ -482,6 +801,14 @@ export const products = [
     firstImage: "purse-amalia-9.jpg",
     secondImage: "purse-amalia-9.jpg",
     images: ["purse-amalia-9.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "all-bag-1",
@@ -494,6 +821,14 @@ export const products = [
     firstImage: "bag.jpg",
     secondImage: "bag.jpg",
     images: ["bag.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "all-wallet-1",
@@ -506,6 +841,14 @@ export const products = [
     firstImage: "wallet1.jpg",
     secondImage: "wallet1.jpg",
     images: ["wallet1.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "all-wallet-2",
@@ -518,6 +861,14 @@ export const products = [
     firstImage: "wallet2.jpg",
     secondImage: "wallet2.jpg",
     images: ["wallet2.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "all-wallet-3",
@@ -530,6 +881,14 @@ export const products = [
     firstImage: "wallet3.jpg",
     secondImage: "wallet3.jpg",
     images: ["wallet3.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "all-wallet-4",
@@ -542,6 +901,14 @@ export const products = [
     firstImage: "wallet4.jpg",
     secondImage: "wallet4.jpg",
     images: ["wallet4.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "all-wallet-5",
@@ -554,6 +921,14 @@ export const products = [
     firstImage: "wallet5.jpg",
     secondImage: "wallet5.jpg",
     images: ["wallet5.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "all-beret-adult-1",
@@ -566,6 +941,14 @@ export const products = [
     firstImage: "beret1.jpg",
     secondImage: "beret1",
     images: ["beret1.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "all-beret-adult-2",
@@ -578,6 +961,14 @@ export const products = [
     firstImage: "beret2.jpg",
     secondImage: "beret2.jpg",
     images: ["beret2.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "all-beret-adult-3",
@@ -590,6 +981,14 @@ export const products = [
     firstImage: "beret3.jpg",
     secondImage: "beret3.jpg",
     images: ["beret3.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "all-beret-adult-4",
@@ -602,6 +1001,14 @@ export const products = [
     firstImage: "beret4.jpg",
     secondImage: "beret4.jpg",
     images: ["beret4.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "all-beret-child-1",
@@ -614,6 +1021,14 @@ export const products = [
     firstImage: "beret5.jpg",
     secondImage: "beret5.jpg",
     images: ["beret5.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "all-hat1",
@@ -626,6 +1041,14 @@ export const products = [
     firstImage: "hat1.jpg",
     secondImage: "hat1.jpg",
     images: ["hat1.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "all-hat2",
@@ -638,6 +1061,14 @@ export const products = [
     firstImage: "hat2.jpg",
     secondImage: "hat2.jpg",
     images: ["hat2.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "all-hat3",
@@ -650,6 +1081,14 @@ export const products = [
     firstImage: "hat3.jpg",
     secondImage: "hat3.jpg",
     images: ["hat3.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "all-hat4",
@@ -662,6 +1101,14 @@ export const products = [
     firstImage: "hat4.jpg",
     secondImage: "hat4.jpg",
     images: ["hat4.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "all-hat5",
@@ -674,6 +1121,14 @@ export const products = [
     firstImage: "hat5.jpg",
     secondImage: "hat5.jpg",
     images: ["hat5.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
   {
     key: "all-hat6",
@@ -686,5 +1141,13 @@ export const products = [
     firstImage: "hat6.jpg",
     secondImage: "hat6.jpg",
     images: ["hat6.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
   },
 ];
