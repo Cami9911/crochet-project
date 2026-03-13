@@ -3,16 +3,16 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Header from "./components/Header";
 import FooterCmp from "./components/Footer";
-import ProductDetails from "./pages/ProductDetails";
+import ProductDetails from "./pages/productDetails/ProductDetails";
 
 const MainDashboardEntry = () => {
   return (
-    <Layout className="px-4 sm:px-6 md:px-12 lg:px-40">
+    <Layout>
       <div className="bg-white-bg sticky top-0 z-1000 ">
         <Header></Header>
         <Divider className="mb-2! mt-0! sm:my-6!" />
       </div>
-      <Layout>
+      <Layout className="px-4 sm:px-2 md:px-12 xl:px-40">
         <Routing />
       </Layout>
       <FooterCmp></FooterCmp>

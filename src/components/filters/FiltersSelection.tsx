@@ -1,6 +1,6 @@
 import { CheckOutlined } from "@ant-design/icons";
 import { Col, Row } from "antd";
-import { FilterProps } from "../types";
+import { FilterProps } from "../../types";
 import { useSearchParams } from "react-router-dom";
 
 type FiltersSelectionProps = {

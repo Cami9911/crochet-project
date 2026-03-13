@@ -1,4 +1,4 @@
-import { productType } from "../types";
+import { productType } from "../../types";
 
 export const routeToFilter: Record<string, (p: productType) => boolean> = {
   "/all": () => true,

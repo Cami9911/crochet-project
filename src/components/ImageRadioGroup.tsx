@@ -2,7 +2,7 @@ import { Radio, RadioChangeEvent } from "antd";
 import "./ImageRadioGroup.scss";
 import { useParams } from "react-router-dom";
 import { products } from "../components/productData";
-import { productType } from "./types";
+import { productType } from "../types";
 
 interface ImageRadioGroupProps {
   defaultProduct: productType;

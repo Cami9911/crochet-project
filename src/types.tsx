@@ -25,3 +25,14 @@ type DescriptionItem = {
   height: number;
   accesorii: string;
 };
+
+export type ProductDescriptionProps = {
+  setSelectedProduct: React.Dispatch<
+    React.SetStateAction<productType | undefined>
+  >;
+  selectedProduct: productType | undefined;
+};
+
+export type ProductImagesProps = {
+  selectedProduct: productType | undefined;
+};

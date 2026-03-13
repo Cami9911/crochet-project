@@ -7,6 +7,7 @@ import { filters } from "./filtersData";
 type drawerFooterProps = {
   handleClose: () => void;
 };
+
 const FilterDrawerFooter: React.FC<drawerFooterProps> = ({ handleClose }) => {
   const selectedFilter = useAtomValue(selectedFilterAtom);
   const totalResults = useAtomValue(totalResultsAtom);
