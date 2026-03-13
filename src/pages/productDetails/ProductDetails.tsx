@@ -1,4 +1,4 @@
-import { Breadcrumb, Row } from "antd";
+import { Breadcrumb, Col, Row } from "antd";
 import "./ProductDetails.scss";
 import { products } from "../../components/productData";
 
@@ -7,6 +7,7 @@ import { useState } from "react";
 import { productType } from "../../types";
 import ProductDescription from "./ProductDescription";
 import ProductImages from "./ProductImages";
+import ProductImagesCarousel from "./ProductImagesCarousel";
 
 const ProductDetails: React.FC = () => {
   const { id } = useParams();
@@ -36,6 +37,11 @@ const ProductDetails: React.FC = () => {
       />
       <Row>
         <ProductImages selectedProduct={selectedProduct} />
+
+        <Col span={24} xs={24} md={0}>
+          <ProductImagesCarousel selectedProduct={selectedProduct} />
+        </Col>
+
         <ProductDescription
           setSelectedProduct={setSelectedProduct}
           selectedProduct={selectedProduct}

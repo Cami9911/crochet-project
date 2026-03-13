@@ -58,7 +58,7 @@ const ProductDescription: React.FC<ProductDescriptionProps> = ({
   ];
 
   return (
-    <Col span={24} lg={{ span: 8, offset: 1 }}>
+    <Col span={24} md={{ span: 8, offset: 1 }}>
       <div className="flex justify-center h-full">
         <div className="flex flex-col w-full">
           <span>SHOULDER BAG</span>

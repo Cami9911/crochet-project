@@ -12,7 +12,7 @@ const getImage = (imageName: string) => images[`../../assets/${imageName}`];
 
 const ProductImages: React.FC<ProductImagesProps> = ({ selectedProduct }) => {
   return (
-    <Col span={24} lg={{ span: 15 }}>
+    <Col span={24} md={{ span: 15 }} xs={0}>
       <Row gutter={3}>
         <Col span={24} lg={{ span: 12 }}>
           <Image
