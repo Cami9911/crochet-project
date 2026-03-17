@@ -73,7 +73,7 @@ const GridContent: React.FC = () => {
               key={key}
               onClick={() => goToDetails(key)}
             >
-              <Image alt="example" className="" src={src} />
+              <Image alt="example" className="" src={src} preview={false} />
               <div>{label}</div>
             </Col>
           );

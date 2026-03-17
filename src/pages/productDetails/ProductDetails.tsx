@@ -21,7 +21,7 @@ const ProductDetails: React.FC = () => {
     <>
       <Breadcrumb
         separator=">"
-        className="mb-6!"
+        className="mb-6! px-4! sm:px-2! md:px-12! xl:px-40!"
         items={[
           {
             title: <a href="/">Genti</a>,

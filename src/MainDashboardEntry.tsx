@@ -12,7 +12,7 @@ const MainDashboardEntry = () => {
         <Header></Header>
         <Divider className="mb-2! mt-0! sm:my-6!" />
       </div>
-      <Layout className="px-4 sm:px-2 md:px-12 xl:px-40">
+      <Layout className="">
         <Routing />
       </Layout>
       <FooterCmp></FooterCmp>

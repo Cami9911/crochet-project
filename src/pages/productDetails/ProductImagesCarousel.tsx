@@ -16,12 +16,18 @@ const ProductImagesCarousel: React.FC<ProductImagesProps> = ({
     console.log(currentSlide);
   };
 
+  const imagesToDisplay = [
+    selectedProduct?.firstImage,
+    selectedProduct?.secondImage,
+    ...(selectedProduct?.images ?? []),
+  ].filter((img): img is string => Boolean(img));
+
   return (
-    <Carousel afterChange={onChange} className="max-w-154">
-      {selectedProduct?.images.map((p: string, index: number) => {
+    <Carousel afterChange={onChange} className="mb-2">
+      {imagesToDisplay.map((p: string, index: number) => {
         const src = getImage(p);
         return (
-          <div key={index}>
+          <div key={index} className="bg-zinc-100">
             <img
               src={src}
               alt={`product-${index}`}
