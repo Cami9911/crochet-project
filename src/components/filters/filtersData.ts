@@ -1,14 +1,14 @@
 export const colors = [
   {
-    name: "negru",
+    name: "black",
     code: "#000",
   },
   {
-    name: "alb",
+    name: "white",
     code: "#fff",
   },
   {
-    name: "gri",
+    name: "grey",
     code: "rgb(216, 211, 217)",
   },
   {
@@ -20,7 +20,7 @@ export const colors = [
     code: "rgb(222, 206, 165)",
   },
   {
-    name: "portocaliu",
+    name: "orange",
     code: "rgb(223, 136, 73)",
   },
   {
@@ -32,11 +32,11 @@ export const colors = [
     code: "rgb(136, 7, 32)",
   },
   {
-    name: "rosu",
+    name: "red",
     code: "rgb(202, 43, 43)",
   },
   {
-    name: "roz",
+    name: "pink",
     code: "rgb(201, 131, 168)",
   },
   {
@@ -44,7 +44,7 @@ export const colors = [
     code: "rgb(118, 91, 139)",
   },
   {
-    name: "albastru",
+    name: "blue",
     code: "rgb(70, 110, 160)",
   },
   {
@@ -52,7 +52,7 @@ export const colors = [
     code: "rgb(80, 172, 180)",
   },
   {
-    name: "verde",
+    name: "green",
     code: "rgb(96, 144, 109)",
   },
 ];

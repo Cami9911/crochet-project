@@ -8,6 +8,7 @@ import { productType } from "../../types";
 import ProductDescription from "./ProductDescription";
 import ProductImages from "./ProductImages";
 import ProductImagesCarousel from "./ProductImagesCarousel";
+import ProductImagesExtra from "./ProductImagesExtra";
 
 const ProductDetails: React.FC = () => {
   const { id } = useParams();
@@ -16,6 +17,20 @@ const ProductDetails: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<
     productType | undefined
   >(product);
+
+  const uniqueID = id?.split("F00")[1].toLowerCase();
+  const sameColorProducts = uniqueID
+    ? products.filter((p) => p.color === uniqueID)
+    : [];
+
+  const similarColorProducts = uniqueID
+    ? products.filter((p) => p.similarColors.includes(uniqueID))
+    : [];
+  const colorProducts = [...sameColorProducts, ...similarColorProducts];
+
+  const similarStyleProducts = selectedProduct
+    ? products.filter((p) => p.style === selectedProduct?.style)
+    : [];
 
   return (
     <>
@@ -45,6 +60,20 @@ const ProductDetails: React.FC = () => {
         <ProductDescription
           setSelectedProduct={setSelectedProduct}
           selectedProduct={selectedProduct}
+        />
+      </Row>
+      <Row>
+        <ProductImagesExtra
+          setSelectedProduct={setSelectedProduct}
+          similarProducts={colorProducts}
+          title={"Produse într-o culoare similară"}
+        />
+      </Row>
+      <Row>
+        <ProductImagesExtra
+          setSelectedProduct={setSelectedProduct}
+          similarProducts={similarStyleProducts}
+          title={"Produse din aceeași categorie"}
         />
       </Row>
     </>

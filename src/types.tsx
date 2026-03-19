@@ -7,6 +7,7 @@ export type productType = {
   key: string;
   category: string;
   color: string;
+  similarColors: string[];
   size: string;
   material: string;
   handle: string;

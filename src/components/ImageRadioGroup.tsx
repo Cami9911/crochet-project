@@ -1,6 +1,6 @@
 import { Radio, RadioChangeEvent } from "antd";
 import "./ImageRadioGroup.scss";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { products } from "../components/productData";
 import { productType } from "../types";
 
@@ -15,6 +15,8 @@ const ImageRadioGroup: React.FC<ImageRadioGroupProps> = ({
   defaultProduct,
   setSelectedProduct,
 }) => {
+  const navigate = useNavigate();
+
   const { id } = useParams();
   const uniqueID = id?.split("F00")[0];
   const similarProducts = uniqueID
@@ -35,6 +37,7 @@ const ImageRadioGroup: React.FC<ImageRadioGroupProps> = ({
       (item) => item.key === e.target.value,
     );
     setSelectedProduct(selectedProduct);
+    navigate(`/product-details/${e.target.value}`);
   };
 
   return (
