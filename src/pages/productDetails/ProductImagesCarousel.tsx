@@ -1,5 +1,5 @@
 import React from "react";
-import { Carousel } from "antd";
+import { Carousel, Image } from "antd";
 import { ProductImagesProps } from "../../types";
 
 const images = import.meta.glob("../../assets/*.{png,jpg,jpeg,webp}", {
@@ -23,25 +23,32 @@ const ProductImagesCarousel: React.FC<ProductImagesProps> = ({
   ].filter((img): img is string => Boolean(img));
 
   return (
-    <Carousel afterChange={onChange} className="mb-2">
-      {imagesToDisplay.map((p: string, index: number) => {
-        const src = getImage(p);
-        return (
-          <div key={index} className="bg-zinc-100">
-            <img
-              src={src}
-              alt={`product-${index}`}
-              style={{
-                width: "500px",
-                objectFit: "contain",
-                display: "block",
-                margin: "0 auto",
-              }}
-            />
-          </div>
-        );
-      })}
-    </Carousel>
+    <Image.PreviewGroup
+      preview={{
+        onChange: (current, prev) =>
+          console.log(`current index: ${current}, prev index: ${prev}`),
+      }}
+    >
+      <Carousel afterChange={onChange} className="mb-2">
+        {imagesToDisplay.map((p: string, index: number) => {
+          const src = getImage(p);
+          return (
+            <div key={index} className="bg-zinc-100 grid!">
+              <Image
+                src={src}
+                alt={`product-${index}`}
+                style={{
+                  width: "500px",
+                  objectFit: "contain",
+                  display: "block",
+                  margin: "0 auto",
+                }}
+              />
+            </div>
+          );
+        })}
+      </Carousel>
+    </Image.PreviewGroup>
   );
 };
 

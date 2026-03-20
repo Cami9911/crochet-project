@@ -20,7 +20,9 @@ const ProductDetails: React.FC = () => {
 
   const uniqueID = id?.split("F00")[1].toLowerCase();
   const sameColorProducts = uniqueID
-    ? products.filter((p) => p.color === uniqueID)
+    ? products.filter(
+        (p) => p.color === uniqueID && p.key !== selectedProduct?.key,
+      )
     : [];
 
   const similarColorProducts = uniqueID
@@ -29,7 +31,10 @@ const ProductDetails: React.FC = () => {
   const colorProducts = [...sameColorProducts, ...similarColorProducts];
 
   const similarStyleProducts = selectedProduct
-    ? products.filter((p) => p.style === selectedProduct?.style)
+    ? products.filter(
+        (p) =>
+          p.style === selectedProduct?.style && p.key !== selectedProduct?.key,
+      )
     : [];
 
   return (

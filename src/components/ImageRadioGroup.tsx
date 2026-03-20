@@ -52,7 +52,7 @@ const ImageRadioGroup: React.FC<ImageRadioGroupProps> = ({
           {similarProducts.map((item) => (
             <Radio key={item.key} value={item.key}>
               <div
-                className="w-30"
+                className="w-20"
                 style={{
                   border:
                     defaultProduct.key === item.key
