@@ -1,7 +1,7 @@
 import { Col, Image, Row } from "antd";
 import "./ProductDetails.scss";
-
-import { ProductImagesProps } from "../../types";
+import { selectedProductAtom, urlHoverImageAtom } from "../../storageAtoms";
+import { useAtomValue } from "jotai";
 
 const images = import.meta.glob("../../assets/*.{png,jpg,jpeg,webp}", {
   eager: true,
@@ -10,7 +10,10 @@ const images = import.meta.glob("../../assets/*.{png,jpg,jpeg,webp}", {
 
 const getImage = (imageName: string) => images[`../../assets/${imageName}`];
 
-const ProductImages: React.FC<ProductImagesProps> = ({ selectedProduct }) => {
+const ProductImages: React.FC = () => {
+  const urlHoverImage = useAtomValue(urlHoverImageAtom);
+  const selectedProduct = useAtomValue(selectedProductAtom);
+
   return (
     <Col
       span={24}
@@ -28,9 +31,11 @@ const ProductImages: React.FC<ProductImagesProps> = ({ selectedProduct }) => {
           <Col span={24} lg={{ span: 12 }}>
             <Image
               src={
-                selectedProduct?.firstImage
-                  ? getImage(selectedProduct.firstImage)
-                  : ""
+                urlHoverImage
+                  ? getImage(urlHoverImage)
+                  : selectedProduct
+                    ? getImage(selectedProduct.firstImage)
+                    : ""
               }
               alt="none"
               style={{

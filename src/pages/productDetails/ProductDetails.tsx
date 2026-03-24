@@ -1,22 +1,19 @@
 import { Breadcrumb, Col, Row } from "antd";
 import "./ProductDetails.scss";
 import { products } from "../../components/productData";
-
 import { useParams } from "react-router-dom";
-import { useState } from "react";
-import { productType } from "../../types";
-import ProductDescription from "./ProductDescription";
+import ProductInfo from "./ProductInfo";
 import ProductImages from "./ProductImages";
 import ProductImagesCarousel from "./ProductImagesCarousel";
 import ProductImagesExtra from "./ProductImagesExtra";
+import { useAtomValue } from "jotai";
+import { selectedProductAtom } from "../../storageAtoms";
 
 const ProductDetails: React.FC = () => {
   const { id } = useParams();
   const product = products.find((p) => p.key === id);
 
-  const [selectedProduct, setSelectedProduct] = useState<
-    productType | undefined
-  >(product);
+  const selectedProduct = useAtomValue(selectedProductAtom);
 
   const uniqueID = id?.split("F00")[1].toLowerCase();
   const sameColorProducts = uniqueID
@@ -56,27 +53,22 @@ const ProductDetails: React.FC = () => {
         ]}
       />
       <Row>
-        <ProductImages selectedProduct={selectedProduct} />
+        <ProductImages />
 
         <Col span={24} xs={24} md={0}>
-          <ProductImagesCarousel selectedProduct={selectedProduct} />
+          <ProductImagesCarousel />
         </Col>
 
-        <ProductDescription
-          setSelectedProduct={setSelectedProduct}
-          selectedProduct={selectedProduct}
-        />
+        <ProductInfo />
       </Row>
       <Row>
         <ProductImagesExtra
-          setSelectedProduct={setSelectedProduct}
           similarProducts={colorProducts}
           title={"Produse într-o culoare similară"}
         />
       </Row>
       <Row>
         <ProductImagesExtra
-          setSelectedProduct={setSelectedProduct}
           similarProducts={similarStyleProducts}
           title={"Produse din aceeași categorie"}
         />

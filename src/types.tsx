@@ -27,13 +27,11 @@ type DescriptionItem = {
   accesorii: string;
 };
 
-export type ProductDescriptionProps = {
-  setSelectedProduct: React.Dispatch<
-    React.SetStateAction<productType | undefined>
-  >;
-  selectedProduct: productType | undefined;
+export type ProductInfoProps = {
+  setSelectedProduct: React.Dispatch<React.SetStateAction<productType>>;
+  selectedProduct: productType;
 };
 
 export type ProductImagesProps = {
-  selectedProduct: productType | undefined;
+  selectedProduct: productType;
 };

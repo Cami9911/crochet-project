@@ -1,4 +1,5 @@
 import { atomWithStorage } from "jotai/utils";
+import { productType } from "./types";
 
 export const selectedFilterAtom = atomWithStorage("selectedFilter", {
   key: "all-filters",
@@ -15,3 +16,10 @@ export const isOpenSorterDrawerAtom = atomWithStorage(
 );
 
 export const totalResultsAtom = atomWithStorage<number>("totalResults", 0);
+
+export const urlHoverImageAtom = atomWithStorage<string>("urlHoverImage", "");
+
+export const selectedProductAtom = atomWithStorage<productType | null>(
+  "selectedProduct",
+  null,
+);

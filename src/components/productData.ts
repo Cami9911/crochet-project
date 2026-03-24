@@ -1,4 +1,6 @@
-export const products = [
+import { productType } from "../types";
+
+export const products: productType[] = [
   {
     key: "P1F00GREEN",
     category: "Geanta",

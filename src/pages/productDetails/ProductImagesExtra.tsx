@@ -3,13 +3,12 @@ import { Carousel, Col, Grid } from "antd";
 import { productType } from "../../types";
 import { useNavigate } from "react-router-dom";
 import { products } from "../../components/productData";
+import { selectedProductAtom } from "../../storageAtoms";
+import { useSetAtom } from "jotai";
 
 type SimilarProductsProps = {
   similarProducts: productType[];
   title: string;
-  setSelectedProduct: React.Dispatch<
-    React.SetStateAction<productType | undefined>
-  >;
 };
 
 const { useBreakpoint } = Grid;
@@ -24,7 +23,6 @@ const getImage = (imageName: string) => images[`../../assets/${imageName}`];
 const ProductImagesExtra: React.FC<SimilarProductsProps> = ({
   similarProducts,
   title,
-  setSelectedProduct,
 }) => {
   const navigate = useNavigate();
 
@@ -32,9 +30,12 @@ const ProductImagesExtra: React.FC<SimilarProductsProps> = ({
     console.log(currentSlide);
   };
 
+  const setSelectedProduct = useSetAtom(selectedProductAtom);
+
   const loadProduct = (product: productType) => {
-    const selectedProduct = products.find((item) => item.key === product.key);
-    setSelectedProduct(selectedProduct);
+    const productToSet =
+      products.find((item) => item.key === product.key) ?? null;
+    setSelectedProduct(productToSet);
     navigate(`/product-details/${product.key}`);
   };
 

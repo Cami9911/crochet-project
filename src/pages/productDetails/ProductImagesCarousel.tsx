@@ -1,6 +1,7 @@
 import React from "react";
 import { Carousel, Image } from "antd";
-import { ProductImagesProps } from "../../types";
+import { selectedProductAtom } from "../../storageAtoms";
+import { useAtomValue } from "jotai";
 
 const images = import.meta.glob("../../assets/*.{png,jpg,jpeg,webp}", {
   eager: true,
@@ -9,9 +10,9 @@ const images = import.meta.glob("../../assets/*.{png,jpg,jpeg,webp}", {
 
 const getImage = (imageName: string) => images[`../../assets/${imageName}`];
 
-const ProductImagesCarousel: React.FC<ProductImagesProps> = ({
-  selectedProduct,
-}) => {
+const ProductImagesCarousel: React.FC = () => {
+  const selectedProduct = useAtomValue(selectedProductAtom);
+
   const onChange = (currentSlide: number) => {
     console.log(currentSlide);
   };

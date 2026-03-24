@@ -1,19 +1,19 @@
 import { Button, Col, CollapseProps, Space } from "antd";
 import { Collapse } from "antd";
-import ImageRadioGroup from "../../components/ImageRadioGroup";
+import ImageRadioGroup from "./ImageRadioGroup";
 import "./ProductDetails.scss";
 import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import { products } from "../../components/productData";
 
 import { useParams } from "react-router-dom";
-import { ProductDescriptionProps } from "../../types";
 import { useState } from "react";
+import { selectedProductAtom } from "../../storageAtoms";
+import { useAtomValue } from "jotai";
 
-const ProductDescription: React.FC<ProductDescriptionProps> = ({
-  setSelectedProduct,
-  selectedProduct,
-}) => {
+const ProductInfo: React.FC = () => {
   const [activeKey, setActiveKey] = useState<string | string[]>([""]);
+
+  const selectedProduct = useAtomValue(selectedProductAtom);
 
   const { id } = useParams();
   const product = products.find((p) => p.key === id);
@@ -28,20 +28,20 @@ const ProductDescription: React.FC<ProductDescriptionProps> = ({
       ),
       children: (
         <Space orientation="vertical" size={"middle"}>
-          <span>{product?.description.generalDescription}</span>
+          <span>{product?.description?.generalDescription}</span>
           <div className="grid">
             <span className="font-semibold">Culoare:</span>
             <span>{product?.color}</span>
           </div>
           <div className="grid">
             <span className="font-semibold">Marime:</span>
-            <span>Lungime: {product?.description.length}</span>
-            <span>Latime: {product?.description.width}</span>
-            <span>Inaltime: {product?.description.height}</span>
+            <span>Lungime: {product?.description?.length}</span>
+            <span>Latime: {product?.description?.width}</span>
+            <span>Inaltime: {product?.description?.height}</span>
           </div>
           <div className="grid">
             <span className="font-semibold">Accesorii:</span>
-            <span>{product?.description.accesorii}</span>
+            <span>{product?.description?.accesorii}</span>
           </div>
         </Space>
       ),
@@ -67,10 +67,7 @@ const ProductDescription: React.FC<ProductDescriptionProps> = ({
         <div className="flex flex-col w-full">
           <span>SHOULDER BAG</span>
           {selectedProduct && (
-            <ImageRadioGroup
-              defaultProduct={selectedProduct}
-              setSelectedProduct={setSelectedProduct}
-            />
+            <ImageRadioGroup defaultProduct={selectedProduct} />
           )}
           <Button size="large" className="my-4" color="default" variant="solid">
             Comanda acum
@@ -98,4 +95,4 @@ const ProductDescription: React.FC<ProductDescriptionProps> = ({
   );
 };
 
-export default ProductDescription;
+export default ProductInfo;
