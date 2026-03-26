@@ -23,3 +23,8 @@ export const selectedProductAtom = atomWithStorage<productType | null>(
   "selectedProduct",
   null,
 );
+
+export const selectedColorAtom = atomWithStorage<string | undefined>(
+  "selectedColor",
+  "",
+);

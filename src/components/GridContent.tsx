@@ -6,7 +6,11 @@ import { routeToFilter } from "./sidemenu/SideMenuFilters";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { useEffect, useMemo } from "react";
 import { useSetAtom } from "jotai";
-import { selectedProductAtom, totalResultsAtom } from "../storageAtoms";
+import {
+  selectedColorAtom,
+  selectedProductAtom,
+  totalResultsAtom,
+} from "../storageAtoms";
 import { products } from "./productData";
 
 const GridContent: React.FC = () => {
@@ -14,6 +18,7 @@ const GridContent: React.FC = () => {
 
   const setTotalResults = useSetAtom(totalResultsAtom);
   const setSelectedProduct = useSetAtom(selectedProductAtom);
+  const setSelectedColor = useSetAtom(selectedColorAtom);
 
   const { pathname } = useLocation();
   const [searchParams] = useSearchParams();
@@ -56,6 +61,7 @@ const GridContent: React.FC = () => {
   const goToDetails = (key: string) => {
     const product = products.find((p) => p.key === key) ?? null;
     setSelectedProduct(product);
+    setSelectedColor(product?.color);
 
     navigate(`product-details/${key}`);
   };

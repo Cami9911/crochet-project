@@ -2,29 +2,29 @@ import { Radio, RadioChangeEvent } from "antd";
 import "./ImageRadioGroup.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import { products } from "../../components/productData";
-import { productType } from "../../types";
 import { useState } from "react";
-import { selectedProductAtom, urlHoverImageAtom } from "../../storageAtoms";
-import { useSetAtom } from "jotai";
-
-interface ImageRadioGroupProps {
-  defaultProduct: productType;
-}
+import {
+  selectedColorAtom,
+  selectedProductAtom,
+  urlHoverImageAtom,
+} from "../../storageAtoms";
+import { useAtomValue, useSetAtom } from "jotai";
 
 const MAX_VISIBLE = 5;
 
-const ImageRadioGroup: React.FC<ImageRadioGroupProps> = ({
-  defaultProduct,
-}) => {
+const ImageRadioGroup: React.FC = () => {
   const navigate = useNavigate();
 
-  const { id } = useParams();
-  const [showAll, setShowAll] = useState(false);
-  const [defaultColor, setDefaultColor] = useState(defaultProduct.color);
+  const setSelectedProduct = useSetAtom(selectedProductAtom);
+  const selectedProduct = useAtomValue(selectedProductAtom);
+
+  const selectedColor = useAtomValue(selectedColorAtom);
+  const setSelectedColor = useSetAtom(selectedColorAtom);
 
   const setUrlHoverImageAtom = useSetAtom(urlHoverImageAtom);
 
-  const setSelectedProduct = useSetAtom(selectedProductAtom);
+  const { id } = useParams();
+  const [showAll, setShowAll] = useState(false);
 
   const uniqueID = id?.split("F00")[0];
   const similarProducts = uniqueID
@@ -48,8 +48,6 @@ const ImageRadioGroup: React.FC<ImageRadioGroupProps> = ({
     : similarProducts.slice(0, MAX_VISIBLE);
 
   const changeImage = (e: RadioChangeEvent) => {
-    console.log(e.target.value);
-
     const selectedProduct =
       products.find((item) => item.key === e.target.value) ?? null;
     setSelectedProduct(selectedProduct);
@@ -58,9 +56,9 @@ const ImageRadioGroup: React.FC<ImageRadioGroupProps> = ({
 
   return (
     <div className="my-12 flex flex-col">
-      <span>CULOARE: {defaultColor}</span>
+      <span>CULOARE: {selectedColor}</span>
       <Radio.Group
-        value={defaultProduct.key}
+        value={selectedProduct?.key}
         onChange={changeImage}
         className="image-radio-group"
       >
@@ -71,16 +69,16 @@ const ImageRadioGroup: React.FC<ImageRadioGroupProps> = ({
                 className="w-20"
                 style={{
                   border:
-                    defaultProduct.key === item.key
+                    selectedProduct?.key === item.key
                       ? "1px solid #000"
                       : "1px solid #979797",
                 }}
                 onMouseEnter={() => {
-                  setDefaultColor(item.color);
+                  setSelectedColor(item.color);
                   setUrlHoverImageAtom(item.firstImage);
                 }}
                 onMouseLeave={() => {
-                  setDefaultColor(defaultProduct.color);
+                  setSelectedColor(selectedProduct?.color);
                   setUrlHoverImageAtom("");
                 }}
               >

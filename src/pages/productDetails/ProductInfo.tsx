@@ -7,13 +7,10 @@ import { products } from "../../components/productData";
 
 import { useParams } from "react-router-dom";
 import { useState } from "react";
-import { selectedProductAtom } from "../../storageAtoms";
-import { useAtomValue } from "jotai";
+import ColorSelectionMobile from "./ColorSelectionMobile";
 
 const ProductInfo: React.FC = () => {
   const [activeKey, setActiveKey] = useState<string | string[]>([""]);
-
-  const selectedProduct = useAtomValue(selectedProductAtom);
 
   const { id } = useParams();
   const product = products.find((p) => p.key === id);
@@ -66,13 +63,21 @@ const ProductInfo: React.FC = () => {
       <div className="flex justify-center h-full">
         <div className="flex flex-col w-full">
           <span>SHOULDER BAG</span>
-          {selectedProduct && (
-            <ImageRadioGroup defaultProduct={selectedProduct} />
-          )}
+
+          <div className="hidden md:block">
+            <ImageRadioGroup />
+          </div>
+
+          <div className="block md:hidden">
+            <ColorSelectionMobile />
+          </div>
+
           <Button size="large" className="my-4" color="default" variant="solid">
             Comanda acum
           </Button>
+
           <span className="mt-4">Disponibilitate: produs in stoc</span>
+
           <Collapse
             accordion
             activeKey={activeKey}

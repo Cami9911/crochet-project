@@ -52,6 +52,7 @@ const ProductImagesExtra: React.FC<SimilarProductsProps> = ({
         arrows
         dots={false}
         slidesToShow={slidesToShow}
+        slidesToScroll={slidesToShow}
       >
         {similarProducts.map((product: productType, index: number) => {
           const src = getImage(product.firstImage);
