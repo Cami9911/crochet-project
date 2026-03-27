@@ -53,6 +53,28 @@ export const products: productType[] = [
     materials: "Este confectionata din",
   },
   {
+    key: "P1F00ORANGE",
+    category: "Geanta",
+    color: "orange",
+    similarColors: ["turcoaz", "blue", "grey"],
+    size: "big",
+    material: "-",
+    handle: "strap-handle",
+    style: "casual",
+    firstImage: "P1ORANGE1.jpg",
+    secondImage: "P1ORANGE2.jpg",
+    images: ["P1ORANGE3.jpg", "P1ORANGE4.jpg", "P1ORANGE5.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
+    materials: "Este confectionata din",
+  },
+  {
     key: "P2F00CREM",
     category: "Geanta",
     color: "crem",

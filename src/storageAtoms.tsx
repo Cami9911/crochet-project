@@ -28,3 +28,5 @@ export const selectedColorAtom = atomWithStorage<string | undefined>(
   "selectedColor",
   "",
 );
+
+export const blurImageAtom = atomWithStorage<boolean>("blueImage", false);

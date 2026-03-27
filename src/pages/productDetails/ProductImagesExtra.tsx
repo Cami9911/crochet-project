@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Carousel, Col, Grid } from "antd";
 import { productType } from "../../types";
 import { useNavigate } from "react-router-dom";
@@ -25,6 +25,10 @@ const ProductImagesExtra: React.FC<SimilarProductsProps> = ({
   title,
 }) => {
   const navigate = useNavigate();
+
+  const [hoveredProductKey, setHoveredProductKey] = useState<string | null>(
+    null,
+  );
 
   const onChange = (currentSlide: number) => {
     console.log(currentSlide);
@@ -55,13 +59,22 @@ const ProductImagesExtra: React.FC<SimilarProductsProps> = ({
         slidesToScroll={slidesToShow}
       >
         {similarProducts.map((product: productType, index: number) => {
-          const src = getImage(product.firstImage);
+          const isHovered = hoveredProductKey === product.key;
+          const src = isHovered
+            ? getImage(product.secondImage)
+            : getImage(product.firstImage);
+
           return (
-            <div key={index} onClick={() => loadProduct(product)}>
+            <div
+              key={index}
+              onClick={() => loadProduct(product)}
+              onMouseEnter={() => setHoveredProductKey(product.key)}
+              onMouseLeave={() => setHoveredProductKey(null)}
+            >
               <img
                 src={src}
                 alt={`product-${index}`}
-                className="w-full h-auto px-1"
+                className="w-full h-auto px-1 cursor-pointer"
               />
             </div>
           );

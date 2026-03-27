@@ -1,6 +1,6 @@
 import { Button, Col, CollapseProps, Space } from "antd";
 import { Collapse } from "antd";
-import ImageRadioGroup from "./ImageRadioGroup";
+import ColorSelectionWeb from "./ColorSelectionWeb";
 import "./ProductDetails.scss";
 import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import { products } from "../../components/productData";
@@ -65,7 +65,7 @@ const ProductInfo: React.FC = () => {
           <span>SHOULDER BAG</span>
 
           <div className="hidden md:block">
-            <ImageRadioGroup />
+            <ColorSelectionWeb />
           </div>
 
           <div className="block md:hidden">

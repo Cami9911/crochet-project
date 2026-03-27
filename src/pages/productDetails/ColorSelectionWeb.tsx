@@ -1,9 +1,10 @@
 import { Radio, RadioChangeEvent } from "antd";
-import "./ImageRadioGroup.scss";
+import "./ColorSelection.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import { products } from "../../components/productData";
 import { useState } from "react";
 import {
+  blurImageAtom,
   selectedColorAtom,
   selectedProductAtom,
   urlHoverImageAtom,
@@ -12,7 +13,7 @@ import { useAtomValue, useSetAtom } from "jotai";
 
 const MAX_VISIBLE = 5;
 
-const ImageRadioGroup: React.FC = () => {
+const ColorSelectionWeb: React.FC = () => {
   const navigate = useNavigate();
 
   const setSelectedProduct = useSetAtom(selectedProductAtom);
@@ -22,6 +23,7 @@ const ImageRadioGroup: React.FC = () => {
   const setSelectedColor = useSetAtom(selectedColorAtom);
 
   const setUrlHoverImageAtom = useSetAtom(urlHoverImageAtom);
+  const setBlurImageAtom = useSetAtom(blurImageAtom);
 
   const { id } = useParams();
   const [showAll, setShowAll] = useState(false);
@@ -76,10 +78,12 @@ const ImageRadioGroup: React.FC = () => {
                 onMouseEnter={() => {
                   setSelectedColor(item.color);
                   setUrlHoverImageAtom(item.firstImage);
+                  setBlurImageAtom(true);
                 }}
                 onMouseLeave={() => {
                   setSelectedColor(selectedProduct?.color);
                   setUrlHoverImageAtom("");
+                  setBlurImageAtom(false);
                 }}
               >
                 <img
@@ -106,4 +110,4 @@ const ImageRadioGroup: React.FC = () => {
   );
 };
 
-export default ImageRadioGroup;
+export default ColorSelectionWeb;

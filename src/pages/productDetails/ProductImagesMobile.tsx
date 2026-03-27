@@ -10,7 +10,7 @@ const images = import.meta.glob("../../assets/*.{png,jpg,jpeg,webp}", {
 
 const getImage = (imageName: string) => images[`../../assets/${imageName}`];
 
-const ProductImagesCarousel: React.FC = () => {
+const ProductImagesMobile: React.FC = () => {
   const selectedProduct = useAtomValue(selectedProductAtom);
 
   const onChange = (currentSlide: number) => {
@@ -53,4 +53,4 @@ const ProductImagesCarousel: React.FC = () => {
   );
 };
 
-export default ProductImagesCarousel;
+export default ProductImagesMobile;

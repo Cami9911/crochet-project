@@ -4,7 +4,7 @@ import allProducts from "./AllProductsData";
 import ControlFilters from "./filters/ControlFilters";
 import { routeToFilter } from "./sidemenu/SideMenuFilters";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSetAtom } from "jotai";
 import {
   selectedColorAtom,
@@ -15,6 +15,10 @@ import { products } from "./productData";
 
 const GridContent: React.FC = () => {
   const navigate = useNavigate();
+
+  const [hoveredProductKey, setHoveredProductKey] = useState<string | null>(
+    null,
+  );
 
   const setTotalResults = useSetAtom(totalResultsAtom);
   const setSelectedProduct = useSetAtom(selectedProductAtom);
@@ -75,7 +79,10 @@ const GridContent: React.FC = () => {
       <ControlFilters />
 
       <Row gutter={16}>
-        {filteredProducts?.map(({ key, label, src }) => {
+        {filteredProducts?.map(({ key, label, src, secondImage }) => {
+          const isHovered = hoveredProductKey === key;
+          const imageSrc = isHovered ? "/src/assets/" + secondImage : src;
+
           return (
             <Col
               className="gutter-row"
@@ -83,8 +90,15 @@ const GridContent: React.FC = () => {
               lg={{ span: 6 }}
               key={key}
               onClick={() => goToDetails(key)}
+              onMouseEnter={() => setHoveredProductKey(key)}
+              onMouseLeave={() => setHoveredProductKey(null)}
             >
-              <Image alt="example" className="" src={src} preview={false} />
+              <Image
+                alt="example"
+                className="cursor-pointer"
+                src={imageSrc}
+                preview={false}
+              />
               <div>{label}</div>
             </Col>
           );

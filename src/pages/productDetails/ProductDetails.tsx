@@ -3,8 +3,8 @@ import "./ProductDetails.scss";
 import { products } from "../../components/productData";
 import { useParams } from "react-router-dom";
 import ProductInfo from "./ProductInfo";
-import ProductImages from "./ProductImages";
-import ProductImagesCarousel from "./ProductImagesCarousel";
+import ProductImagesWeb from "./ProductImagesWeb";
+import ProductImagesMobile from "./ProductImagesMobile";
 import ProductImagesExtra from "./ProductImagesExtra";
 import { useAtomValue } from "jotai";
 import { selectedProductAtom } from "../../storageAtoms";
@@ -53,10 +53,10 @@ const ProductDetails: React.FC = () => {
         ]}
       />
       <Row>
-        <ProductImages />
+        <ProductImagesWeb />
 
         <Col span={24} xs={24} md={0}>
-          <ProductImagesCarousel />
+          <ProductImagesMobile />
         </Col>
 
         <ProductInfo />

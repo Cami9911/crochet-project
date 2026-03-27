@@ -1,7 +1,12 @@
-import { Col, Image, Row } from "antd";
+import { Button, Col, Image, Row } from "antd";
 import "./ProductDetails.scss";
-import { selectedProductAtom, urlHoverImageAtom } from "../../storageAtoms";
+import {
+  blurImageAtom,
+  selectedProductAtom,
+  urlHoverImageAtom,
+} from "../../storageAtoms";
 import { useAtomValue } from "jotai";
+import { useEffect, useState } from "react";
 
 const images = import.meta.glob("../../assets/*.{png,jpg,jpeg,webp}", {
   eager: true,
@@ -10,9 +15,28 @@ const images = import.meta.glob("../../assets/*.{png,jpg,jpeg,webp}", {
 
 const getImage = (imageName: string) => images[`../../assets/${imageName}`];
 
-const ProductImages: React.FC = () => {
+const MAX_VISIBLE = 3;
+
+const ProductImagesWeb: React.FC = () => {
+  const [showAll, setShowAll] = useState(false);
+
   const urlHoverImage = useAtomValue(urlHoverImageAtom);
+  const blurImage = useAtomValue(blurImageAtom);
+
   const selectedProduct = useAtomValue(selectedProductAtom);
+
+  const imagesLength = selectedProduct?.images?.length ?? 0;
+
+  const hiddenCount =
+    imagesLength > MAX_VISIBLE ? imagesLength - MAX_VISIBLE : 0;
+
+  const displayedProducts = showAll
+    ? selectedProduct?.images
+    : selectedProduct?.images.slice(0, MAX_VISIBLE);
+
+  useEffect(() => {
+    setShowAll(false);
+  }, [selectedProduct]);
 
   return (
     <Col
@@ -57,20 +81,40 @@ const ProductImages: React.FC = () => {
                 height: "70vh",
                 width: "auto",
                 objectFit: "cover",
+                opacity: blurImage ? 0.5 : 1,
               }}
             />
           </Col>
         </Row>
         <Row gutter={3}>
-          {selectedProduct?.images.map((p: string) => (
+          {displayedProducts?.map((p: string) => (
             <Col span={12} lg={{ span: 8 }} key={p}>
-              <Image src={getImage(p)} alt="none" />
+              <Image
+                src={getImage(p)}
+                alt="none"
+                style={{
+                  opacity: blurImage ? 0.5 : 1,
+                }}
+              />
             </Col>
           ))}
+          {!showAll && hiddenCount > 0 && (
+            <Col span={24}>
+              <div className="flex justify-center h-full">
+                <Button
+                  size="large"
+                  className="my-4 w-100"
+                  onClick={() => setShowAll(true)}
+                >
+                  Afiseaza mai multe imagini
+                </Button>
+              </div>
+            </Col>
+          )}
         </Row>
       </Image.PreviewGroup>
     </Col>
   );
 };
 
-export default ProductImages;
+export default ProductImagesWeb;
