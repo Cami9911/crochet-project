@@ -1,6 +1,6 @@
 import { Breadcrumb, Col, Row } from "antd";
 import "./ProductDetails.scss";
-import { products } from "../../components/productData";
+import { products } from "../../productData";
 import { useParams } from "react-router-dom";
 import ProductInfo from "./ProductInfo";
 import ProductImagesWeb from "./ProductImagesWeb";

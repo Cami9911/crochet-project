@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Carousel, Col, Grid } from "antd";
 import { productType } from "../../types";
 import { useNavigate } from "react-router-dom";
-import { products } from "../../components/productData";
+import { products } from "../../productData";
 import { selectedProductAtom } from "../../storageAtoms";
 import { useSetAtom } from "jotai";
 

@@ -1,4 +1,4 @@
-import { products } from "./productData";
+import { products } from "../productData";
 
 const images = import.meta.glob("../assets/*.{png,jpg,jpeg,webp,jfif}", {
   eager: true,
@@ -7,12 +7,8 @@ const images = import.meta.glob("../assets/*.{png,jpg,jpeg,webp,jfif}", {
 
 const getImage = (imageName: string) => images[`../assets/${imageName}`];
 
-const capitalizeFirst = (text: string) =>
-  text.charAt(0).toUpperCase() + text.slice(1);
-
 const AllProducts = products.map((product) => ({
   ...product,
-  label: `${product.category} · ${capitalizeFirst(product.color)}`,
   src: getImage(product?.firstImage),
 }));
 

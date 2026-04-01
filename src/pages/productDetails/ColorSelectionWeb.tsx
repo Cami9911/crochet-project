@@ -1,7 +1,7 @@
 import { Radio, RadioChangeEvent } from "antd";
 import "./ColorSelection.scss";
 import { useNavigate, useParams } from "react-router-dom";
-import { products } from "../../components/productData";
+import { products } from "../../productData";
 import { useState } from "react";
 import {
   blurImageAtom,
@@ -10,25 +10,39 @@ import {
   urlHoverImageAtom,
 } from "../../storageAtoms";
 import { useAtomValue, useSetAtom } from "jotai";
+import { CheckOutlined } from "@ant-design/icons";
 
 const MAX_VISIBLE = 5;
 
-const ColorSelectionWeb: React.FC = () => {
+type ColorSelectionProps = {
+  hoverProductKey?: string;
+};
+
+const ColorSelectionWeb: React.FC<ColorSelectionProps> = ({
+  hoverProductKey,
+}) => {
   const navigate = useNavigate();
+
+  const [selectionHoveredKey, setSelectionHoveredKey] = useState<string>("");
 
   const setSelectedProduct = useSetAtom(selectedProductAtom);
   const selectedProduct = useAtomValue(selectedProductAtom);
 
-  const selectedColor = useAtomValue(selectedColorAtom);
   const setSelectedColor = useSetAtom(selectedColorAtom);
 
   const setUrlHoverImageAtom = useSetAtom(urlHoverImageAtom);
   const setBlurImageAtom = useSetAtom(blurImageAtom);
 
+  const hoveredGridProduct = products.find((p) => p.key === hoverProductKey);
+
+  const defaultProduct = hoverProductKey ? hoveredGridProduct : selectedProduct;
+
   const { id } = useParams();
   const [showAll, setShowAll] = useState(false);
 
-  const uniqueID = id?.split("F00")[0];
+  const uniqueID = hoverProductKey
+    ? hoveredGridProduct?.key.split("F00")[0]
+    : id?.split("F00")[0];
   const similarProducts = uniqueID
     ? products.filter((p) => p.key.split("F00")[0] === uniqueID)
     : [];
@@ -50,40 +64,48 @@ const ColorSelectionWeb: React.FC = () => {
     : similarProducts.slice(0, MAX_VISIBLE);
 
   const changeImage = (e: RadioChangeEvent) => {
-    const selectedProduct =
+    const newSelectedProduct =
       products.find((item) => item.key === e.target.value) ?? null;
-    setSelectedProduct(selectedProduct);
+    setSelectedProduct(newSelectedProduct);
     navigate(`/product-details/${e.target.value}`);
   };
 
   return (
-    <div className="my-12 flex flex-col">
-      <span>CULOARE: {selectedColor}</span>
+    <div className=" flex flex-col">
       <Radio.Group
-        value={selectedProduct?.key}
+        value={defaultProduct?.key}
         onChange={changeImage}
         className="image-radio-group"
       >
-        <div className="flex flex-wrap gap-2">
+        <div
+          className="flex flex-wrap gap-2"
+          onMouseLeave={() => {
+            setSelectedColor(defaultProduct?.color);
+            setUrlHoverImageAtom("");
+            setSelectionHoveredKey("");
+            setBlurImageAtom(false);
+          }}
+        >
           {displayedProducts.map((item) => (
             <Radio key={item.key} value={item.key}>
               <div
-                className="w-20"
+                className={hoverProductKey ? "w-10 relative" : "w-20 relative"}
                 style={{
                   border:
-                    selectedProduct?.key === item.key
+                    defaultProduct?.key === item.key
                       ? "1px solid #000"
                       : "1px solid #979797",
+                  filter:
+                    selectionHoveredKey === item.key
+                      ? "brightness(0.8)"
+                      : "brightness(1)",
+                  transition: "filter 0.2s ease, border-color 0.2s ease",
                 }}
                 onMouseEnter={() => {
                   setSelectedColor(item.color);
                   setUrlHoverImageAtom(item.firstImage);
-                  setBlurImageAtom(true);
-                }}
-                onMouseLeave={() => {
-                  setSelectedColor(selectedProduct?.color);
-                  setUrlHoverImageAtom("");
-                  setBlurImageAtom(false);
+                  setSelectionHoveredKey(item.key);
+                  setBlurImageAtom(defaultProduct?.key !== item.key);
                 }}
               >
                 <img
@@ -91,6 +113,11 @@ const ColorSelectionWeb: React.FC = () => {
                   alt={item.category}
                   style={{ width: "100%", height: "auto" }}
                 />
+                {defaultProduct?.key === item.key && (
+                  <div className="absolute bottom-0 right-0 bg-[#2424245e] flex justify-center h-5 w-5 text-white">
+                    <CheckOutlined />
+                  </div>
+                )}
               </div>
             </Radio>
           ))}

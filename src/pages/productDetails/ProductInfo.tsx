@@ -3,14 +3,18 @@ import { Collapse } from "antd";
 import ColorSelectionWeb from "./ColorSelectionWeb";
 import "./ProductDetails.scss";
 import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
-import { products } from "../../components/productData";
+import { products } from "../../productData";
 
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import ColorSelectionMobile from "./ColorSelectionMobile";
+import { selectedColorAtom } from "../../storageAtoms";
+import { useAtomValue } from "jotai";
 
 const ProductInfo: React.FC = () => {
   const [activeKey, setActiveKey] = useState<string | string[]>([""]);
+
+  const selectedColor = useAtomValue(selectedColorAtom);
 
   const { id } = useParams();
   const product = products.find((p) => p.key === id);
@@ -64,7 +68,8 @@ const ProductInfo: React.FC = () => {
         <div className="flex flex-col w-full">
           <span>SHOULDER BAG</span>
 
-          <div className="hidden md:block">
+          <div className="hidden md:block mt-12">
+            <span>CULOARE: {selectedColor}</span>
             <ColorSelectionWeb />
           </div>
 
@@ -72,7 +77,12 @@ const ProductInfo: React.FC = () => {
             <ColorSelectionMobile />
           </div>
 
-          <Button size="large" className="my-4" color="default" variant="solid">
+          <Button
+            size="large"
+            className="mt-12 mb-4"
+            color="default"
+            variant="solid"
+          >
             Comanda acum
           </Button>
 

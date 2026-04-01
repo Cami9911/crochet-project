@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { products } from "../../components/productData";
+import { products } from "../../productData";
 import { productType } from "../../types";
 import { useAtomValue, useSetAtom } from "jotai";
 import { selectedColorAtom, selectedProductAtom } from "../../storageAtoms";
