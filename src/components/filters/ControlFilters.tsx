@@ -34,19 +34,21 @@ const ControlFilters: React.FC = () => {
 
   return (
     <>
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex">
+      <div className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex">
         <Button
-          className="rounded-r-none! border-r-[0.25px]! border-r-white! w-32"
+          className="sort-btn rounded-r-none! border-r-[0.25px]! border-r-white! w-32 sm:w-48"
           color="default"
           variant="solid"
+          size="large"
           onClick={showSorterDrawer}
         >
           Sorteaza
         </Button>
         <Button
-          className="rounded-l-none! w-32"
+          className="filter-btn rounded-l-none! w-32 sm:w-48"
           color="default"
           variant="solid"
+          size="large"
           onClick={showFilterDrawer}
         >
           Filtreaza
