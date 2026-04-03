@@ -37,6 +37,7 @@ const GridContent: React.FC = () => {
   const selectedSizes = searchParams.getAll("size");
   const selectedHandles = searchParams.getAll("handle");
   const selectedStyles = searchParams.getAll("style");
+  const selectedStock = searchParams.getAll("stock");
 
   const filteredProducts = useMemo(() => {
     const routePredicate = routeToFilter[pathname] ?? (() => true);
@@ -56,8 +57,16 @@ const GridContent: React.FC = () => {
       const filterStyles =
         selectedStyles.length === 0 || selectedStyles.includes(p.style);
 
+      const filterStock =
+        selectedStock.length === 0 || selectedStock.includes(p.stock);
+
       return (
-        okRoute && filterColors && filterSizes && filterHandles && filterStyles
+        okRoute &&
+        filterColors &&
+        filterSizes &&
+        filterHandles &&
+        filterStyles &&
+        filterStock
       );
     });
   }, [
@@ -66,6 +75,7 @@ const GridContent: React.FC = () => {
     selectedSizes,
     selectedHandles,
     selectedStyles,
+    selectedStock,
   ]);
 
   const capitalizeFirst = (text: string) =>
@@ -123,7 +133,7 @@ const GridContent: React.FC = () => {
 
                 <p className="mt-2 font-semibold">Geanta {style}</p>
                 <p className="">
-                  {stock ? "Produs in stoc" : "Produs pe comanda"}
+                  {stock === "true" ? "Produs in stoc" : "Produs la cerere"}
                 </p>
 
                 {isHovered ? (

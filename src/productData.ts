@@ -22,7 +22,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "false",
   },
   {
     key: "P1F00GREY",
@@ -52,7 +52,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "false",
   },
   {
     key: "P1F00ORANGE",
@@ -75,7 +75,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "false",
   },
   {
     key: "P2F00CREM",
@@ -98,7 +98,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P2F00RED",
@@ -121,7 +121,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P13F00BLACK",
@@ -144,7 +144,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "false",
   },
   {
     key: "P3F00VISINIU",
@@ -167,7 +167,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "false",
   },
   {
     key: "P3F00GREEN",
@@ -190,7 +190,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P3F00BLACK",
@@ -213,7 +213,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P4F00PINK",
@@ -236,7 +236,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P4F00TURCOAZ",
@@ -259,7 +259,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "all-purse-sonia",
@@ -282,7 +282,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P6F00ORANGE",
@@ -305,7 +305,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P5F00RED",
@@ -328,7 +328,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P6F00GREEN",
@@ -351,7 +351,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P5F00GREEN",
@@ -374,7 +374,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P7F00CREM",
@@ -397,7 +397,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P7F00GREEN",
@@ -420,7 +420,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P7F00PINK",
@@ -443,7 +443,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P8F00BLUE",
@@ -466,7 +466,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P8F00BLACK",
@@ -489,7 +489,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P9F00BLACK",
@@ -512,7 +512,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P8F00GREY",
@@ -535,7 +535,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P9F00WHITE",
@@ -558,7 +558,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P10F00GREY",
@@ -581,7 +581,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "all-purse-eliza-2",
@@ -604,7 +604,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "all-purse-eliza-3",
@@ -627,7 +627,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "all-purse-eliza-4",
@@ -650,7 +650,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P10F00BLACK",
@@ -673,7 +673,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P10F00WHITE",
@@ -696,7 +696,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P10F00BEJ",
@@ -719,7 +719,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "all-purse-eliza-9",
@@ -742,7 +742,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P11F00BEJ",
@@ -765,7 +765,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P11F00PINK",
@@ -788,7 +788,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P12F00BLACK",
@@ -811,7 +811,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P11F00BROWN",
@@ -834,7 +834,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P11F00GREY",
@@ -857,7 +857,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P11F00CREM",
@@ -880,7 +880,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P11F00BLUE",
@@ -903,7 +903,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P12F00BLUE",
@@ -926,7 +926,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "P11F00LIGHTGREY",
@@ -949,7 +949,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "all-bag-1",
@@ -972,7 +972,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "all-wallet-1",
@@ -995,7 +995,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "all-wallet-2",
@@ -1018,7 +1018,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "all-wallet-3",
@@ -1041,7 +1041,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "all-wallet-4",
@@ -1064,7 +1064,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "all-wallet-5",
@@ -1087,7 +1087,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "all-beret-adult-1",
@@ -1110,7 +1110,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "all-beret-adult-2",
@@ -1133,7 +1133,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "all-beret-adult-3",
@@ -1156,7 +1156,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "all-beret-adult-4",
@@ -1179,7 +1179,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "all-beret-child-1",
@@ -1202,7 +1202,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "all-hat1",
@@ -1225,7 +1225,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "all-hat2",
@@ -1248,7 +1248,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "all-hat3",
@@ -1271,7 +1271,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "all-hat4",
@@ -1294,7 +1294,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "all-hat5",
@@ -1317,7 +1317,7 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
   {
     key: "all-hat6",
@@ -1340,6 +1340,6 @@ export const products: productType[] = [
       accesorii: "geanta de umar",
     },
     materials: "Este confectionata din",
-    stock: true,
+    stock: "true",
   },
 ];

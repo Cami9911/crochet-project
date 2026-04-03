@@ -43,6 +43,9 @@ const ProductImagesExtra: React.FC<SimilarProductsProps> = ({
     navigate(`/product-details/${product.key}`);
   };
 
+  const capitalizeFirst = (text: string) =>
+    text.charAt(0).toUpperCase() + text.slice(1);
+
   const screens = useBreakpoint();
 
   const slidesToShow = !screens.sm ? 2 : !screens.md ? 3 : !screens.xl ? 5 : 6;
@@ -76,6 +79,15 @@ const ProductImagesExtra: React.FC<SimilarProductsProps> = ({
                 alt={`product-${index}`}
                 className="w-full h-auto px-1 cursor-pointer"
               />
+              <p className="mt-2 font-semibold">Geanta {product.style}</p>
+              <p className="mt-2 ">
+                Culoare · {capitalizeFirst(product.color)}
+              </p>
+              <p className="font-semibold">
+                {product.stock === "true"
+                  ? "Produs in stoc"
+                  : "Produs la cerere"}
+              </p>
             </div>
           );
         })}

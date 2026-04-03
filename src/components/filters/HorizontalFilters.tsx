@@ -19,6 +19,15 @@ const HorizontalFilters: React.FC = () => {
         <Button
           onClick={() => {
             setIsOpenFilterDrawer(true);
+            setSelectedFilter({ key: "style", name: "Stil" });
+          }}
+        >
+          In stoc
+          <Badge count={searchParams.getAll("stock")?.length} color="#000" />
+        </Button>
+        <Button
+          onClick={() => {
+            setIsOpenFilterDrawer(true);
             setSelectedFilter({ key: "color", name: "Culoare" });
           }}
         >

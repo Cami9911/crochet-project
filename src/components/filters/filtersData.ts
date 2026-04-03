@@ -113,4 +113,13 @@ export const filters = [
     key: "category",
     name: "Categorie",
   },
+  {
+    key: "stock",
+    name: "In stoc",
+  },
+];
+
+export const stock = [
+  { name: "In stock", key: "true" },
+  { name: "La cerere", key: "false" },
 ];

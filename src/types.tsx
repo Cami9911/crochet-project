@@ -17,7 +17,7 @@ export type productType = {
   images: string[];
   description?: DescriptionItem;
   materials?: string;
-  stock: boolean;
+  stock: string;
 };
 
 type DescriptionItem = {
