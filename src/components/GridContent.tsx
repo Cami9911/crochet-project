@@ -52,10 +52,12 @@ const GridContent: React.FC = () => {
         selectedSizes.length === 0 || selectedSizes.includes(p.size);
 
       const filterHandles =
-        selectedHandles.length === 0 || selectedHandles.includes(p.handle);
+        selectedHandles.length === 0 ||
+        p.handle.some((handle) => selectedHandles.includes(handle));
 
       const filterStyles =
-        selectedStyles.length === 0 || selectedStyles.includes(p.style);
+        selectedStyles.length === 0 ||
+        p.style.some((style) => selectedStyles.includes(style));
 
       const filterStock =
         selectedStock.length === 0 || selectedStock.includes(p.stock);

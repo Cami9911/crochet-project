@@ -1,12 +1,5 @@
-import { Input, Row, Col } from "antd";
-import type { GetProps } from "antd";
-
-type SearchProps = GetProps<typeof Input.Search>;
-
-const { Search } = Input;
-
-const onSearch: SearchProps["onSearch"] = (value, _e, info) =>
-  console.log(info?.source, value);
+import { Row, Col } from "antd";
+import HeaderAutoComplete from "./HeaderAutoComplete";
 
 const Header: React.FC = () => {
   return (
@@ -20,11 +13,7 @@ const Header: React.FC = () => {
       </Col>
 
       <Col xs={{ span: 24, order: 3 }} md={{ span: 14, order: 2 }}>
-        <Search
-          size="large"
-          onSearch={onSearch}
-          placeholder="Cauta dupa culoare, stil, tipul de produs"
-        />
+        <HeaderAutoComplete />
       </Col>
 
       <Col

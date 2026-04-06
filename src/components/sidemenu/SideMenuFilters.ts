@@ -4,8 +4,6 @@ export const routeToFilter: Record<string, (p: productType) => boolean> = {
   "/all": () => true,
 
   "/bags": (p) => p.category === "Geanta",
-  "/bags-elegante": (p) => p.category === "Geanta" && p.style === "elegante",
-  "/bags-casual": (p) => p.category === "Geanta" && p.style === "casual",
 
   "/backpacks": (p) => p.category === "Rucsac",
   "/wallets": (p) => p.category === "Portofel",

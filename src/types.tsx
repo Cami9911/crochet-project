@@ -10,8 +10,8 @@ export type productType = {
   similarColors: string[];
   size: string;
   material: string;
-  handle: string;
-  style: string;
+  handle: string[];
+  style: string[];
   firstImage: string;
   secondImage: string;
   images: string[];
