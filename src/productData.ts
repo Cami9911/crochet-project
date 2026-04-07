@@ -3,7 +3,7 @@ import { productType } from "./types";
 export const products: productType[] = [
   {
     key: "P1F00GREEN",
-    category: "Geanta",
+    category: "bag",
     color: "green",
     similarColors: ["turcoaz", "blue", "grey"],
     size: "big",
@@ -26,7 +26,7 @@ export const products: productType[] = [
   },
   {
     key: "P1F00GREY",
-    category: "Geanta",
+    category: "bag",
     color: "grey",
     similarColors: ["grey", "bej", "crem", "white"],
     size: "big",
@@ -56,7 +56,7 @@ export const products: productType[] = [
   },
   {
     key: "P1F00ORANGE",
-    category: "Geanta",
+    category: "bag",
     color: "orange",
     similarColors: ["turcoaz", "blue", "grey"],
     size: "big",
@@ -79,7 +79,7 @@ export const products: productType[] = [
   },
   {
     key: "P2F00CREM",
-    category: "Geanta",
+    category: "bag",
     color: "crem",
     similarColors: ["crem", "bej", "grey", "white", "yellow"],
     size: "small",
@@ -102,7 +102,7 @@ export const products: productType[] = [
   },
   {
     key: "P2F00RED",
-    category: "Geanta",
+    category: "bag",
     color: "red",
     similarColors: ["red", "visiniu", "pink"],
     size: "small",
@@ -125,7 +125,7 @@ export const products: productType[] = [
   },
   {
     key: "P13F00BLACK",
-    category: "Geanta",
+    category: "bag",
     color: "black",
     similarColors: ["black", "grey"],
     size: "small",
@@ -148,7 +148,7 @@ export const products: productType[] = [
   },
   {
     key: "P3F00VISINIU",
-    category: "Geanta",
+    category: "bag",
     color: "visiniu",
     similarColors: ["visiniu", "red", "violet"],
     size: "small",
@@ -171,7 +171,7 @@ export const products: productType[] = [
   },
   {
     key: "P3F00GREEN",
-    category: "Geanta",
+    category: "bag",
     color: "green",
     similarColors: ["turcoaz", "blue", "grey"],
     size: "small",
@@ -194,7 +194,7 @@ export const products: productType[] = [
   },
   {
     key: "P3F00BLACK",
-    category: "Geanta",
+    category: "bag",
     color: "black",
     similarColors: ["black", "grey"],
     size: "small",
@@ -217,7 +217,7 @@ export const products: productType[] = [
   },
   {
     key: "P4F00PINK",
-    category: "Geanta",
+    category: "bag",
     color: "pink",
     similarColors: ["pink", "visiniu", "violet", "red"],
     size: "medium",
@@ -240,7 +240,7 @@ export const products: productType[] = [
   },
   {
     key: "P4F00TURCOAZ",
-    category: "Geanta",
+    category: "bag",
     color: "turcoaz",
     similarColors: ["turcoaz", "green", "blue"],
     size: "medium",
@@ -263,7 +263,7 @@ export const products: productType[] = [
   },
   {
     key: "all-purse-sonia",
-    category: "Geanta",
+    category: "bag",
     color: "blue",
     similarColors: ["blue", "turcoaz", "green"],
     size: "large",
@@ -286,7 +286,7 @@ export const products: productType[] = [
   },
   {
     key: "P6F00ORANGE",
-    category: "Geanta",
+    category: "bag",
     color: "orange",
     similarColors: ["orange", "red", "crem", "brown"],
     size: "small",
@@ -309,7 +309,7 @@ export const products: productType[] = [
   },
   {
     key: "P5F00RED",
-    category: "Geanta",
+    category: "bag",
     color: "red",
     similarColors: ["red", "visiniu", "pink"],
     size: "medium",
@@ -332,7 +332,7 @@ export const products: productType[] = [
   },
   {
     key: "P6F00GREEN",
-    category: "Geanta",
+    category: "bag",
     color: "green",
     similarColors: ["turcoaz", "blue", "grey"],
     size: "small",
@@ -355,7 +355,7 @@ export const products: productType[] = [
   },
   {
     key: "P5F00GREEN",
-    category: "Geanta",
+    category: "bag",
     color: "green",
     similarColors: ["turcoaz", "blue", "grey"],
     size: "medium",
@@ -378,7 +378,7 @@ export const products: productType[] = [
   },
   {
     key: "P7F00CREM",
-    category: "Geanta",
+    category: "bag",
     color: "crem",
     similarColors: ["crem", "bej", "grey", "white", "yellow"],
     size: "small",
@@ -401,7 +401,7 @@ export const products: productType[] = [
   },
   {
     key: "P7F00GREEN",
-    category: "Geanta",
+    category: "bag",
     color: "green",
     similarColors: ["turcoaz", "blue", "grey"],
     size: "small",
@@ -424,7 +424,7 @@ export const products: productType[] = [
   },
   {
     key: "P7F00PINK",
-    category: "Geanta",
+    category: "bag",
     color: "pink",
     similarColors: ["pink", "visiniu", "violet", "red"],
     size: "small",
@@ -447,7 +447,7 @@ export const products: productType[] = [
   },
   {
     key: "P8F00BLUE",
-    category: "Geanta",
+    category: "bag",
     color: "turcoaz",
     similarColors: ["turcoaz", "green", "blue"],
     size: "small",
@@ -470,7 +470,7 @@ export const products: productType[] = [
   },
   {
     key: "P8F00BLACK",
-    category: "Geanta",
+    category: "bag",
     color: "black",
     similarColors: ["black", "grey"],
     size: "small",
@@ -493,7 +493,7 @@ export const products: productType[] = [
   },
   {
     key: "P9F00BLACK",
-    category: "Geanta",
+    category: "bag",
     color: "black",
     similarColors: ["black", "grey"],
     size: "small",
@@ -516,7 +516,7 @@ export const products: productType[] = [
   },
   {
     key: "P8F00GREY",
-    category: "Geanta",
+    category: "bag",
     color: "grey",
     similarColors: ["grey", "bej", "crem", "white"],
     size: "small",
@@ -539,7 +539,7 @@ export const products: productType[] = [
   },
   {
     key: "P9F00WHITE",
-    category: "Geanta",
+    category: "bag",
     color: "white",
     similarColors: ["white", "crem", "bej", "grey"],
     size: "small",
@@ -562,7 +562,7 @@ export const products: productType[] = [
   },
   {
     key: "P10F00GREY",
-    category: "Geanta",
+    category: "bag",
     color: "grey",
     similarColors: ["grey", "bej", "crem", "white"],
     size: "small",
@@ -585,7 +585,7 @@ export const products: productType[] = [
   },
   {
     key: "all-purse-eliza-2",
-    category: "Geanta",
+    category: "bag",
     color: "grey",
     similarColors: ["grey", "bej", "crem", "white"],
     size: "small",
@@ -608,7 +608,7 @@ export const products: productType[] = [
   },
   {
     key: "all-purse-eliza-3",
-    category: "Geanta",
+    category: "bag",
     color: "crem",
     similarColors: ["crem", "bej", "grey", "white", "yellow"],
     size: "small",
@@ -631,7 +631,7 @@ export const products: productType[] = [
   },
   {
     key: "all-purse-eliza-4",
-    category: "Geanta",
+    category: "bag",
     color: "grey",
     similarColors: ["grey", "bej", "crem", "white"],
     size: "small",
@@ -654,7 +654,7 @@ export const products: productType[] = [
   },
   {
     key: "P10F00BLACK",
-    category: "Geanta",
+    category: "bag",
     color: "black",
     similarColors: ["black", "grey"],
     size: "small",
@@ -677,7 +677,7 @@ export const products: productType[] = [
   },
   {
     key: "P10F00WHITE",
-    category: "Geanta",
+    category: "bag",
     color: "white",
     similarColors: ["white", "crem", "bej", "grey"],
     size: "small",
@@ -700,7 +700,7 @@ export const products: productType[] = [
   },
   {
     key: "P10F00BEJ",
-    category: "Geanta",
+    category: "bag",
     color: "bej",
     similarColors: ["bej", "crem", "grey"],
     size: "small",
@@ -723,7 +723,7 @@ export const products: productType[] = [
   },
   {
     key: "all-purse-eliza-9",
-    category: "Geanta",
+    category: "bag",
     color: "grey",
     similarColors: ["grey", "bej", "crem", "white"],
     size: "small",
@@ -746,7 +746,7 @@ export const products: productType[] = [
   },
   {
     key: "P11F00BEJ",
-    category: "Geanta",
+    category: "bag",
     color: "bej",
     similarColors: ["bej", "crem", "grey"],
     size: "small",
@@ -769,7 +769,7 @@ export const products: productType[] = [
   },
   {
     key: "P11F00PINK",
-    category: "Geanta",
+    category: "bag",
     color: "pink",
     similarColors: ["pink", "visiniu", "violet", "red"],
     size: "small",
@@ -792,7 +792,7 @@ export const products: productType[] = [
   },
   {
     key: "P12F00BLACK",
-    category: "Geanta",
+    category: "bag",
     color: "black",
     similarColors: ["black", "grey"],
     size: "small",
@@ -815,7 +815,7 @@ export const products: productType[] = [
   },
   {
     key: "P11F00BROWN",
-    category: "Geanta",
+    category: "bag",
     color: "brown",
     similarColors: ["brown", "orange"],
     size: "small",
@@ -838,7 +838,7 @@ export const products: productType[] = [
   },
   {
     key: "P11F00GREY",
-    category: "Geanta",
+    category: "bag",
     color: "grey",
     similarColors: ["grey", "bej", "crem", "white"],
     size: "small",
@@ -861,7 +861,7 @@ export const products: productType[] = [
   },
   {
     key: "P11F00CREM",
-    category: "Geanta",
+    category: "bag",
     color: "crem",
     similarColors: ["crem", "bej", "grey", "white", "yellow"],
     size: "small",
@@ -884,7 +884,7 @@ export const products: productType[] = [
   },
   {
     key: "P11F00BLUE",
-    category: "Geanta",
+    category: "bag",
     color: "blue",
     similarColors: ["blue", "turcoaz", "green"],
     size: "small",
@@ -907,7 +907,7 @@ export const products: productType[] = [
   },
   {
     key: "P12F00BLUE",
-    category: "Geanta",
+    category: "bag",
     color: "blue",
     similarColors: ["blue", "turcoaz", "green"],
     size: "small",
@@ -930,7 +930,7 @@ export const products: productType[] = [
   },
   {
     key: "P11F00LIGHTGREY",
-    category: "Geanta",
+    category: "bag",
     color: "grey",
     similarColors: ["grey", "bej", "crem", "white"],
     size: "small",
@@ -953,7 +953,7 @@ export const products: productType[] = [
   },
   {
     key: "all-bag-1",
-    category: "Rucsac",
+    category: "backpack",
     color: "black",
     similarColors: ["black", "grey"],
     size: "big",
@@ -976,7 +976,7 @@ export const products: productType[] = [
   },
   {
     key: "all-wallet-1",
-    category: "Portofel",
+    category: "wallet",
     color: "blue",
     similarColors: ["blue", "turcoaz", "green"],
     size: "small",
@@ -999,7 +999,7 @@ export const products: productType[] = [
   },
   {
     key: "all-wallet-2",
-    category: "Portofel",
+    category: "wallet",
     color: "brown",
     similarColors: ["brown", "orange"],
     size: "small",
@@ -1022,7 +1022,7 @@ export const products: productType[] = [
   },
   {
     key: "all-wallet-3",
-    category: "Portofel",
+    category: "wallet",
     color: "red",
     similarColors: ["red", "visiniu", "pink"],
     size: "small",
@@ -1045,7 +1045,7 @@ export const products: productType[] = [
   },
   {
     key: "all-wallet-4",
-    category: "Portofel",
+    category: "wallet",
     color: "green",
     similarColors: ["turcoaz", "blue", "grey"],
     size: "small",
@@ -1068,7 +1068,7 @@ export const products: productType[] = [
   },
   {
     key: "all-wallet-5",
-    category: "Portofel",
+    category: "wallet",
     color: "red",
     similarColors: ["red", "visiniu", "pink"],
     size: "small",
@@ -1091,7 +1091,7 @@ export const products: productType[] = [
   },
   {
     key: "all-beret-adult-1",
-    category: "Bereta",
+    category: "beret",
     color: "black",
     similarColors: ["black", "grey"],
     size: "universal",
@@ -1114,7 +1114,7 @@ export const products: productType[] = [
   },
   {
     key: "all-beret-adult-2",
-    category: "Bereta",
+    category: "beret",
     color: "green",
     similarColors: ["turcoaz", "blue", "grey"],
     size: "universal",
@@ -1137,7 +1137,7 @@ export const products: productType[] = [
   },
   {
     key: "all-beret-adult-3",
-    category: "Bereta",
+    category: "beret",
     color: "blue",
     similarColors: ["blue", "turcoaz", "green"],
     size: "universal",
@@ -1160,7 +1160,7 @@ export const products: productType[] = [
   },
   {
     key: "all-beret-adult-4",
-    category: "Bereta",
+    category: "beret",
     color: "grey",
     similarColors: ["grey", "bej", "crem", "white"],
     size: "small",
@@ -1183,7 +1183,7 @@ export const products: productType[] = [
   },
   {
     key: "all-beret-child-1",
-    category: "Bereta",
+    category: "beret",
     color: "red",
     similarColors: ["red", "visiniu", "pink"],
     size: "universal",
@@ -1206,7 +1206,7 @@ export const products: productType[] = [
   },
   {
     key: "all-hat1",
-    category: "Palarie",
+    category: "hat",
     color: "violet",
     similarColors: ["violet", "pink", "red"],
     size: "universal",
@@ -1229,7 +1229,7 @@ export const products: productType[] = [
   },
   {
     key: "all-hat2",
-    category: "Palarie",
+    category: "hat",
     color: "crem",
     similarColors: ["crem", "bej", "grey", "white", "yellow"],
     size: "universal",
@@ -1252,7 +1252,7 @@ export const products: productType[] = [
   },
   {
     key: "all-hat3",
-    category: "Palarie",
+    category: "hat",
     color: "brown",
     similarColors: ["brown", "orange"],
     size: "universal",
@@ -1275,7 +1275,7 @@ export const products: productType[] = [
   },
   {
     key: "all-hat4",
-    category: "Palarie",
+    category: "hat",
     color: "bej",
     similarColors: ["bej", "crem", "grey"],
     size: "universal",
@@ -1298,7 +1298,7 @@ export const products: productType[] = [
   },
   {
     key: "all-hat5",
-    category: "Palarie",
+    category: "hat",
     color: "grey",
     similarColors: ["grey", "bej", "crem", "white"],
     size: "small",
@@ -1321,7 +1321,7 @@ export const products: productType[] = [
   },
   {
     key: "all-hat6",
-    category: "Palarie",
+    category: "hat",
     color: "crem",
     similarColors: ["crem", "bej", "grey", "white", "yellow"],
     size: "universal",
