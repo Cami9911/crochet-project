@@ -10,6 +10,7 @@ import { useState } from "react";
 import ColorSelectionMobile from "./ColorSelectionMobile";
 import { selectedColorAtom } from "../../storageAtoms";
 import { useAtomValue } from "jotai";
+import { ro } from "../../translations";
 
 const ProductInfo: React.FC = () => {
   const [activeKey, setActiveKey] = useState<string | string[]>([""]);
@@ -32,7 +33,7 @@ const ProductInfo: React.FC = () => {
           <span>{product?.description?.generalDescription}</span>
           <div className="grid">
             <span className="font-semibold">Culoare:</span>
-            <span>{product?.color}</span>
+            <span>{ro.colors[product?.color || ""]}</span>
           </div>
           <div className="grid">
             <span className="font-semibold">Marime:</span>
@@ -69,7 +70,7 @@ const ProductInfo: React.FC = () => {
           <span>SHOULDER BAG</span>
 
           <div className="hidden md:block mt-12">
-            <span>CULOARE: {selectedColor}</span>
+            <span>CULOARE: {ro.colors[selectedColor || ""]}</span>
             <ColorSelectionWeb />
           </div>
 

@@ -1,0 +1,46 @@
+export const ro = {
+  categories: {
+    bag: "geantă",
+    backpack: "rucsac",
+    wallet: "portofel",
+    beret: "beretă",
+    hat: "pălărie",
+  } as Record<string, string>,
+  colors: {
+    green: "verde",
+    grey: "gri",
+    orange: "portocaliu",
+    cream: "crem",
+    red: "roșu",
+    black: "negru",
+    burgundy: "vișiniu",
+    pink: "roz",
+    turquoise: "turcoaz",
+    blue: "albastru",
+    white: "alb",
+    beige: "bej",
+    brown: "maro",
+    violet: "mov",
+    yellow: "galben",
+  } as Record<string, string>,
+  sizes: {
+    small: "mic",
+    medium: "mediu",
+    big: "mare",
+    large: "mare",
+    universal: "universal",
+  } as Record<string, string>,
+  handles: {
+    strap: "curea",
+    handle: "mâner",
+  } as Record<string, string>,
+  styles: {
+    casual: "casual",
+    elegante: "elegantă",
+    casual_elegante: "casual și elegantă",
+  } as Record<string, string>,
+  stock: {
+    true: "Produs în stoc",
+    false: "Produs la cerere",
+  } as Record<string, string>,
+};

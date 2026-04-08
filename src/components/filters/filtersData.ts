@@ -12,11 +12,11 @@ export const colors = [
     code: "rgb(216, 211, 217)",
   },
   {
-    name: "crem",
+    name: "cream",
     code: "rgb(245, 245, 220)",
   },
   {
-    name: "bej",
+    name: "beige",
     code: "rgb(222, 206, 165)",
   },
   {
@@ -24,11 +24,11 @@ export const colors = [
     code: "rgb(223, 136, 73)",
   },
   {
-    name: "maro",
+    name: "brown",
     code: "rgb(115, 69, 38)",
   },
   {
-    name: "visiniu",
+    name: "burgundy",
     code: "rgb(136, 7, 32)",
   },
   {
@@ -48,7 +48,7 @@ export const colors = [
     code: "rgb(70, 110, 160)",
   },
   {
-    name: "turcoaz",
+    name: "turquoise",
     code: "rgb(80, 172, 180)",
   },
   {

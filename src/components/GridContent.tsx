@@ -16,6 +16,8 @@ import { products } from "../productData";
 import { productType } from "../types";
 import { colors } from "./filters/filtersData";
 import ColorSelectionWeb from "../pages/productDetails/ColorSelectionWeb";
+import { ro } from "../translations";
+import { capitalizeFirst } from "../useFunctions";
 
 const GridContent: React.FC = () => {
   const navigate = useNavigate();
@@ -56,8 +58,7 @@ const GridContent: React.FC = () => {
         p.handle.some((handle) => selectedHandles.includes(handle));
 
       const filterStyles =
-        selectedStyles.length === 0 ||
-        p.style.some((style) => selectedStyles.includes(style));
+        selectedStyles.length === 0 || selectedStyles.includes(p.style);
 
       const filterStock =
         selectedStock.length === 0 || selectedStock.includes(p.stock);
@@ -80,9 +81,6 @@ const GridContent: React.FC = () => {
     selectedStock,
   ]);
 
-  const capitalizeFirst = (text: string) =>
-    text.charAt(0).toUpperCase() + text.slice(1);
-
   const goToDetails = (key: string) => {
     const product = products.find((p) => p.key === key) ?? null;
     setSelectedProduct(product);
@@ -101,7 +99,7 @@ const GridContent: React.FC = () => {
 
       <Row gutter={16} className="">
         {filteredProducts?.map(
-          ({ key, src, secondImage, style, color, stock }) => {
+          ({ key, src, secondImage, style, color, stock, category }) => {
             const isHovered = hoveredProductKey === key;
             const imageSrc = isHovered ? "/src/assets/" + secondImage : src;
             const selectionHoveredImg = "/src/assets/" + urlHoverImage;
@@ -116,7 +114,7 @@ const GridContent: React.FC = () => {
 
             return (
               <Col
-                className="gutter-row mb-4 lg:min-h-[360px]! xl:min-h-[390px]! 2xl:min-h-[530px]!"
+                className="gutter-row mb-4 lg:min-h-90! xl:min-h-97.5! 2xl:min-h-132.5!"
                 span={12}
                 lg={{ span: 6 }}
                 key={key}
@@ -133,10 +131,10 @@ const GridContent: React.FC = () => {
                   preview={false}
                 />
 
-                <p className="mt-2 font-semibold">Geanta {style}</p>
-                <p className="">
-                  {stock === "true" ? "Produs in stoc" : "Produs la cerere"}
+                <p className="mt-2 font-semibold">
+                  {capitalizeFirst(ro.categories[category])} {ro.styles[style]}
                 </p>
+                <p className="">{ro.stock[stock]}</p>
 
                 {isHovered ? (
                   <ColorSelectionWeb
@@ -145,7 +143,7 @@ const GridContent: React.FC = () => {
                 ) : (
                   <>
                     <div className="mt-2">
-                      Culoare · {capitalizeFirst(color)}
+                      Culoare · {capitalizeFirst(ro.colors[color])}
                     </div>
                     <div className="mt-2 flex items-center gap-1">
                       {productColors?.map((color: string, index: number) => {

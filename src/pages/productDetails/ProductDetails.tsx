@@ -8,6 +8,8 @@ import ProductImagesMobile from "./ProductImagesMobile";
 import ProductImagesExtra from "./ProductImagesExtra";
 import { useAtomValue } from "jotai";
 import { selectedProductAtom } from "../../storageAtoms";
+import { ro } from "../../translations";
+import { capitalizeFirst } from "../../useFunctions";
 
 const ProductDetails: React.FC = () => {
   const { id } = useParams();
@@ -46,7 +48,8 @@ const ProductDetails: React.FC = () => {
           {
             title: (
               <span>
-                {product?.category} {product?.style}
+                {capitalizeFirst(ro.categories[product?.category || ""])}{" "}
+                {ro.styles[product?.style || ""]}
               </span>
             ),
           },

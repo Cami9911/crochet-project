@@ -11,7 +11,7 @@ export type productType = {
   size: string;
   material: string;
   handle: string[];
-  style: string[];
+  style: string;
   firstImage: string;
   secondImage: string;
   images: string[];

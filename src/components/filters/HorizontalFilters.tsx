@@ -26,6 +26,7 @@ const HorizontalFilters: React.FC = () => {
         {filters.map(({ key, name }) => (
           // <Col className="mb-2 pb-2">
           <Button
+            key={key}
             onClick={() => {
               setIsOpenFilterDrawer(true);
               setSelectedFilter({ key: key, name: name });
