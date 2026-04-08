@@ -23,7 +23,7 @@ const MainDashboardEntry = () => {
 function Routing() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="*" element={<Home />} />
       <Route path="/product-details/:id" element={<ProductDetails />} />
     </Routes>
   );
