@@ -8,6 +8,7 @@ export type productType = {
   category: string;
   color: string;
   similarColors: string[];
+  searchWords?: string[];
   size: string;
   material: string;
   handle: string[];
