@@ -157,7 +157,7 @@ const HeaderAutoComplete: React.FC = () => {
       className="w-full"
       onSelect={onSelect}
       onChange={onChange}
-      placeholder="Search product"
+      placeholder="Cauta dupa culoare, stil, tipul de produs"
     />
   );
 };

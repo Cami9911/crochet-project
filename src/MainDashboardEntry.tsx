@@ -11,6 +11,7 @@ const MainDashboardEntry = () => {
       theme={{
         token: {
           colorPrimary: "#a06518",
+          colorLink: "#a06518",
           /* here is your global tokens */
         },
         components: {
