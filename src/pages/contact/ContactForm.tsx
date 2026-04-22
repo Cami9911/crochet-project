@@ -1,13 +1,15 @@
-import { Button, Form, FormProps, Input } from "antd";
+import { Button, Form, FormProps, Input, message } from "antd";
+import emailjs from "@emailjs/browser";
+import { useState } from "react";
+
+const SERVICE_ID = "service_1ld4bjf";
+const TEMPLATE_ID = "template_h98hbuo";
+const PUBLIC_KEY = "mn8uBqSU57F5VEaMr";
 
 type FieldType = {
   name?: string;
   email?: string;
-  decription?: string;
-};
-
-const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
-  console.log("Success:", values);
+  description?: string;
 };
 
 const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (errorInfo) => {
@@ -15,11 +17,37 @@ const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (errorInfo) => {
 };
 
 const ContactForm = () => {
+  const [form] = Form.useForm();
+  const [loading, setLoading] = useState(false);
+
+  const onFinish = async (values: FieldType) => {
+    setLoading(true);
+
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: values.name,
+          from_email: values.email,
+          message: values.description,
+        },
+        PUBLIC_KEY,
+      );
+      message.success("Mesajul a fost trimis cu succes!");
+      form.resetFields();
+    } catch (error) {
+      message.error("A apărut o eroare. Încearcă din nou.");
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <Form
       name="basic"
-      // wrapperCol={{ span: 18 }}
-      // style={{ width: "100%" }}
+      form={form}
       initialValues={{ remember: true }}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
@@ -29,18 +57,26 @@ const ContactForm = () => {
         name="name"
         rules={[{ required: true, message: "Please input your username!" }]}
       >
-        <Input placeholder="Nume" />
+        <Input placeholder="Nume" size="large" />
       </Form.Item>
 
       <Form.Item name="email" rules={[{ type: "email" }]}>
-        <Input placeholder="Email" />
+        <Input placeholder="Email" size="large" />
       </Form.Item>
       <Form.Item name="description">
-        <Input.TextArea placeholder="Spune-mi cu ce informatii te pot ajuta" />
+        <Input.TextArea
+          placeholder="Spune-mi cu ce informatii te pot ajuta"
+          size="large"
+        />
       </Form.Item>
 
       <Form.Item label={null}>
-        <Button type="primary" htmlType="submit">
+        <Button
+          type="primary"
+          htmlType="submit"
+          loading={loading}
+          className="w-32"
+        >
           Trimite
         </Button>
       </Form.Item>

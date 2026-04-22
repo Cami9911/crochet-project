@@ -19,9 +19,14 @@ const Header: React.FC = () => {
       align="middle"
       className="h-24 xs:h-16 md:h-16 md:mt-6 px-4 sm:px-2 md:px-12 xl:px-40"
     >
-      <Col xs={{ span: 12, order: 1 }} md={{ span: 5, order: 1 }}>
+      <Col
+        xs={{ span: 12, order: 1 }}
+        md={{ span: 5, order: 1 }}
+        className="flex! "
+      >
         <Button
           type="link"
+          className="p-0!"
           onClick={() => {
             navigate(`/`);
           }}

@@ -6,7 +6,7 @@ const Contact = () => {
   return (
     <>
       <Row className="flex justify-center items-center bg-[#a06518] h-48 text-white ">
-        <p className="text-[40px]">
+        <p className="text-[24px] sm:text-[32px] lg:text-[40px] text-center">
           Contacteaza-ma pentru mai multe informatii
         </p>
       </Row>
@@ -25,10 +25,14 @@ const Contact = () => {
           </span>
         </Row>
         <Row gutter={[16, 16]}>
-          <Col xs={24} md={11}>
+          <Col xs={{ span: 24, order: 2 }} lg={11} md={{ span: 12, order: 1 }}>
             <ContactForm />
           </Col>
-          <Col xs={24} md={{ span: 9, offset: 4 }}>
+          <Col
+            xs={{ span: 24, order: 1 }}
+            lg={{ span: 10, offset: 3 }}
+            md={{ span: 11, offset: 1, order: 2 }}
+          >
             <ContactData />
           </Col>
         </Row>
