@@ -41,6 +41,7 @@ const ProductImagesExtra: React.FC<SimilarProductsProps> = ({
       products.find((item) => item.key === product.key) ?? null;
     setSelectedProduct(productToSet);
     navigate(`/product-details/${product.key}`);
+    window.scrollTo(0, 0);
   };
 
   const capitalizeFirst = (text: string) =>
