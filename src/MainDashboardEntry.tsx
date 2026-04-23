@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Header from "./components/Header";
 import FooterCmp from "./components/Footer";
 import ProductDetails from "./pages/productDetails/ProductDetails";
-import Contact from "./pages/Contact";
+import Contact from "./pages/contact/Contact";
 
 const MainDashboardEntry = () => {
   return (

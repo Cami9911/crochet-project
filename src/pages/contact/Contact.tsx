@@ -1,6 +1,6 @@
 import { Col, Row } from "antd";
-import ContactForm from "./contact/ContactForm";
-import ContactData from "./contact/ContactData";
+import ContactForm from "./ContactForm";
+import ContactData from "./ContactData";
 
 const Contact = () => {
   return (
