@@ -1,4 +1,4 @@
-import { Image, Row, Col } from "antd";
+import { Image, Row, Col, Pagination } from "antd";
 import { Content } from "antd/es/layout/layout";
 import allProducts from "./AllProductsData";
 import ControlFilters from "./filters/ControlFilters";
@@ -25,6 +25,8 @@ const GridContent: React.FC = () => {
   const [hoveredProductKey, setHoveredProductKey] = useState<string | null>(
     null,
   );
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 12;
 
   const setTotalResults = useSetAtom(totalResultsAtom);
   const setSelectedProduct = useSetAtom(selectedProductAtom);
@@ -81,24 +83,37 @@ const GridContent: React.FC = () => {
     selectedStock,
   ]);
 
+  const paginatedProducts = useMemo(() => {
+    const start = (currentPage - 1) * pageSize;
+    return filteredProducts.slice(start, start + pageSize);
+  }, [filteredProducts, currentPage]);
+
   const goToDetails = (key: string) => {
     const product = products.find((p) => p.key === key) ?? null;
     setSelectedProduct(product);
     setSelectedColor(product?.color);
 
     navigate(`product-details/${key}`);
+    window.scrollTo(0, 0);
   };
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [pathname, searchParams.toString()]);
 
   useEffect(() => {
     setTotalResults(filteredProducts.length);
   }, [filteredProducts.length, setTotalResults]);
 
+  console.log("currentPage:", currentPage);
+  console.log("filteredProducts.length:", filteredProducts.length);
+  console.log("paginatedProducts.length:", paginatedProducts.length);
+
   return (
     <Content className="relative">
       <ControlFilters />
-
       <Row gutter={16} className="">
-        {filteredProducts?.map(
+        {paginatedProducts?.map(
           ({ key, src, secondImage, style, color, stock, category }) => {
             const isHovered = hoveredProductKey === key;
             const imageSrc = isHovered ? "/src/assets/" + secondImage : src;
@@ -167,6 +182,17 @@ const GridContent: React.FC = () => {
           },
         )}
       </Row>
+      <Pagination
+        current={currentPage}
+        total={filteredProducts.length}
+        pageSize={pageSize}
+        onChange={(page) => {
+          console.log("page clicked:", page);
+          setCurrentPage(page);
+        }}
+        showSizeChanger={false}
+        className="flex justify-center lg:justify-end"
+      />
     </Content>
   );
 };
