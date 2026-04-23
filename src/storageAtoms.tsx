@@ -30,3 +30,8 @@ export const selectedColorAtom = atomWithStorage<string | undefined>(
 );
 
 export const blurImageAtom = atomWithStorage<boolean>("blueImage", false);
+
+export const openContactModalAtom = atomWithStorage<boolean>(
+  "openContactModal",
+  false,
+);
