@@ -123,3 +123,30 @@ export const stock = [
   { name: "In stock", key: "true" },
   { name: "La cerere", key: "false" },
 ];
+
+export const categories = [
+  {
+    name: "Genti",
+    key: "purse",
+  },
+  {
+    name: "Rucsace",
+    key: "backpack",
+  },
+  {
+    name: "Portofele",
+    key: "wallet",
+  },
+  {
+    name: "Berete copii",
+    key: "child-beret",
+  },
+  {
+    name: "Berete adulti",
+    key: "adult-beret",
+  },
+  {
+    name: "Palarii",
+    key: "hat",
+  },
+];

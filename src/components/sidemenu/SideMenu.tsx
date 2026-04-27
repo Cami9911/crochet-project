@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const items: MenuProps["items"] = [
   {
-    key: "/all",
+    key: "/",
     label: "Toate produsele",
   },
   {

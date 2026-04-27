@@ -21,7 +21,7 @@ const FiltersSelection: React.FC<FiltersSelectionProps> = ({
       {filtersData.map(({ name, key }) => {
         const isChecked = searchParams.getAll(keyToCheck).includes(key);
         return (
-          <Col span={24} key={key}>
+          <Col span={24} key={key} className="hover:bg-gray-100">
             <Row key={key}>
               <Col span={22} onClick={() => onToggleSelection(keyToCheck, key)}>
                 {name}

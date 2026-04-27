@@ -42,6 +42,7 @@ const GridContent: React.FC = () => {
   const selectedHandles = searchParams.getAll("handle");
   const selectedStyles = searchParams.getAll("style");
   const selectedStock = searchParams.getAll("stock");
+  const selectedCategories = searchParams.getAll("category");
 
   const filteredProducts = useMemo(() => {
     const routePredicate = routeToFilter[pathname] ?? (() => true);
@@ -65,13 +66,18 @@ const GridContent: React.FC = () => {
       const filterStock =
         selectedStock.length === 0 || selectedStock.includes(p.stock);
 
+      const filterCategories =
+        selectedCategories.length === 0 ||
+        selectedCategories.includes(p.category);
+
       return (
         okRoute &&
         filterColors &&
         filterSizes &&
         filterHandles &&
         filterStyles &&
-        filterStock
+        filterStock &&
+        filterCategories
       );
     });
   }, [
@@ -81,6 +87,7 @@ const GridContent: React.FC = () => {
     selectedHandles,
     selectedStyles,
     selectedStock,
+    selectedCategories,
   ]);
 
   const paginatedProducts = useMemo(() => {

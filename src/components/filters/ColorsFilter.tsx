@@ -3,6 +3,7 @@ import { Col, Row } from "antd";
 import { colors } from "./filtersData";
 import { CheckOutlined } from "@ant-design/icons";
 import { useSearchParams } from "react-router-dom";
+import { ro } from "../../translations";
 
 type ColorsFiltersProps = {
   onToggleSelection: (filter: string, name: string) => void;
@@ -32,7 +33,7 @@ const ColorsFilter: React.FC<ColorsFiltersProps> = ({ onToggleSelection }) => {
                 </div>
               )}
             </div>
-            <span>{name}</span>
+            <span>{ro.colors[name]}</span>
           </Col>
         );
       })}

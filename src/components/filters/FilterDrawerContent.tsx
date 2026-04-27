@@ -5,7 +5,14 @@ import { RightOutlined } from "@ant-design/icons";
 import ColorsFilter from "./ColorsFilter";
 import { useSearchParams } from "react-router-dom";
 import FiltersSelection from "./FiltersSelection";
-import { filters, sizes, handles, styles, stock } from "./filtersData";
+import {
+  filters,
+  sizes,
+  handles,
+  styles,
+  stock,
+  categories,
+} from "./filtersData";
 import { FilterProps } from "../../types";
 
 const FilterDrawerContent: React.FC = () => {
@@ -101,6 +108,13 @@ const FilterDrawerContent: React.FC = () => {
           onToggleSelection={toggleFilters}
           filtersData={stock}
           keyToCheck="stock"
+        />
+      )}
+      {selectedFilter.key === "category" && (
+        <FiltersSelection
+          onToggleSelection={toggleFilters}
+          filtersData={categories}
+          keyToCheck="category"
         />
       )}
     </>
