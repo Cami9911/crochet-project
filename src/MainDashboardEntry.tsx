@@ -26,7 +26,7 @@ const MainDashboardEntry = () => {
       <Layout>
         <div className="bg-white-bg sticky top-0 z-1000 ">
           <Header></Header>
-          <Divider className="mb-2! mt-0! sm:my-6!" />
+          <Divider className="m-3! sm:m-6!" />
         </div>
         <Layout className="">
           <Routing />

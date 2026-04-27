@@ -69,20 +69,26 @@ const ProductInfo: React.FC = () => {
     >
       <div className="flex justify-center h-full">
         <div className="flex flex-col w-full">
-          <span>SHOULDER BAG</span>
+          <span data-testid="product-info__name">SHOULDER BAG</span>
 
-          <div className="hidden md:block mt-12">
+          <div
+            className="hidden md:block mt-12 "
+            data-testid="product-info__color-selection"
+          >
             <span>CULOARE: {ro.colors[selectedColor || ""]}</span>
             <ColorSelectionWeb />
           </div>
 
-          <div className="block md:hidden">
+          <div
+            className="block md:hidden"
+            data-testid="product-info__color-selection"
+          >
             <ColorSelectionMobile />
           </div>
 
           <Button
             size="large"
-            className="mt-12 mb-4"
+            className="my-6 sm:my-12"
             color="default"
             variant="solid"
             onClick={() => {
@@ -98,7 +104,7 @@ const ProductInfo: React.FC = () => {
             onChange={(key) => setActiveKey(key[0])}
             ghost
             items={items}
-            className="collapse-info p-0 mt-10!"
+            className="collapse-info p-0 mt-4! sm:mt-0!"
             expandIconPlacement="end"
             expandIcon={({ isActive }) =>
               isActive ? (

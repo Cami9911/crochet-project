@@ -33,7 +33,7 @@ const ColorSelectionMobile: React.FC = () => {
   };
 
   return (
-    <div className="max-h-48 my-16  ">
+    <div className="max-h-48 my-8  ">
       <span>CULOARE: {selectedColor}</span>
 
       <div className="flex gap-2 overflow-x-auto">
