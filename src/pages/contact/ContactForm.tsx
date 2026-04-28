@@ -70,12 +70,12 @@ const ContactForm = () => {
         />
       </Form.Item>
 
-      <Form.Item label={null}>
+      <Form.Item label={null} className="m-0!">
         <Button
-          type="primary"
+          variant="outlined"
           htmlType="submit"
           loading={loading}
-          className="w-32"
+          className="w-full"
         >
           Trimite
         </Button>
