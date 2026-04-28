@@ -1,7 +1,8 @@
 import { CheckOutlined } from "@ant-design/icons";
-import { Col, Row } from "antd";
-import { FilterProps } from "../../types";
+import { FilterProps, productType } from "../../types";
 import { useSearchParams } from "react-router-dom";
+import { products } from "../../productData";
+import { Tag } from "antd";
 
 type FiltersSelectionProps = {
   onToggleSelection: (filter: string, name: string) => void;
@@ -16,22 +17,31 @@ const FiltersSelection: React.FC<FiltersSelectionProps> = ({
 }) => {
   const [searchParams] = useSearchParams();
 
+  const getResultsLength = (key: string) => {
+    return products.filter((p) => p[keyToCheck as keyof productType] === key)
+      .length;
+  };
+
   return (
-    <Row gutter={[0, 24]}>
+    <div className="flex flex-col">
       {filtersData.map(({ name, key }) => {
         const isChecked = searchParams.getAll(keyToCheck).includes(key);
+        const resultsLength = getResultsLength(key);
         return (
-          <Col span={24} key={key} className="hover:bg-gray-100">
-            <Row key={key}>
-              <Col span={22} onClick={() => onToggleSelection(keyToCheck, key)}>
-                {name}
-              </Col>
-              <Col span={2}>{isChecked && <CheckOutlined />}</Col>
-            </Row>
-          </Col>
+          <div
+            key={key}
+            className="flex items-center justify-between py-3 px-6 hover:bg-gray-50 cursor-pointer -mx-6"
+            onClick={() => onToggleSelection(keyToCheck, key)}
+          >
+            <div className="">
+              <span className="mr-2">{name}</span>
+              <Tag variant="outlined">{resultsLength}</Tag>
+            </div>
+            {isChecked && <CheckOutlined />}
+          </div>
         );
       })}
-    </Row>
+    </div>
   );
 };
 

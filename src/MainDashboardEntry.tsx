@@ -20,13 +20,17 @@ const MainDashboardEntry = () => {
             //itemSelectedBg: "#414141d8", // dark background on active item
             //itemSelectedColor: "#C9A84C", // gold text on dark bg
           },
+          Tag: {
+            defaultBg: "#fff",
+            // defaultColor: "#a06518",
+          },
         },
       }}
     >
       <Layout>
         <div className="bg-white-bg sticky top-0 z-1000 ">
           <Header></Header>
-          <Divider className="m-3! sm:m-6!" />
+          <Divider className="my-3! sm:my-6!" />
         </div>
         <Layout className="">
           <Routing />
