@@ -27,7 +27,7 @@ const Contact = () => {
         <Col xs={{ span: 24 }} md={{ span: 12 }}>
           <div className="border border-gray-200 p-6 rounded-xl">
             <span className="text-base font-semibold flex mb-4">
-              Trimite-mi un mesaj
+              Trimite-mi un mail
             </span>
             <ContactForm />
           </div>

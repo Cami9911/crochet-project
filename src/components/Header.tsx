@@ -20,7 +20,7 @@ const Header: React.FC = () => {
       className="h-full xs:h-16 md:h-16 md:mt-6 px-4 sm:px-2 md:px-12 xl:px-40"
     >
       <Col
-        xs={{ span: 12, order: 1 }}
+        xs={{ span: 10, order: 1 }}
         md={{ span: 5, order: 1 }}
         className="flex! "
       >
@@ -44,7 +44,7 @@ const Header: React.FC = () => {
       </Col>
 
       <Col
-        xs={{ span: 12, order: 2 }}
+        xs={{ span: 14, order: 2 }}
         md={{ span: 5, order: 3 }}
         style={{ textAlign: "right" }}
       >
@@ -52,7 +52,7 @@ const Header: React.FC = () => {
           <Col>
             <Button
               type="link"
-              className=""
+              className="pl-0!"
               onClick={() => {
                 navigate(`/contact`);
               }}

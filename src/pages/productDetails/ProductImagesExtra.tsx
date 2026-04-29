@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { products } from "../../productData";
 import { selectedProductAtom } from "../../storageAtoms";
 import { useSetAtom } from "jotai";
+import { ro } from "../../translations";
 
 type SimilarProductsProps = {
   similarProducts: productType[];
@@ -82,12 +83,7 @@ const ProductImagesExtra: React.FC<SimilarProductsProps> = ({
               />
               <p className="mt-2 font-semibold">Geanta {product.style}</p>
               <p className="mt-2 ">
-                Culoare · {capitalizeFirst(product.color)}
-              </p>
-              <p className="font-semibold">
-                {product.stock === "true"
-                  ? "Produs in stoc"
-                  : "Produs la cerere"}
+                Culoare · {capitalizeFirst(ro.colors[product.color])}
               </p>
             </div>
           );

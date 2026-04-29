@@ -119,7 +119,7 @@ const GridContent: React.FC = () => {
   return (
     <Content className="relative">
       <ControlFilters />
-      <Row gutter={16} className="">
+      <Row gutter={{ xs: 4, sm: 4, md: 4, lg: 4, xl: 16 }} className="">
         {paginatedProducts?.map(
           ({ key, src, secondImage, style, color, stock, category }) => {
             const isHovered = hoveredProductKey === key;
@@ -152,38 +152,40 @@ const GridContent: React.FC = () => {
                   }
                   preview={false}
                 />
+                <div className="pl-3 lg:pl-0">
+                  <p className="mt-2 font-semibold">
+                    {capitalizeFirst(ro.categories[category])}{" "}
+                    {ro.styles[style]}
+                  </p>
+                  <p className="">{ro.stock[stock]}</p>
 
-                <p className="mt-2 font-semibold">
-                  {capitalizeFirst(ro.categories[category])} {ro.styles[style]}
-                </p>
-                <p className="">{ro.stock[stock]}</p>
+                  {isHovered ? (
+                    <ColorSelectionWeb
+                      hoverProductKey={hoveredProductKey || ""}
+                    />
+                  ) : (
+                    <>
+                      <div className="mt-2">
+                        Culoare · {capitalizeFirst(ro.colors[color])}
+                      </div>
+                      <div className="mt-2 flex items-center gap-1">
+                        {productColors?.map((color: string, index: number) => {
+                          const colorCode = colors.find(
+                            (c) => c.name === color,
+                          )?.code;
 
-                {isHovered ? (
-                  <ColorSelectionWeb
-                    hoverProductKey={hoveredProductKey || ""}
-                  />
-                ) : (
-                  <>
-                    <div className="mt-2">
-                      Culoare · {capitalizeFirst(ro.colors[color])}
-                    </div>
-                    <div className="mt-2 flex items-center gap-1">
-                      {productColors?.map((color: string, index: number) => {
-                        const colorCode = colors.find(
-                          (c) => c.name === color,
-                        )?.code;
-
-                        return (
-                          <span
-                            key={index}
-                            className="inline-block h-3 w-3 rounded-full border border-gray-300 cursor-pointer"
-                            style={{ backgroundColor: colorCode }}
-                          />
-                        );
-                      })}
-                    </div>
-                  </>
-                )}
+                          return (
+                            <span
+                              key={index}
+                              className="inline-block h-3 w-3 rounded-full border border-gray-300 cursor-pointer"
+                              style={{ backgroundColor: colorCode }}
+                            />
+                          );
+                        })}
+                      </div>
+                    </>
+                  )}
+                </div>
               </Col>
             );
           },
