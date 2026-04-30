@@ -82,7 +82,7 @@ const ProductImagesExtra: React.FC<SimilarProductsProps> = ({
                 className="w-full h-auto px-1 cursor-pointer"
               />
               <p className="mt-2 font-semibold">Geanta {product.style}</p>
-              <p className="mt-2 ">
+              <p className="">
                 Culoare · {capitalizeFirst(ro.colors[product.color])}
               </p>
             </div>

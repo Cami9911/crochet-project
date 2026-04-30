@@ -31,7 +31,7 @@ const Header: React.FC = () => {
             navigate(`/`);
           }}
         >
-          <img src={logoUrl} alt="Stela's Crochet" className=" w-15 md:w-25 " />
+          <img src={logoUrl} alt="Stela's Crochet" className=" w-18 md:w-25 " />
         </Button>
       </Col>
 

@@ -12,6 +12,7 @@ import { openContactModalAtom, selectedColorAtom } from "../../storageAtoms";
 import { useAtomValue, useSetAtom } from "jotai";
 import { ro } from "../../translations";
 import ContactModal from "../../components/ContactModal";
+import { capitalizeFirst } from "../../useFunctions";
 
 const ProductInfo: React.FC = () => {
   const [activeKey, setActiveKey] = useState<string | string[]>([""]);
@@ -69,13 +70,18 @@ const ProductInfo: React.FC = () => {
     >
       <div className="flex justify-center h-full">
         <div className="flex flex-col w-full">
-          <span data-testid="product-info__name">SHOULDER BAG</span>
+          <h1 data-testid="product-info__name" className="text-[16px] ">
+            SHOULDER BAG
+          </h1>
 
           <div
             className="hidden md:block mt-12 "
             data-testid="product-info__color-selection"
           >
-            <span>CULOARE: {ro.colors[selectedColor || ""]}</span>
+            <h2 className="mb-2 flex">
+              CULOARE:{" "}
+              {selectedColor ? capitalizeFirst(ro.colors[selectedColor]) : ""}
+            </h2>
             <ColorSelectionWeb />
           </div>
 
@@ -95,7 +101,7 @@ const ProductInfo: React.FC = () => {
               setIsOpenContactModal(true);
             }}
           >
-            Contacteaza-ma acum
+            Contactează-mă acum
           </Button>
 
           <Collapse

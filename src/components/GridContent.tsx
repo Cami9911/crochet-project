@@ -121,7 +121,7 @@ const GridContent: React.FC = () => {
       <ControlFilters />
       <Row gutter={{ xs: 4, sm: 4, md: 4, lg: 4, xl: 16 }} className="">
         {paginatedProducts?.map(
-          ({ key, src, secondImage, style, color, stock, category }) => {
+          ({ key, src, secondImage, style, color, category }) => {
             const isHovered = hoveredProductKey === key;
             const imageSrc = isHovered ? "/src/assets/" + secondImage : src;
             const selectionHoveredImg = "/src/assets/" + urlHoverImage;
@@ -157,7 +157,7 @@ const GridContent: React.FC = () => {
                     {capitalizeFirst(ro.categories[category])}{" "}
                     {ro.styles[style]}
                   </p>
-                  <p className="">{ro.stock[stock]}</p>
+                  {/* <p className="">{ro.stock[stock]}</p> */}
 
                   {isHovered ? (
                     <ColorSelectionWeb
