@@ -63,7 +63,7 @@ const ProductImagesWeb: React.FC = () => {
               }
               alt="none"
               style={{
-                height: "70vh",
+                height: "80vh",
                 width: "auto",
                 objectFit: "cover",
               }}
@@ -78,7 +78,7 @@ const ProductImagesWeb: React.FC = () => {
               }
               alt="img"
               style={{
-                height: "70vh",
+                height: "80vh",
                 width: "auto",
                 objectFit: "cover",
                 opacity: blurImage ? 0.5 : 1,

@@ -2,6 +2,34 @@ import { productType } from "./types";
 
 export const products: productType[] = [
   {
+    key: "P14F00BLUE",
+    category: "bag",
+    color: "blue",
+    searchWords: ["poseta"],
+    similarColors: ["turquoise", "green", "grey"],
+    size: "small",
+    material: "-",
+    handle: ["-"],
+    style: "casual",
+    firstImage: "plic_semioval_2.jpg",
+    secondImage: "plic_semioval_1.jpg",
+    images: [
+      "plic_semioval_3.jpg",
+      "plic_semioval_5.jpg",
+      "plic_semioval_4.jpg",
+    ],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
+    materials: "Este confectionata din",
+    stock: "false",
+  },
+  {
     key: "P1F00GREEN",
     category: "bag",
     color: "green",

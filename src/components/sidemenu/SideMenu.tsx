@@ -1,7 +1,7 @@
 import { Menu, MenuProps } from "antd";
 import Sider from "antd/es/layout/Sider";
 import "./SideMenu.scss";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const items: MenuProps["items"] = [
   {
@@ -33,14 +33,6 @@ const items: MenuProps["items"] = [
     label: "Berete",
   },
   {
-    key: "/berets-children",
-    label: "Berete copii",
-  },
-  {
-    key: "/berets-adults",
-    label: "Berete adulti",
-  },
-  {
     key: "/hats",
     label: "Palarii",
   },
@@ -48,6 +40,7 @@ const items: MenuProps["items"] = [
 
 const SideMenu = () => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const handleMenuClick: MenuProps["onClick"] = ({ key }) => {
     navigate(key);
@@ -66,7 +59,7 @@ const SideMenu = () => {
       <Menu
         // mode="inline"
         className="side-menu pt-8 bg-white-bg border-0!"
-        defaultSelectedKeys={["/all"]}
+        selectedKeys={[pathname]}
         defaultOpenKeys={["/all"]}
         style={{ height: "100%" }}
         items={items}

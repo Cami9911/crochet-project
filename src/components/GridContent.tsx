@@ -112,10 +112,6 @@ const GridContent: React.FC = () => {
     setTotalResults(filteredProducts.length);
   }, [filteredProducts.length, setTotalResults]);
 
-  console.log("currentPage:", currentPage);
-  console.log("filteredProducts.length:", filteredProducts.length);
-  console.log("paginatedProducts.length:", paginatedProducts.length);
-
   return (
     <Content className="relative">
       <ControlFilters />
