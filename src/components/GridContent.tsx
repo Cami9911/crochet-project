@@ -26,7 +26,7 @@ const GridContent: React.FC = () => {
     null,
   );
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 12;
+  const pageSize = 20;
 
   const setTotalResults = useSetAtom(totalResultsAtom);
   const setSelectedProduct = useSetAtom(selectedProductAtom);
@@ -117,7 +117,7 @@ const GridContent: React.FC = () => {
       <ControlFilters />
       <Row gutter={{ xs: 4, sm: 4, md: 4, lg: 4, xl: 16 }} className="">
         {paginatedProducts?.map(
-          ({ key, src, secondImage, style, color, category }) => {
+          ({ key, src, secondImage, style, color, category, name }) => {
             const isHovered = hoveredProductKey === key;
             const imageSrc = isHovered ? "/src/assets/" + secondImage : src;
             const selectionHoveredImg = "/src/assets/" + urlHoverImage;
@@ -149,10 +149,14 @@ const GridContent: React.FC = () => {
                   preview={false}
                 />
                 <div className="pl-3 lg:pl-0">
-                  <p className="mt-2 font-semibold">
-                    {capitalizeFirst(ro.categories[category])}{" "}
-                    {ro.styles[style]}
-                  </p>
+                  {name ? (
+                    <p className="mt-2 font-semibold">{name}</p>
+                  ) : (
+                    <p className="mt-2 font-semibold">
+                      {capitalizeFirst(ro.categories[category])}{" "}
+                      {ro.styles[style]}
+                    </p>
+                  )}
                   {/* <p className="">{ro.stock[stock]}</p> */}
 
                   {isHovered ? (

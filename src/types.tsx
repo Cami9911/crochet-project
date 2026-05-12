@@ -5,6 +5,7 @@ export type FilterProps = {
 
 export type productType = {
   key: string;
+  name?: string;
   category: string;
   color: string;
   similarColors: string[];
