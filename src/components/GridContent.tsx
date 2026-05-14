@@ -150,9 +150,9 @@ const GridContent: React.FC = () => {
                 />
                 <div className="pl-3 lg:pl-0">
                   {name ? (
-                    <p className="mt-2 font-semibold">{name}</p>
+                    <p className="font-semibold">{name}</p>
                   ) : (
-                    <p className="mt-2 font-semibold">
+                    <p className="font-semibold">
                       {capitalizeFirst(ro.categories[category])}{" "}
                       {ro.styles[style]}
                     </p>
