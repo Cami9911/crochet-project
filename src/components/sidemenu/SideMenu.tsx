@@ -25,6 +25,10 @@ const items: MenuProps["items"] = [
     label: "Rucsace",
   },
   {
+    key: "/shoes",
+    label: "Pantofi",
+  },
+  {
     key: "/wallets",
     label: "Portofele",
   },

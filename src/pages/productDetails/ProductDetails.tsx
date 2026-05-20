@@ -29,10 +29,11 @@ const ProductDetails: React.FC = () => {
     : [];
   const colorProducts = [...sameColorProducts, ...similarColorProducts];
 
-  const similarStyleProducts = selectedProduct
+  const similarCategoryProducts = selectedProduct
     ? products.filter(
         (p) =>
-          p.style === selectedProduct?.style && p.key !== selectedProduct?.key,
+          p.category === selectedProduct?.category &&
+          p.key !== selectedProduct?.key,
       )
     : [];
 
@@ -43,7 +44,7 @@ const ProductDetails: React.FC = () => {
         className="py-2! sm:mb-6! px-4! sm:px-2! md:px-12! xl:px-40!"
         items={[
           {
-            title: <a href="/">Genti</a>,
+            title: <a href="/">Toate produsele</a>,
           },
           {
             title: (
@@ -72,7 +73,7 @@ const ProductDetails: React.FC = () => {
       </Row>
       <Row>
         <ProductImagesExtra
-          similarProducts={similarStyleProducts}
+          similarProducts={similarCategoryProducts}
           title={"Produse din aceeași categorie"}
         />
       </Row>

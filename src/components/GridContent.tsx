@@ -4,7 +4,7 @@ import allProducts from "./AllProductsData";
 import ControlFilters from "./filters/ControlFilters";
 import { routeToFilter } from "./sidemenu/SideMenuFilters";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useAtomValue, useSetAtom } from "jotai";
 import {
   selectedColorAtom,
@@ -21,12 +21,23 @@ import { capitalizeFirst } from "../useFunctions";
 
 const GridContent: React.FC = () => {
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const [hoveredProductKey, setHoveredProductKey] = useState<string | null>(
     null,
   );
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 20;
+  const currentPage = Number(searchParams.get("page")) || 1;
+
+  const setCurrentPage = (page: number) => {
+    setSearchParams((prev) => {
+      const next = new URLSearchParams(prev);
+      if (page <= 1) next.delete("page");
+      else next.set("page", String(page));
+      return next;
+    });
+  };
 
   const setTotalResults = useSetAtom(totalResultsAtom);
   const setSelectedProduct = useSetAtom(selectedProductAtom);
@@ -35,7 +46,7 @@ const GridContent: React.FC = () => {
   const urlHoverImage = useAtomValue(urlHoverImageAtom);
 
   const { pathname } = useLocation();
-  const [searchParams] = useSearchParams();
+  // const [searchParams] = useSearchParams();
 
   const selectedColors = searchParams.getAll("color");
   const selectedSizes = searchParams.getAll("size");
@@ -104,9 +115,31 @@ const GridContent: React.FC = () => {
     window.scrollTo(0, 0);
   };
 
+  // useEffect(() => {
+  //   setCurrentPage(1);
+  // }, [pathname, searchParams.toString()]);
+
+  const filtersKey = useMemo(() => {
+    const p = new URLSearchParams(searchParams);
+    p.delete("page");
+    return `${pathname}?${p.toString()}`;
+  }, [pathname, searchParams]);
+
+  const prevFiltersKey = useRef(filtersKey);
   useEffect(() => {
-    setCurrentPage(1);
-  }, [pathname, searchParams.toString()]);
+    if (prevFiltersKey.current !== filtersKey) {
+      prevFiltersKey.current = filtersKey;
+
+      setSearchParams(
+        (prev) => {
+          const next = new URLSearchParams(prev);
+          next.delete("page");
+          return next;
+        },
+        { replace: true },
+      );
+    }
+  }, [filtersKey, setSearchParams]);
 
   useEffect(() => {
     setTotalResults(filteredProducts.length);
@@ -198,6 +231,7 @@ const GridContent: React.FC = () => {
         onChange={(page) => {
           console.log("page clicked:", page);
           setCurrentPage(page);
+          window.scrollTo(0, 0);
         }}
         showSizeChanger={false}
         className="flex justify-center lg:justify-end"

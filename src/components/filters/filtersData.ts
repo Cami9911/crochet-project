@@ -20,6 +20,10 @@ export const colors = [
     code: "rgb(222, 206, 165)",
   },
   {
+    name: "darkbeige",
+    code: "rgb(150 142 123)",
+  },
+  {
     name: "orange",
     code: "rgb(223, 136, 73)",
   },
@@ -132,6 +136,10 @@ export const categories = [
   {
     name: "Rucsace",
     key: "backpack",
+  },
+  {
+    name: "Pantofi",
+    key: "shoes",
   },
   {
     name: "Portofele",

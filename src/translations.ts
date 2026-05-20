@@ -5,6 +5,7 @@ export const ro = {
     wallet: "portofel",
     beret: "beretă",
     hat: "pălărie",
+    shoes: "pantofi",
   } as Record<string, string>,
   colors: {
     green: "verde",
@@ -19,6 +20,7 @@ export const ro = {
     blue: "albastru",
     white: "alb",
     beige: "bej",
+    darkbeige: "bej închis",
     brown: "maro",
     violet: "mov",
     yellow: "galben",

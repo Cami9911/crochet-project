@@ -7,7 +7,7 @@ export const routeToFilter: Record<string, (p: productType) => boolean> = {
 
   "/backpacks": (p) => p.category === "backpack",
   "/wallets": (p) => p.category === "wallet",
-
+  "/shoes": (p) => p.category === "shoes",
   "/berets": (p) => p.category === "beret",
   "/berets-children": (p) => p.category === "beret", // if you have this field  && p.target === "copii"
   "/berets-adults": (p) => p.category === "beret",
