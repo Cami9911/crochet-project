@@ -157,4 +157,8 @@ export const categories = [
     name: "Palarii",
     key: "hat",
   },
+  {
+    name: "Caciulite copii",
+    key: "beanies",
+  },
 ];

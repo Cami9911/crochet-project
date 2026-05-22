@@ -37,6 +37,10 @@ const items: MenuProps["items"] = [
     label: "Berete",
   },
   {
+    key: "/beanies",
+    label: "Caciulite copii",
+  },
+  {
     key: "/hats",
     label: "Palarii",
   },
