@@ -111,7 +111,7 @@ const GridContent: React.FC = () => {
     setSelectedProduct(product);
     setSelectedColor(product?.color);
 
-    navigate(`product-details/${key}`);
+    navigate(`/product-details/${key}`);
     window.scrollTo(0, 0);
   };
 

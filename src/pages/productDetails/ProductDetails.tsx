@@ -17,15 +17,15 @@ const ProductDetails: React.FC = () => {
 
   const selectedProduct = useAtomValue(selectedProductAtom);
 
-  const uniqueID = id?.split("F00")[1].toLowerCase();
-  const sameColorProducts = uniqueID
+  const productColor = id?.split("F00")[1].toLowerCase();
+  const sameColorProducts = productColor
     ? products.filter(
-        (p) => p.color === uniqueID && p.key !== selectedProduct?.key,
+        (p) => p.color === productColor && p.key !== selectedProduct?.key,
       )
     : [];
 
-  const similarColorProducts = uniqueID
-    ? products.filter((p) => p.similarColors.includes(uniqueID))
+  const similarColorProducts = productColor
+    ? products.filter((p) => p.similarColors.includes(productColor))
     : [];
   const colorProducts = [...sameColorProducts, ...similarColorProducts];
 
@@ -48,10 +48,10 @@ const ProductDetails: React.FC = () => {
           },
           {
             title: (
-              <span>
+              <a href={"/" + product?.category}>
                 {capitalizeFirst(ro.categories[product?.category || ""])}{" "}
                 {ro.styles[product?.style || ""]}
-              </span>
+              </a>
             ),
           },
         ]}
