@@ -49,7 +49,11 @@ export const colors = [
   },
   {
     name: "blue",
-    code: "rgb(70, 110, 160)",
+    code: "rgb(92 149 220)",
+  },
+  {
+    name: "darkblue",
+    code: "rgb(18 76 149)",
   },
   {
     name: "turquoise",
@@ -58,6 +62,10 @@ export const colors = [
   {
     name: "green",
     code: "rgb(96, 144, 109)",
+  },
+  {
+    name: "lightgreen",
+    code: "rgb(172 211 145)",
   },
 ];
 
@@ -131,11 +139,11 @@ export const stock = [
 export const categories = [
   {
     name: "Genti",
-    key: "purse",
+    key: "bags",
   },
   {
     name: "Rucsace",
-    key: "backpack",
+    key: "backpacks",
   },
   {
     name: "Pantofi",
@@ -143,19 +151,19 @@ export const categories = [
   },
   {
     name: "Portofele",
-    key: "wallet",
+    key: "wallets",
   },
   {
     name: "Berete copii",
-    key: "child-beret",
+    key: "child-berets",
   },
   {
     name: "Berete adulti",
-    key: "adult-beret",
+    key: "adult-berets",
   },
   {
     name: "Palarii",
-    key: "hat",
+    key: "hats",
   },
   {
     name: "Caciulite copii",

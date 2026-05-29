@@ -3,15 +3,15 @@ import { productType } from "../../types";
 export const routeToFilter: Record<string, (p: productType) => boolean> = {
   "/": () => true,
 
-  "/bags": (p) => p.category === "bag",
+  "/bags": (p) => p.category === "bags",
 
-  "/backpacks": (p) => p.category === "backpack",
-  "/wallets": (p) => p.category === "wallet",
+  "/backpacks": (p) => p.category === "backpacks",
+  "/wallets": (p) => p.category === "wallets",
   "/shoes": (p) => p.category === "shoes",
-  "/berets": (p) => p.category === "beret",
-  "/berets-children": (p) => p.category === "beret", // if you have this field  && p.target === "copii"
-  "/berets-adults": (p) => p.category === "beret",
+  "/berets": (p) => p.category === "berets",
+  "/berets-children": (p) => p.category === "berets", // if you have this field  && p.target === "copii"
+  "/berets-adults": (p) => p.category === "berets",
   "/beanies": (p) => p.category === "beanies",
 
-  "/hats": (p) => p.category === "hat",
+  "/hats": (p) => p.category === "hats",
 };
