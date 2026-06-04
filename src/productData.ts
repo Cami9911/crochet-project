@@ -747,9 +747,9 @@ export const products: productType[] = [
     material: "-",
     handle: [],
     style: "casual-elegante",
-    firstImage: "B1PINK1.jpg",
+    firstImage: "B1PINK2.jpg",
     secondImage: "B1PINK1.jpg",
-    images: [],
+    images: ["B1PINK3.jpg"],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -1216,9 +1216,9 @@ export const products: productType[] = [
     material: "-",
     handle: ["strap"],
     style: "elegante",
-    firstImage: "purse1.jpg",
-    secondImage: "purse1.jpg",
-    images: ["purse1.jpg"],
+    firstImage: "P13BLACK1.jpg",
+    secondImage: "P13BLACK2.jpg",
+    images: ["P13BLACK3.jpg"],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -1339,7 +1339,7 @@ export const products: productType[] = [
     style: "casual",
     firstImage: "B3GREEN1.jpg",
     secondImage: "B3GREEN2.jpg",
-    images: [],
+    images: ["B3GREEN3.jpg"],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -1377,7 +1377,8 @@ export const products: productType[] = [
     stock: "true",
   },
   {
-    key: "all-purse-sonia",
+    key: "P35F00BLUE",
+    name: "Gentuta tip buchet",
     category: "bags",
     color: "blue",
     searchWords: ["poseta", "albastra"],
@@ -1386,9 +1387,9 @@ export const products: productType[] = [
     material: "-",
     handle: ["strap"],
     style: "casual",
-    firstImage: "purse-sonia-1.png",
-    secondImage: "purse-sonia-1.png",
-    images: ["purse-sonia-1.png"],
+    firstImage: "P35BLUE1.jpg",
+    secondImage: "P35BLUE2.jpg",
+    images: [],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -1727,6 +1728,31 @@ export const products: productType[] = [
     stock: "false",
   },
   {
+    key: "B1F00RED",
+    name: "Bereta model 1",
+    category: "berets",
+    color: "red",
+    searchWords: ["bereta", "palarie", "copii"],
+    similarColors: ["cream", "pink", "violet"],
+    size: "universal",
+    material: "-",
+    handle: [],
+    style: "casual-elegante",
+    firstImage: "B1RED1.jpg",
+    secondImage: "B1RED2.jpg",
+    images: [],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
+    materials: "Este confectionata din",
+    stock: "false",
+  },
+  {
     key: "S2F00PINK",
     name: "Pantofi model 2",
     category: "shoes",
@@ -1933,9 +1959,9 @@ export const products: productType[] = [
     material: "-",
     handle: ["strap", "handle"],
     style: "casual",
-    firstImage: "purse-andra-1.jpg",
-    secondImage: "purse-andra-1.jpg",
-    images: ["purse-andra-1.jpg"],
+    firstImage: "P7CREAM3.jpg",
+    secondImage: "P7CREAM2.jpg",
+    images: ["P7CREAM1.jpg", "P7CREAM4.jpg"],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -1957,9 +1983,9 @@ export const products: productType[] = [
     material: "-",
     handle: ["strap", "handle"],
     style: "casual",
-    firstImage: "purse-andra-2.jpg",
-    secondImage: "purse-andra-5.jpg",
-    images: ["purse-andra-2.jpg"],
+    firstImage: "P7GREEN3.jpg",
+    secondImage: "P7GREEN2.jpg",
+    images: ["P7GREEN1.jpg"],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -2294,6 +2320,31 @@ export const products: productType[] = [
     stock: "true",
   },
   {
+    key: "B3F00ORANGE",
+    name: "Bereta model 3",
+    category: "berets",
+    color: "orange",
+    searchWords: ["bereta", "palarie", "copii"],
+    similarColors: ["cream", "pink", "violet"],
+    size: "universal",
+    material: "-",
+    handle: [],
+    style: "casual-elegante",
+    firstImage: "B3ORANGE2.jpg",
+    secondImage: "B3ORANGE1.jpg",
+    images: [],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
+    materials: "Este confectionata din",
+    stock: "false",
+  },
+  {
     key: "B3F00RED",
     name: "Bereta model 3",
     category: "berets",
@@ -2304,8 +2355,8 @@ export const products: productType[] = [
     material: "-",
     handle: [],
     style: "casual-elegante",
-    firstImage: "B3RED2.jpg",
-    secondImage: "B3RED1.jpg",
+    firstImage: "B3RED1.jpg",
+    secondImage: "B3RED2.jpg",
     images: [],
     description: {
       generalDescription:
@@ -2893,17 +2944,17 @@ export const products: productType[] = [
     stock: "false",
   },
   {
-    key: "all-bag-1",
+    key: "BKP2F00BLACK",
     category: "backpacks",
     color: "black",
-    similarColors: ["black", "grey"],
+    similarColors: ["black", "brown", "grey"],
     size: "big",
     material: "-",
     handle: ["strap"],
     style: "casual",
-    firstImage: "bag.jpg",
-    secondImage: "bag.jpg",
-    images: ["bag.jpg"],
+    firstImage: "BKP2BLACK3.jpg",
+    secondImage: "BKP2BLACK2.jpg",
+    images: ["BKP2BLACK1.jpg"],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -2987,6 +3038,29 @@ export const products: productType[] = [
     stock: "true",
   },
   {
+    key: "W4F00BLACK",
+    category: "wallets",
+    color: "black",
+    similarColors: ["grey", "turquoise", "green"],
+    size: "small",
+    material: "-",
+    handle: ["handle"],
+    style: "casual",
+    firstImage: "W4BLACK1.jpg",
+    secondImage: "W4BLACK1.jpg",
+    images: [],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
+    materials: "Este confectionata din",
+    stock: "true",
+  },
+  {
     key: "all-wallet-2",
     category: "wallets",
     color: "brown",
@@ -3033,7 +3107,7 @@ export const products: productType[] = [
     stock: "true",
   },
   {
-    key: "all-wallet-4",
+    key: "W4F00GREEN",
     category: "wallets",
     color: "green",
     similarColors: ["turquoise", "blue", "grey"],
@@ -3041,9 +3115,9 @@ export const products: productType[] = [
     material: "-",
     handle: ["handle"],
     style: "casual",
-    firstImage: "wallet4.jpg",
-    secondImage: "wallet4.jpg",
-    images: ["wallet4.jpg"],
+    firstImage: "W4GREEN1.jpg",
+    secondImage: "W4GREEN1.jpg",
+    images: [],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -3056,7 +3130,7 @@ export const products: productType[] = [
     stock: "true",
   },
   {
-    key: "all-wallet-5",
+    key: "W5RF00RED",
     category: "wallets",
     color: "red",
     similarColors: ["red", "burgundy", "pink"],
@@ -3064,9 +3138,9 @@ export const products: productType[] = [
     material: "-",
     handle: ["handle"],
     style: "casual",
-    firstImage: "wallet5.jpg",
-    secondImage: "wallet5.jpg",
-    images: ["wallet5.jpg"],
+    firstImage: "W5RED1.jpg",
+    secondImage: "W5RED2.jpg",
+    images: [],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -3102,9 +3176,32 @@ export const products: productType[] = [
     materials: "Este confectionata din",
     stock: "true",
   },
-
   {
-    key: "all-beret-adult-2",
+    key: "B2F00BLACK",
+    name: "Bereta model 2",
+    category: "berets",
+    color: "black",
+    similarColors: ["black", "grey"],
+    size: "universal",
+    material: "-",
+    handle: [],
+    style: "casual",
+    firstImage: "B2BLACK1.jpg",
+    secondImage: "B2BLACK1.jpg",
+    images: [],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
+    materials: "Este confectionata din",
+    stock: "true",
+  },
+  {
+    key: "B1F00GREEN",
     category: "berets",
     color: "green",
     similarColors: ["turquoise", "blue", "grey"],
@@ -3112,9 +3209,9 @@ export const products: productType[] = [
     material: "-",
     handle: [],
     style: "casual",
-    firstImage: "beret2.jpg",
-    secondImage: "beret2.jpg",
-    images: ["beret2.jpg"],
+    firstImage: "B1GREEN1.jpg",
+    secondImage: "B1GREEN2.jpg",
+    images: [],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -3135,9 +3232,9 @@ export const products: productType[] = [
     material: "-",
     handle: [],
     style: "casual",
-    firstImage: "B1DARKBLUE1.jpg",
-    secondImage: "B1DARKBLUE1.jpg",
-    images: [],
+    firstImage: "B1DARKBLUE3.jpg",
+    secondImage: "B1DARKBLUE2.jpg",
+    images: ["B1DARKBLUE1.jpg"],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -3160,6 +3257,29 @@ export const products: productType[] = [
     style: "casual",
     firstImage: "B1BLUE1.jpg",
     secondImage: "B1BLUE1.jpg",
+    images: [],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
+    materials: "Este confectionata din",
+    stock: "true",
+  },
+  {
+    key: "B3F00BLUE",
+    category: "berets",
+    color: "blue",
+    similarColors: ["green", "turquoise", "cream", "grey"],
+    size: "small",
+    material: "-",
+    handle: [],
+    style: "casual",
+    firstImage: "B3BLUE1.jpg",
+    secondImage: "B3BLUE1.jpg",
     images: [],
     description: {
       generalDescription:
