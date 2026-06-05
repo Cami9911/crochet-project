@@ -44,6 +44,10 @@ export const colors = [
     code: "rgb(201, 131, 168)",
   },
   {
+    name: "dustypink",
+    code: "rgb(202 164 143)",
+  },
+  {
     name: "violet",
     code: "rgb(118, 91, 139)",
   },

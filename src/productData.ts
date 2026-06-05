@@ -62,13 +62,9 @@ export const products: productType[] = [
     material: "-",
     handle: ["-"],
     style: "envelope",
-    firstImage: "plic_semioval_2.jpg",
-    secondImage: "plic_semioval_1.jpg",
-    images: [
-      "plic_semioval_3.jpg",
-      "plic_semioval_5.jpg",
-      "plic_semioval_4.jpg",
-    ],
+    firstImage: "P14BLUE2.jpg",
+    secondImage: "P14BLUE1.jpg",
+    images: ["P14BLUE3.jpg", "P14BLUE4.jpg", "P14BLUE5.jpg"],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -1135,6 +1131,31 @@ export const products: productType[] = [
     stock: "true",
   },
   {
+    key: "P3F00ORANGE",
+    name: "Geantă simpla",
+    category: "bags",
+    color: "orange",
+    searchWords: ["poseta"],
+    similarColors: ["cream", "beige", "brown"],
+    size: "small",
+    material: "-",
+    handle: ["strap"],
+    style: "circle",
+    firstImage: "P3ORANGE1.jpg",
+    secondImage: "P3ORANGE2.jpg",
+    images: [],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
+    materials: "Este confectionata din",
+    stock: "false",
+  },
+  {
     key: "P32F00RED",
     category: "bags",
     color: "red",
@@ -1240,9 +1261,9 @@ export const products: productType[] = [
     material: "-",
     handle: ["strap", "handle"],
     style: "casual",
-    firstImage: "purse-roxen-1.jpg",
-    secondImage: "purse-roxen-2.jpg",
-    images: ["purse-roxen-1.jpg"],
+    firstImage: "P3BURGUNDY1.jpg",
+    secondImage: "P3BURGUNDY2.jpg",
+    images: [],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -1377,6 +1398,30 @@ export const products: productType[] = [
     stock: "true",
   },
   {
+    key: "P11F00TURQUOISE",
+    category: "bags",
+    color: "turquoise",
+    searchWords: ["poseta"],
+    similarColors: ["green", "blue", "grey"],
+    size: "medium",
+    material: "-",
+    handle: ["strap", "handle"],
+    style: "casual",
+    firstImage: "P11TURQUOISE1.jpg",
+    secondImage: "P11TURQUOISE2.jpg",
+    images: ["P11TURQUOISE3.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
+    materials: "Este confectionata din",
+    stock: "true",
+  },
+  {
     key: "P35F00BLUE",
     name: "Gentuta tip buchet",
     category: "bags",
@@ -1486,9 +1531,9 @@ export const products: productType[] = [
     material: "-",
     handle: ["strap"],
     style: "casual",
-    firstImage: "purse-florina-1.jpg",
-    secondImage: "purse-florina-1.jpg",
-    images: ["purse-florina-1.jpg"],
+    firstImage: "P6ORANGE1.jpg",
+    secondImage: "P6ORANGE2.jpg",
+    images: ["P6ORANGE3.jpg"],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -1575,6 +1620,30 @@ export const products: productType[] = [
     stock: "false",
   },
   {
+    key: "W6F00BROWN",
+    name: "Portofel in V",
+    category: "wallets",
+    color: "brown",
+    similarColors: ["orange", "red", "burgundy"],
+    size: "small",
+    material: "-",
+    handle: ["handle"],
+    style: "casual",
+    firstImage: "W6BROWN1.jpg",
+    secondImage: "W6BROWN2.jpg",
+    images: [],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
+    materials: "Este confectionata din",
+    stock: "true",
+  },
+  {
     key: "P5F00CREAM",
     category: "bags",
     color: "cream",
@@ -1656,9 +1725,9 @@ export const products: productType[] = [
     material: "-",
     handle: ["strap", "handle"],
     style: "casual_elegante",
-    firstImage: "purse-florina-2.jpg",
-    secondImage: "purse-florina-3.jpg",
-    images: ["purse-florina-2.jpg"],
+    firstImage: "P5RED1.jpg",
+    secondImage: "P5RED2.jpg",
+    images: ["P5RED3.jpg"],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -2022,7 +2091,7 @@ export const products: productType[] = [
     stock: "true",
   },
   {
-    key: "P8F00BLUE",
+    key: "P8F00TURQUOISE",
     category: "bags",
     color: "turquoise",
     searchWords: ["poseta"],
@@ -2031,9 +2100,9 @@ export const products: productType[] = [
     material: "-",
     handle: ["handle"],
     style: "casual",
-    firstImage: "purse6.jpg",
-    secondImage: "purse6.jpg",
-    images: ["purse6.jpg"],
+    firstImage: "P8TURQUOISE1.jpg",
+    secondImage: "P8TURQUOISE2.jpg",
+    images: ["P8TURQUOISE3.jpg", "P9WHITE3.jpg"],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -2055,9 +2124,9 @@ export const products: productType[] = [
     material: "-",
     handle: ["handle"],
     style: "casual",
-    firstImage: "purse_black_rose.jpg",
-    secondImage: "purse_black_rose.jpg",
-    images: ["purse_black_rose.jpg"],
+    firstImage: "P8BLACK1.jpg",
+    secondImage: "P8BLACK2.jpg",
+    images: [],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -2103,9 +2172,9 @@ export const products: productType[] = [
     material: "-",
     handle: ["strap", "handle"],
     style: "casual",
-    firstImage: "purse_black_rose2.jpg",
-    secondImage: "purse_black_rose2.jpg",
-    images: ["purse_black_rose2.jpg"],
+    firstImage: "P9BLACK1.jpg",
+    secondImage: "P9BLACK2.jpg",
+    images: [],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -2127,9 +2196,9 @@ export const products: productType[] = [
     material: "-",
     handle: ["strap", "handle"],
     style: "casual",
-    firstImage: "purse_grey_rose.jpg",
-    secondImage: "purse_grey_rose.jpg",
-    images: ["purse_grey_rose.jpg"],
+    firstImage: "P8GREY1.jpg",
+    secondImage: "P8GREY2.jpg",
+    images: ["P9WHITE3.jpg"],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -2151,9 +2220,9 @@ export const products: productType[] = [
     material: "-",
     handle: ["strap"],
     style: "elegante",
-    firstImage: "purse_white_rose.jpg",
-    secondImage: "purse_white_rose.jpg",
-    images: ["purse_white_rose.jpg"],
+    firstImage: "P9WHITE1.jpg",
+    secondImage: "P9WHITE2.jpg",
+    images: ["P9WHITE3.jpg"],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -2199,33 +2268,9 @@ export const products: productType[] = [
     material: "-",
     handle: ["strap"],
     style: "casual",
-    firstImage: "purse-eliza-1.jpg",
-    secondImage: "purse-eliza-1.jpg",
-    images: ["purse-eliza-1.jpg"],
-    description: {
-      generalDescription:
-        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
-      length: 24,
-      width: 20,
-      height: 20,
-      accesorii: "geanta de umar",
-    },
-    materials: "Este confectionata din",
-    stock: "true",
-  },
-  {
-    key: "all-purse-eliza-2",
-    category: "bags",
-    color: "grey",
-    searchWords: ["poseta"],
-    similarColors: ["grey", "beige", "cream", "white"],
-    size: "small",
-    material: "-",
-    handle: ["strap"],
-    style: "casual",
-    firstImage: "purse-eliza-2.jpg",
-    secondImage: "purse-eliza-2.jpg",
-    images: ["purse-eliza-2.jpg"],
+    firstImage: "P10GREY1.jpg",
+    secondImage: "P10GREY2.jpg",
+    images: [],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -2454,9 +2499,9 @@ export const products: productType[] = [
     material: "-",
     handle: ["strap"],
     style: "casual",
-    firstImage: "purse-eliza-10.jpg",
-    secondImage: "P10BLACK1.jpg",
-    images: ["P10BLACK2.jpg"],
+    firstImage: "P10BLACK5.jpg",
+    secondImage: "P10BLACK2.jpg",
+    images: ["P10BLACK3.jpg", "P10BLACK4.jpg", "P10BLACK1.jpg"],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -2566,8 +2611,8 @@ export const products: productType[] = [
     material: "-",
     handle: ["strap"],
     style: "casual",
-    firstImage: "purse-eliza-7.jpg",
-    secondImage: "purse-eliza-7.jpg",
+    firstImage: "P10BEIGE1.jpg",
+    secondImage: "P10BEIGE2.jpg",
     images: ["purse-eliza-7.jpg"],
     description: {
       generalDescription:
@@ -2678,9 +2723,9 @@ export const products: productType[] = [
     stock: "true",
   },
   {
-    key: "P11F00BEIGE",
+    key: "P11F00ORANGE",
     category: "bags",
-    color: "beige",
+    color: "orange",
     searchWords: ["poseta"],
     similarColors: ["beige", "cream", "grey"],
     size: "small",
@@ -2711,9 +2756,9 @@ export const products: productType[] = [
     material: "-",
     handle: ["strap", "handle"],
     style: "casual_elegante",
-    firstImage: "purse-amalia-2.jpg",
-    secondImage: "purse-amalia-2.jpg",
-    images: ["purse-amalia-2.jpg"],
+    firstImage: "P11PINK3.jpg",
+    secondImage: "P11PINK2.jpg",
+    images: ["P11PINK1.jpg"],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -2759,33 +2804,9 @@ export const products: productType[] = [
     material: "-",
     handle: ["strap", "handle"],
     style: "casual_elegante",
-    firstImage: "purse-amalia-4.jpg",
-    secondImage: "purse-amalia-4.jpg",
-    images: ["purse-amalia-4.jpg"],
-    description: {
-      generalDescription:
-        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
-      length: 24,
-      width: 20,
-      height: 20,
-      accesorii: "geanta de umar",
-    },
-    materials: "Este confectionata din",
-    stock: "true",
-  },
-  {
-    key: "P11F00GREY",
-    category: "bags",
-    color: "grey",
-    searchWords: ["poseta"],
-    similarColors: ["grey", "beige", "cream", "white"],
-    size: "small",
-    material: "-",
-    handle: ["strap", "handle"],
-    style: "casual_elegante",
-    firstImage: "purse-amalia-5.jpg",
-    secondImage: "purse-amalia-5.jpg",
-    images: ["purse-amalia-5.jpg"],
+    firstImage: "P11DARKBEIGE1.jpg",
+    secondImage: "P11DARKBEIGE2.jpg",
+    images: [],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -2823,42 +2844,18 @@ export const products: productType[] = [
     stock: "false",
   },
   {
-    key: "P11F00CREAM",
+    key: "P11F00DARKBLUE",
     category: "bags",
-    color: "cream",
-    searchWords: ["poseta"],
-    similarColors: ["cream", "beige", "grey", "white", "yellow"],
-    size: "small",
-    material: "-",
-    handle: ["strap", "handle"],
-    style: "casual_elegante",
-    firstImage: "purse-amalia-6.jpg",
-    secondImage: "purse-amalia-6.jpg",
-    images: ["purse-amalia-6.jpg"],
-    description: {
-      generalDescription:
-        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
-      length: 24,
-      width: 20,
-      height: 20,
-      accesorii: "geanta de umar",
-    },
-    materials: "Este confectionata din",
-    stock: "true",
-  },
-  {
-    key: "P11F00BLUE",
-    category: "bags",
-    color: "blue",
+    color: "darkblue",
     searchWords: ["poseta", "albastra"],
     similarColors: ["blue", "turquoise", "green"],
     size: "small",
     material: "-",
     handle: ["strap", "handle"],
     style: "casual_elegante",
-    firstImage: "purse-amalia-7.jpg",
-    secondImage: "purse-amalia-7.jpg",
-    images: ["purse-amalia-7.jpg"],
+    firstImage: "P11DARKBLUE1.jpg",
+    secondImage: "P11DARKBLUE2.jpg",
+    images: ["P11DARKBLUE3.jpg"],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -2880,9 +2877,9 @@ export const products: productType[] = [
     material: "-",
     handle: ["strap", "handle"],
     style: "casual_elegante",
-    firstImage: "purse-amalia-8.jpg",
-    secondImage: "purse-amalia-8.jpg",
-    images: ["purse-amalia-8.jpg"],
+    firstImage: "P12BLUE1.jpg",
+    secondImage: "P12BLUE4.jpg",
+    images: ["P12BLUE3.jpg", "P12BLUE2.jpg"],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -2895,7 +2892,7 @@ export const products: productType[] = [
     stock: "true",
   },
   {
-    key: "P11F00LIGHTGREY",
+    key: "P11F00GREY",
     category: "bags",
     color: "grey",
     searchWords: ["poseta"],
@@ -2944,6 +2941,31 @@ export const products: productType[] = [
     stock: "false",
   },
   {
+    key: "P36F00BLACK",
+    name: "Geantă de umar",
+    category: "bags",
+    color: "black",
+    searchWords: ["poseta"],
+    similarColors: ["grey", "white"],
+    size: "big",
+    material: "-",
+    handle: ["strap"],
+    style: "casual",
+    firstImage: "P36BLACK4.jpg",
+    secondImage: "P36BLACK3.jpg",
+    images: ["P36BLACK1.jpg", "P36BLACK2.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
+    materials: "Este confectionata din",
+    stock: "false",
+  },
+  {
     key: "BKP2F00BLACK",
     category: "backpacks",
     color: "black",
@@ -2954,7 +2976,7 @@ export const products: productType[] = [
     style: "casual",
     firstImage: "BKP2BLACK3.jpg",
     secondImage: "BKP2BLACK2.jpg",
-    images: ["BKP2BLACK1.jpg"],
+    images: ["BKP2BLACK4.jpg"],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -2976,8 +2998,8 @@ export const products: productType[] = [
     handle: ["handle"],
     style: "casual",
     firstImage: "W4TURQUOISE1.jpg",
-    secondImage: "wallet1.jpg",
-    images: ["wallet1.jpg"],
+    secondImage: "W4TURQUOISE2.jpg",
+    images: [],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -3024,7 +3046,7 @@ export const products: productType[] = [
     handle: ["handle"],
     style: "casual",
     firstImage: "W4BLUE1.jpg",
-    secondImage: "W4BLUE1.jpg",
+    secondImage: "W4BLUE2.jpg",
     images: [],
     description: {
       generalDescription:
@@ -3047,7 +3069,7 @@ export const products: productType[] = [
     handle: ["handle"],
     style: "casual",
     firstImage: "W4BLACK1.jpg",
-    secondImage: "W4BLACK1.jpg",
+    secondImage: "W4BLACK2.jpg",
     images: [],
     description: {
       generalDescription:
@@ -3061,17 +3083,17 @@ export const products: productType[] = [
     stock: "true",
   },
   {
-    key: "all-wallet-2",
+    key: "W4F00BROWN",
     category: "wallets",
     color: "brown",
-    similarColors: ["brown", "orange"],
+    similarColors: ["brown", "cream", "orange"],
     size: "small",
     material: "-",
     handle: ["handle"],
     style: "casual",
-    firstImage: "wallet2.jpg",
-    secondImage: "wallet2.jpg",
-    images: ["wallet2.jpg"],
+    firstImage: "W4BROWN1.jpg",
+    secondImage: "W4BROWN2.jpg",
+    images: [],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -3093,7 +3115,7 @@ export const products: productType[] = [
     handle: ["handle"],
     style: "casual",
     firstImage: "W4RED1.jpg",
-    secondImage: "wallet3.jpg",
+    secondImage: "W4RED2.jpg",
     images: [],
     description: {
       generalDescription:
@@ -3116,7 +3138,7 @@ export const products: productType[] = [
     handle: ["handle"],
     style: "casual",
     firstImage: "W4GREEN1.jpg",
-    secondImage: "W4GREEN1.jpg",
+    secondImage: "W4GREEN2.jpg",
     images: [],
     description: {
       generalDescription:
@@ -3339,29 +3361,6 @@ export const products: productType[] = [
     stock: "true",
   },
   {
-    key: "all-beret-child-1",
-    category: "berets",
-    color: "red",
-    similarColors: ["red", "burgundy", "pink"],
-    size: "universal",
-    material: "-",
-    handle: [],
-    style: "casual",
-    firstImage: "beret5.jpg",
-    secondImage: "beret5.jpg",
-    images: ["beret5.jpg"],
-    description: {
-      generalDescription:
-        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
-      length: 24,
-      width: 20,
-      height: 20,
-      accesorii: "geanta de umar",
-    },
-    materials: "Este confectionata din",
-    stock: "true",
-  },
-  {
     key: "H1F00CREAM",
     category: "hats",
     color: "cream",
@@ -3385,7 +3384,7 @@ export const products: productType[] = [
     stock: "true",
   },
   {
-    key: "all-hat1",
+    key: "H2F00VIOLET",
     category: "hats",
     color: "violet",
     similarColors: ["violet", "pink", "red"],
@@ -3393,9 +3392,9 @@ export const products: productType[] = [
     material: "-",
     handle: [],
     style: "casual_elegante",
-    firstImage: "hat1.jpg",
-    secondImage: "hat1.jpg",
-    images: ["hat1.jpg"],
+    firstImage: "H2VIOLET1.jpg",
+    secondImage: "H2VIOLET2.jpg",
+    images: [],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -3408,17 +3407,17 @@ export const products: productType[] = [
     stock: "true",
   },
   {
-    key: "all-hat2",
+    key: "H3F00BEIGE",
     category: "hats",
-    color: "cream",
-    similarColors: ["cream", "beige", "grey", "white", "yellow"],
+    color: "beige",
+    similarColors: ["cream", "grey", "white", "yellow"],
     size: "universal",
     material: "-",
     handle: [],
     style: "casual_elegante",
-    firstImage: "hat2.jpg",
-    secondImage: "hat2.jpg",
-    images: ["hat2.jpg"],
+    firstImage: "H3BEIGE1.jpg",
+    secondImage: "H3BEIGE2.jpg",
+    images: [],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -3431,7 +3430,7 @@ export const products: productType[] = [
     stock: "true",
   },
   {
-    key: "all-hat3",
+    key: "H4F00BROWN",
     category: "hats",
     color: "brown",
     similarColors: ["brown", "orange"],
@@ -3439,9 +3438,9 @@ export const products: productType[] = [
     material: "-",
     handle: [],
     style: "casual_elegante",
-    firstImage: "hat3.jpg",
-    secondImage: "hat3.jpg",
-    images: ["hat3.jpg"],
+    firstImage: "H4BROWN1.jpg",
+    secondImage: "H4BROWN2.jpg",
+    images: [],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -3454,17 +3453,17 @@ export const products: productType[] = [
     stock: "true",
   },
   {
-    key: "all-hat4",
+    key: "H5F00BEIGE",
     category: "hats",
     color: "beige",
-    similarColors: ["beige", "cream", "grey"],
+    similarColors: ["white", "cream", "grey"],
     size: "universal",
     material: "-",
     handle: [],
     style: "casual_elegante",
-    firstImage: "hat4.jpg",
-    secondImage: "hat4.jpg",
-    images: ["hat4.jpg"],
+    firstImage: "H5BEIGE1.jpg",
+    secondImage: "H5BEIGE2.jpg",
+    images: [],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -3477,7 +3476,7 @@ export const products: productType[] = [
     stock: "true",
   },
   {
-    key: "all-hat5",
+    key: "H6F00GREY",
     category: "hats",
     color: "grey",
     similarColors: ["grey", "beige", "cream", "white"],
@@ -3485,9 +3484,9 @@ export const products: productType[] = [
     material: "-",
     handle: [],
     style: "casual_elegante",
-    firstImage: "hat5.jpg",
-    secondImage: "hat5.jpg",
-    images: ["hat5.jpg"],
+    firstImage: "H6GREY1.jpg",
+    secondImage: "H6GREY2.jpg",
+    images: [],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
@@ -3500,7 +3499,7 @@ export const products: productType[] = [
     stock: "true",
   },
   {
-    key: "all-hat6",
+    key: "H10F00CREAM",
     category: "hats",
     color: "cream",
     similarColors: ["cream", "beige", "grey", "white", "yellow"],
@@ -3508,9 +3507,9 @@ export const products: productType[] = [
     material: "-",
     handle: [],
     style: "casual_elegante",
-    firstImage: "hat6.jpg",
-    secondImage: "hat6.jpg",
-    images: ["hat6.jpg"],
+    firstImage: "H10CREAM1.jpg",
+    secondImage: "H10CREAM2.jpg",
+    images: [],
     description: {
       generalDescription:
         "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
