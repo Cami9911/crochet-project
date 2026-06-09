@@ -24,9 +24,9 @@ const ControlFilters: React.FC = () => {
     setisOpenFilterDrawer(false);
   };
 
-  const showSorterDrawer = () => {
-    setIsOpenedSorterDrawer(true);
-  };
+  // const showSorterDrawer = () => {
+  //   setIsOpenedSorterDrawer(true);
+  // };
 
   const onCloseSorterDrawer = () => {
     setIsOpenedSorterDrawer(false);
@@ -35,16 +35,16 @@ const ControlFilters: React.FC = () => {
   return (
     <>
       <div className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex">
-        <Button
+        {/* <Button
           className="sort-btn rounded-r-none! border-r-[0.25px]! border-r-white! w-40 sm:w-56 sm:h-10!"
           color="default"
           variant="solid"
           onClick={showSorterDrawer}
         >
           Sorteaza
-        </Button>
+        </Button> */}
         <Button
-          className="filter-btn rounded-l-none! w-40 sm:w-56 sm:h-10!"
+          className="filter-btn w-60 sm:w-70 sm:h-10!"
           color="default"
           variant="solid"
           onClick={showFilterDrawer}
