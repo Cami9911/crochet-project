@@ -126,7 +126,7 @@ const ColorSelectionWeb: React.FC<ColorSelectionProps> = ({
             <button
               type="button"
               onClick={() => setShowAll(true)}
-              className="w-20 h-26.5 border border-[#979797] flex items-center justify-center text-xl cursor-pointer bg-white"
+              className={`${hoverProductKey ? "w-10 h-13.5" : "w-20 h-26.5"} border border-[#979797] flex items-center justify-center text-xl cursor-pointer bg-white hover:bg-gray-100 transition-colors duration-200`}
             >
               +{hiddenCount}
             </button>

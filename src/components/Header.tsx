@@ -7,11 +7,14 @@ import {
 } from "@ant-design/icons";
 import logoUrl from "../assets/stelas_crochet.svg";
 import { useNavigate } from "react-router-dom";
+import { openContactModalAtom } from "../storageAtoms";
+import { useSetAtom } from "jotai";
 
 const whatsappNumber = +40745109860;
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
+  const setIsOpenContactModal = useSetAtom(openContactModalAtom);
 
   return (
     <Row
@@ -54,7 +57,7 @@ const Header: React.FC = () => {
               type="link"
               className="pl-0!"
               onClick={() => {
-                navigate(`/contact`);
+                setIsOpenContactModal(true);
               }}
             >
               Contact
