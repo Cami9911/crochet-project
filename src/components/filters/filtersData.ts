@@ -154,16 +154,20 @@ export const categories = [
     key: "shoes",
   },
   {
+    name: "Sandale",
+    key: "sandals",
+  },
+  {
+    name: "Ghete",
+    key: "boots",
+  },
+  {
     name: "Portofele",
     key: "wallets",
   },
   {
-    name: "Berete copii",
-    key: "child-berets",
-  },
-  {
-    name: "Berete adulti",
-    key: "adult-berets",
+    name: "Berete",
+    key: "berets",
   },
   {
     name: "Palarii",

@@ -13,20 +13,20 @@ const items: MenuProps["items"] = [
     label: "Genti",
   },
   {
-    key: "/bags-elegante",
-    label: "Genti elegante",
-  },
-  {
-    key: "/bags-casual",
-    label: "Genti casual",
-  },
-  {
     key: "/backpacks",
     label: "Rucsace",
   },
   {
     key: "/shoes",
     label: "Pantofi",
+  },
+  {
+    key: "/sandals",
+    label: "Sandale",
+  },
+  {
+    key: "/boots",
+    label: "Ghete",
   },
   {
     key: "/wallets",
