@@ -102,6 +102,11 @@ export const styles = [
   { name: "Casual", key: "casual" },
   { name: "Eleganta", key: "elegante" },
   { name: "Casual si eleganta", key: "casual-elegante" },
+  { name: "Clutch", key: "clutch" },
+  { name: "Geanta tip hexagon", key: "hexagon" },
+  { name: "Geanta tip plic", key: "envelope" },
+  { name: "Geanta tip buchet", key: "bouquet" },
+  { name: "Geanta cu cercuri", key: "circle" },
 ];
 
 export const filters = [
@@ -123,7 +128,7 @@ export const filters = [
   },
   {
     key: "style",
-    name: "Stil",
+    name: "Tip geantă",
   },
   {
     key: "category",
@@ -146,7 +151,7 @@ export const categories = [
     key: "bags",
   },
   {
-    name: "Rucsace",
+    name: "Ghiozdane",
     key: "backpacks",
   },
   {
