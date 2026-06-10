@@ -126,7 +126,7 @@ const HeaderAutoComplete: React.FC = () => {
           label: (
             <div className="flex flex-col py-1">
               <span className="font-medium">
-                {ro.categories[product.category]} - {ro.colors[product.color]}
+                {product.name} - {ro.colors[product.color]}
               </span>
               <span className="text-xs text-gray-500">
                 marime: {ro.sizes[product.size]} | stil:{" "}
