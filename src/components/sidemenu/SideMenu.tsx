@@ -14,7 +14,7 @@ const items: MenuProps["items"] = [
   },
   {
     key: "/backpacks",
-    label: "Rucsace",
+    label: "Ghiozdane",
   },
   {
     key: "/shoes",

@@ -1,7 +1,7 @@
 export const ro = {
   categories: {
     bags: "geantă",
-    backpacks: "rucsac",
+    backpacks: "ghiozdan",
     wallets: "portofel",
     berets: "beretă",
     hats: "pălărie",
@@ -11,7 +11,7 @@ export const ro = {
   } as Record<string, string>,
   breadcrumb: {
     bags: "genti",
-    backpacks: "rucsace",
+    backpacks: "ghiozdane",
     wallets: "portofele",
     berets: "berete",
     hats: "pălării",
