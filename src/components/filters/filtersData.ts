@@ -124,7 +124,7 @@ export const filters = [
   },
   {
     key: "handle",
-    name: "Tipul manerului gentii",
+    name: "Tipul manerului genții",
   },
   {
     key: "style",
@@ -147,7 +147,7 @@ export const stock = [
 
 export const categories = [
   {
-    name: "Genti",
+    name: "Genți",
     key: "bags",
   },
   {
@@ -179,7 +179,7 @@ export const categories = [
     key: "hats",
   },
   {
-    name: "Caciulite copii",
+    name: "Căciulite copii",
     key: "beanies",
   },
 ];

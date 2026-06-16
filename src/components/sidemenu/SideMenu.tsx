@@ -10,7 +10,7 @@ const items: MenuProps["items"] = [
   },
   {
     key: "/bags",
-    label: "Genti",
+    label: "Genți",
   },
   {
     key: "/backpacks",
@@ -38,11 +38,11 @@ const items: MenuProps["items"] = [
   },
   {
     key: "/beanies",
-    label: "Caciulite copii",
+    label: "Căciulițe copii",
   },
   {
     key: "/hats",
-    label: "Palarii",
+    label: "Pălării",
   },
 ];
 

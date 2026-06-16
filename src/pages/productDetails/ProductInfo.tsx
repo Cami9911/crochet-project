@@ -1,12 +1,12 @@
-import { Button, Col, CollapseProps, Space } from "antd";
-import { Collapse } from "antd";
+import { Button, Col } from "antd";
 import ColorSelectionWeb from "./ColorSelectionWeb";
 import "./ProductDetails.scss";
-import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
+// import { Collapse } from "antd";
+// import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
+// import { useState } from "react";
 import { products } from "../../productData";
 
 import { useParams } from "react-router-dom";
-import { useState } from "react";
 import ColorSelectionMobile from "./ColorSelectionMobile";
 import { openContactModalAtom, selectedColorAtom } from "../../storageAtoms";
 import { useAtomValue, useSetAtom } from "jotai";
@@ -15,7 +15,7 @@ import ContactModal from "../../components/ContactModal";
 import { capitalizeFirst } from "../../useFunctions";
 
 const ProductInfo: React.FC = () => {
-  const [activeKey, setActiveKey] = useState<string | string[]>([""]);
+  // const [activeKey, setActiveKey] = useState<string | string[]>([""]);
 
   const selectedColor = useAtomValue(selectedColorAtom);
   const setIsOpenContactModal = useSetAtom(openContactModalAtom);
@@ -23,44 +23,44 @@ const ProductInfo: React.FC = () => {
   const { id } = useParams();
   const product = products.find((p) => p.key === id);
 
-  const items: CollapseProps["items"] = [
-    {
-      key: "description",
-      label: (
-        <span className={activeKey === "description" ? "font-semibold" : ""}>
-          DESCRIERE
-        </span>
-      ),
-      children: (
-        <Space orientation="vertical" size={"middle"}>
-          <span>{product?.description?.generalDescription}</span>
-          <div className="grid">
-            <span className="font-semibold">Culoare:</span>
-            <span>{ro.colors[product?.color || ""]}</span>
-          </div>
-          <div className="grid">
-            <span className="font-semibold">Marime:</span>
-            <span>Lungime: {product?.description?.length}</span>
-            <span>Latime: {product?.description?.width}</span>
-            <span>Inaltime: {product?.description?.height}</span>
-          </div>
-          <div className="grid">
-            <span className="font-semibold">Accesorii:</span>
-            <span>{product?.description?.accesorii}</span>
-          </div>
-        </Space>
-      ),
-    },
-    {
-      key: "materials",
-      label: (
-        <span className={activeKey === "materials" ? "font-semibold" : ""}>
-          MATERIALE
-        </span>
-      ),
-      children: <p>{product?.materials}</p>,
-    },
-  ];
+  // const items: CollapseProps["items"] = [
+  //   {
+  //     key: "description",
+  //     label: (
+  //       <span className={activeKey === "description" ? "font-semibold" : ""}>
+  //         DESCRIERE
+  //       </span>
+  //     ),
+  //     children: (
+  //       <Space orientation="vertical" size={"middle"}>
+  //         <span>{product?.description?.generalDescription}</span>
+  //         <div className="grid">
+  //           <span className="font-semibold">Culoare:</span>
+  //           <span>{ro.colors[product?.color || ""]}</span>
+  //         </div>
+  //         <div className="grid">
+  //           <span className="font-semibold">Marime:</span>
+  //           <span>Lungime: {product?.description?.length}</span>
+  //           <span>Latime: {product?.description?.width}</span>
+  //           <span>Inaltime: {product?.description?.height}</span>
+  //         </div>
+  //         <div className="grid">
+  //           <span className="font-semibold">Accesorii:</span>
+  //           <span>{product?.description?.accesorii}</span>
+  //         </div>
+  //       </Space>
+  //     ),
+  //   },
+  //   {
+  //     key: "materials",
+  //     label: (
+  //       <span className={activeKey === "materials" ? "font-semibold" : ""}>
+  //         MATERIALE
+  //       </span>
+  //     ),
+  //     children: <p>{product?.materials}</p>,
+  //   },
+  // ];
 
   return (
     <Col
@@ -71,7 +71,7 @@ const ProductInfo: React.FC = () => {
       <div className="flex justify-center h-full">
         <div className="flex flex-col w-full">
           <h1 data-testid="product-info__name" className="text-[16px] ">
-            SHOULDER BAG
+            {product?.name}
           </h1>
 
           <div
@@ -104,7 +104,7 @@ const ProductInfo: React.FC = () => {
             Contactează-mă acum
           </Button>
 
-          <Collapse
+          {/* <Collapse
             accordion
             activeKey={activeKey}
             onChange={(key) => setActiveKey(key[0])}
@@ -119,7 +119,7 @@ const ProductInfo: React.FC = () => {
                 <PlusOutlined style={{ fontSize: "20px" }} />
               )
             }
-          />
+          /> */}
         </div>
       </div>
       <ContactModal />
