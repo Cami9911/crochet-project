@@ -4,6 +4,8 @@ import { products } from "../../productData";
 import { productType } from "../../types";
 import { useAtomValue, useSetAtom } from "jotai";
 import { selectedColorAtom, selectedProductAtom } from "../../storageAtoms";
+import { capitalizeFirst } from "../../useFunctions";
+import { ro } from "../../translations";
 
 const images = import.meta.glob("../../assets/*.{png,jpg,jpeg,webp}", {
   eager: true,
@@ -30,11 +32,15 @@ const ColorSelectionMobile: React.FC = () => {
     setSelectedProduct(product);
     setSelectedColor(product.color);
     navigate(`/product-details/${product.key}`);
+    window.scrollTo(0, 0);
   };
 
   return (
     <div className="max-h-48 my-8  ">
-      <span>CULOARE: {selectedColor}</span>
+      <span>
+        CULOARE:{" "}
+        {selectedColor ? capitalizeFirst(ro.colors[selectedColor]) : ""}
+      </span>
 
       <div className="flex gap-2 overflow-x-auto">
         {similarProducts.map((product, index) => {

@@ -20,7 +20,7 @@ const Header: React.FC = () => {
     <Row
       // gutter={[16, 16]}
       align="middle"
-      className="h-full xs:h-16 md:h-16 md:mt-6 px-4 sm:px-2 md:px-12 xl:px-40"
+      className="h-full xs:h-16 md:h-16 mt-3 md:mt-6 px-4 sm:px-2 md:px-12 xl:px-40"
     >
       <Col
         xs={{ span: 10, order: 1 }}
@@ -34,14 +34,14 @@ const Header: React.FC = () => {
             navigate(`/`);
           }}
         >
-          <img src={logoUrl} alt="Stela's Crochet" className=" w-18 md:w-25 " />
+          <img src={logoUrl} alt="Stela's Crochet" className=" w-22 md:w-25 " />
         </Button>
       </Col>
 
       <Col
         xs={{ span: 24, order: 3 }}
         md={{ span: 14, order: 2 }}
-        className="mt-1.5 sm:mt-0"
+        className="mt-4 sm:mt-0"
       >
         <HeaderAutoComplete />
       </Col>

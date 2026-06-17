@@ -39,7 +39,7 @@ const ProductImagesMobile: React.FC = () => {
                 src={src}
                 alt={`product-${index}`}
                 style={{
-                  width: "500px",
+                  width: "700px",
                   objectFit: "contain",
                   display: "block",
                   margin: "0 auto",
