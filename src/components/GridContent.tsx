@@ -17,9 +17,22 @@ import { productType } from "../types";
 import { colors } from "./filters/filtersData";
 import ColorSelectionWeb from "../pages/productDetails/ColorSelectionWeb";
 import { ro } from "../translations";
-import { capitalizeFirst } from "../useFunctions";
+import { capitalizeFirst, useCanHover } from "../useFunctions";
+
+// near the top of the file, module scope
+const assetUrls = import.meta.glob<string>(
+  "/src/assets/*.{png,jpg,jpeg,webp,svg}",
+  { eager: true, import: "default" },
+);
+
+// filename -> hashed build URL
+const assetMap: Record<string, string> = Object.fromEntries(
+  Object.entries(assetUrls).map(([path, url]) => [path.split("/").pop()!, url]),
+);
 
 const GridContent: React.FC = () => {
+  const canHover = useCanHover();
+
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -151,9 +164,9 @@ const GridContent: React.FC = () => {
       <Row gutter={{ xs: 4, sm: 4, md: 4, lg: 4, xl: 16 }} className="">
         {paginatedProducts?.map(
           ({ key, src, secondImage, style, color, category, name }) => {
-            const isHovered = hoveredProductKey === key;
-            const imageSrc = isHovered ? "/src/assets/" + secondImage : src;
-            const selectionHoveredImg = "/src/assets/" + urlHoverImage;
+            const isHovered = canHover && hoveredProductKey === key;
+            const imageSrc = isHovered ? assetMap[secondImage] : src;
+            const selectionHoveredImg = assetMap[urlHoverImage];
 
             const uniqueID = key?.split("F00")[0];
 
@@ -170,8 +183,12 @@ const GridContent: React.FC = () => {
                 lg={{ span: 6 }}
                 key={key}
                 onClick={() => goToDetails(key)}
-                onMouseEnter={() => setHoveredProductKey(key)}
-                onMouseLeave={() => setHoveredProductKey(null)}
+                onMouseEnter={
+                  canHover ? () => setHoveredProductKey(key) : undefined
+                }
+                onMouseLeave={
+                  canHover ? () => setHoveredProductKey(null) : undefined
+                }
               >
                 <Image
                   alt="example"
