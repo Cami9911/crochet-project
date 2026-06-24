@@ -40,7 +40,7 @@ export const ro = {
     yellow: "galben",
   } as Record<string, string>,
   sizes: {
-    small: "mic",
+    small: "mică",
     medium: "mediu",
     big: "mare",
     large: "mare",
@@ -54,6 +54,11 @@ export const ro = {
     casual: "casual",
     elegante: "elegantă",
     casual_elegante: "casual și elegantă",
+    clutch: "clutch",
+    hexagon: "geantă tip hexagon",
+    envelope: "geantă tip plic",
+    bouquet: "geantă tip buchet",
+    circle: "geantă cu cercuri",
   } as Record<string, string>,
   stock: {
     true: "Produs în stoc",

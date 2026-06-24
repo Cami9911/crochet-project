@@ -129,7 +129,7 @@ const HeaderAutoComplete: React.FC = () => {
                 {product.name} - {ro.colors[product.color]}
               </span>
               <span className="text-xs text-gray-500">
-                marime: {ro.sizes[product.size]} | stil:{" "}
+                mărime: {ro.sizes[product.size]} | stil:{" "}
                 {ro.styles[product.style]}
               </span>
             </div>

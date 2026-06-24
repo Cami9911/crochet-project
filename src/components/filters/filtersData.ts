@@ -100,13 +100,13 @@ export const handles = [
 
 export const styles = [
   { name: "Casual", key: "casual" },
-  { name: "Eleganta", key: "elegante" },
-  { name: "Casual si eleganta", key: "casual-elegante" },
+  { name: "Elegantă", key: "elegante" },
+  { name: "Casual si elegantă", key: "casual-elegante" },
   { name: "Clutch", key: "clutch" },
-  { name: "Geanta tip hexagon", key: "hexagon" },
-  { name: "Geanta tip plic", key: "envelope" },
-  { name: "Geanta tip buchet", key: "bouquet" },
-  { name: "Geanta cu cercuri", key: "circle" },
+  { name: "Geantă tip hexagon", key: "hexagon" },
+  { name: "Geantă tip plic", key: "envelope" },
+  { name: "Geantă tip buchet", key: "bouquet" },
+  { name: "Geantă cu cercuri", key: "circle" },
 ];
 
 export const filters = [
