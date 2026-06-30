@@ -5,12 +5,11 @@ import ControlFilters from "./filters/ControlFilters";
 import { routeToFilter } from "./sidemenu/SideMenuFilters";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useAtomValue, useSetAtom } from "jotai";
+import { useSetAtom } from "jotai";
 import {
   selectedColorAtom,
   selectedProductAtom,
   totalResultsAtom,
-  urlHoverImageAtom,
 } from "../storageAtoms";
 import { products } from "../productData";
 import { productType } from "../types";
@@ -18,6 +17,7 @@ import { colors } from "./filters/filtersData";
 import ColorSelectionWeb from "../pages/productDetails/ColorSelectionWeb";
 import { ro } from "../translations";
 import { capitalizeFirst, useCanHover } from "../useFunctions";
+import ProductImage from "../pages/productDetails/ProductImage";
 
 type Img = { src: string; srcset: string };
 
@@ -73,8 +73,6 @@ const GridContent: React.FC = () => {
   const setTotalResults = useSetAtom(totalResultsAtom);
   const setSelectedProduct = useSetAtom(selectedProductAtom);
   const setSelectedColor = useSetAtom(selectedColorAtom);
-
-  const urlHoverImage = useAtomValue(urlHoverImageAtom);
 
   const { pathname } = useLocation();
   // const [searchParams] = useSearchParams();
@@ -189,14 +187,6 @@ const GridContent: React.FC = () => {
 
             const primary = getImg(firstImage);
             const second = getImg(secondImage);
-            const selection = urlHoverImage ? getImg(urlHoverImage) : null;
-
-            const displayed =
-              urlHoverImage && isHovered && selection
-                ? selection
-                : isHovered
-                  ? second
-                  : primary;
 
             const uniqueID = key?.split("F00")[0];
 
@@ -220,18 +210,13 @@ const GridContent: React.FC = () => {
                   canHover ? () => setHoveredProductKey(null) : undefined
                 }
               >
-                <div className="bg-gray-100">
-                  <img
-                    alt={name ?? "product"}
-                    className="w-full h-auto cursor-pointer"
-                    src={displayed.src}
-                    srcSet={displayed.srcset}
-                    sizes="(min-width: 992px) 25vw, 50vw"
-                    loading={index < 4 ? "eager" : "lazy"}
-                    {...{ fetchpriority: index < 4 ? "high" : "auto" }}
-                    decoding="async"
-                  />
-                </div>
+                <ProductImage
+                  primary={primary}
+                  hover={second}
+                  isHovered={isHovered}
+                  alt={name ?? "product"}
+                  eager={index < 4}
+                />
                 <div className="pl-3 lg:pl-0">
                   {name ? (
                     <p className="font-semibold">{name}</p>

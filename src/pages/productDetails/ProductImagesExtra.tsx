@@ -14,12 +14,32 @@ type SimilarProductsProps = {
 
 const { useBreakpoint } = Grid;
 
-const images = import.meta.glob("../../assets/*.{png,jpg,jpeg,webp}", {
+type Img = { src: string; srcset: string };
+
+const srcsets = import.meta.glob<string>("../../assets/*.{png,jpg,jpeg,webp}", {
   eager: true,
   import: "default",
-}) as Record<string, string>;
+  query: { w: "300;500;800;1200", format: "webp", as: "srcset" },
+});
 
-const getImage = (imageName: string) => images[`../../assets/${imageName}`];
+const fallbacks = import.meta.glob<string>(
+  "../../assets/*.{png,jpg,jpeg,webp}",
+  {
+    eager: true,
+    import: "default",
+    query: { w: "500", format: "webp" },
+  },
+);
+
+const assetMap: Record<string, Img> = {};
+for (const [path, srcset] of Object.entries(srcsets)) {
+  const name = path.split("/").pop()!;
+  assetMap[name] = { src: fallbacks[path], srcset };
+}
+
+const EMPTY: Img = { src: "", srcset: "" };
+const getImg = (filename?: string): Img =>
+  (filename && assetMap[filename]) || EMPTY;
 
 const ProductImagesExtra: React.FC<SimilarProductsProps> = ({
   similarProducts,
@@ -65,9 +85,12 @@ const ProductImagesExtra: React.FC<SimilarProductsProps> = ({
       >
         {similarProducts.map((product: productType, index: number) => {
           const isHovered = hoveredProductKey === product.key;
-          const src = isHovered
-            ? getImage(product.secondImage)
-            : getImage(product.firstImage);
+          const primary = getImg(product.firstImage);
+          const hover = getImg(product.secondImage);
+          const hasHover = !!(hover.src || hover.srcset);
+
+          const SIZES =
+            "(min-width: 1200px) 16vw, (min-width: 768px) 20vw, (min-width: 576px) 33vw, 50vw";
 
           return (
             <div
@@ -76,11 +99,32 @@ const ProductImagesExtra: React.FC<SimilarProductsProps> = ({
               onMouseEnter={() => setHoveredProductKey(product.key)}
               onMouseLeave={() => setHoveredProductKey(null)}
             >
-              <img
-                src={src}
-                alt={`product-${index}`}
-                className="w-full h-auto px-1 cursor-pointer"
-              />
+              <div className="px-1">
+                <div className="relative">
+                  <img
+                    src={primary.src}
+                    srcSet={primary.srcset}
+                    sizes={SIZES}
+                    alt={`product-${index}`}
+                    className="block w-full h-auto cursor-pointer"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  {hasHover && (
+                    <img
+                      src={hover.src}
+                      srcSet={hover.srcset}
+                      sizes={SIZES}
+                      alt=""
+                      aria-hidden
+                      className="absolute inset-0 w-full h-auto cursor-pointer transition-opacity duration-150 ease-out"
+                      style={{ opacity: isHovered ? 1 : 0 }}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  )}
+                </div>
+              </div>
               <p className="mt-2 font-semibold px-2"> {product.name}</p>
               <p className="px-2">
                 Culoare · {capitalizeFirst(ro.colors[product.color])}

@@ -50,6 +50,7 @@ const ColorSelectionWeb: React.FC<ColorSelectionProps> = ({
   const images = import.meta.glob("../../assets/*.{png,jpg,jpeg,webp}", {
     eager: true,
     import: "default",
+    query: { w: "200", format: "webp" },
   }) as Record<string, string>;
 
   const getImage = (imageName: string) => images[`../../assets/${imageName}`];
@@ -89,7 +90,11 @@ const ColorSelectionWeb: React.FC<ColorSelectionProps> = ({
           {displayedProducts.map((item) => (
             <Radio key={item.key} value={item.key}>
               <div
-                className={hoverProductKey ? "w-10 relative" : "w-20 relative"}
+                className={
+                  hoverProductKey
+                    ? "w-10 aspect-3/4 relative"
+                    : "w-20 aspect-3/4 relative"
+                }
                 style={{
                   border:
                     defaultProduct?.key === item.key
@@ -111,7 +116,7 @@ const ColorSelectionWeb: React.FC<ColorSelectionProps> = ({
                 <img
                   src={getImage(item.firstImage)}
                   alt={item.category}
-                  style={{ width: "100%", height: "auto" }}
+                  className="w-full h-full object-contain"
                 />
                 {defaultProduct?.key === item.key && (
                   <div className="absolute bottom-0 right-0 bg-[#2424245e] flex justify-center h-5 w-5 text-white">
