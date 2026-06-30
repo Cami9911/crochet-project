@@ -8,12 +8,22 @@ import {
 import { useAtomValue } from "jotai";
 import { useEffect, useState } from "react";
 
-const images = import.meta.glob("../../assets/*.{png,jpg,jpeg,webp}", {
+const largeImages = import.meta.glob("../../assets/*.{png,jpg,jpeg,webp}", {
   eager: true,
   import: "default",
+  query: { w: "1400", format: "webp" },
 }) as Record<string, string>;
 
-const getImage = (imageName: string) => images[`../../assets/${imageName}`];
+const thumbImages = import.meta.glob("../../assets/*.{png,jpg,jpeg,webp}", {
+  eager: true,
+  import: "default",
+  query: { w: "600", format: "webp" },
+}) as Record<string, string>;
+
+const getLarge = (name: string) => largeImages[`../../assets/${name}`];
+const getThumb = (name: string) => thumbImages[`../../assets/${name}`];
+
+// const getImage = (imageName: string) => images[`../../assets/${imageName}`];
 
 const MAX_VISIBLE = 3;
 
@@ -56,9 +66,9 @@ const ProductImagesWeb: React.FC = () => {
             <Image
               src={
                 urlHoverImage
-                  ? getImage(urlHoverImage)
+                  ? getLarge(urlHoverImage) // ← change getImage to getLarge
                   : selectedProduct
-                    ? getImage(selectedProduct.firstImage)
+                    ? getLarge(selectedProduct.firstImage) // ← change getImage to getLarge
                     : ""
               }
               alt="none"
@@ -73,7 +83,7 @@ const ProductImagesWeb: React.FC = () => {
             <Image
               src={
                 selectedProduct?.secondImage
-                  ? getImage(selectedProduct.secondImage)
+                  ? getLarge(selectedProduct.secondImage) // ← change getImage to getLarge
                   : ""
               }
               alt="img"
@@ -90,7 +100,7 @@ const ProductImagesWeb: React.FC = () => {
           {displayedProducts?.map((p: string) => (
             <Col span={12} lg={{ span: 8 }} key={p}>
               <Image
-                src={getImage(p)}
+                src={getThumb(p)} // ← this getImage becomes getThumb
                 alt="none"
                 style={{
                   opacity: blurImage ? 0.5 : 1,

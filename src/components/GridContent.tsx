@@ -1,4 +1,4 @@
-import { Image, Row, Col, Pagination } from "antd";
+import { Row, Col, Pagination } from "antd";
 import { Content } from "antd/es/layout/layout";
 import allProducts from "./AllProductsData";
 import ControlFilters from "./filters/ControlFilters";
@@ -19,16 +19,34 @@ import ColorSelectionWeb from "../pages/productDetails/ColorSelectionWeb";
 import { ro } from "../translations";
 import { capitalizeFirst, useCanHover } from "../useFunctions";
 
-// near the top of the file, module scope
-const assetUrls = import.meta.glob<string>(
-  "/src/assets/*.{png,jpg,jpeg,webp,svg}",
-  { eager: true, import: "default" },
+type Img = { src: string; srcset: string };
+
+// multi-width srcset, all WebP
+const srcsets = import.meta.glob<string>("/src/assets/*.{png,jpg,jpeg,webp}", {
+  eager: true,
+  import: "default",
+  query: { w: "300;500;800;1200", format: "webp", as: "srcset" },
+});
+
+// single mid-width fallback for the src attribute
+const fallbacks = import.meta.glob<string>(
+  "/src/assets/*.{png,jpg,jpeg,webp}",
+  {
+    eager: true,
+    import: "default",
+    query: { w: "500", format: "webp" },
+  },
 );
 
-// filename -> hashed build URL
-const assetMap: Record<string, string> = Object.fromEntries(
-  Object.entries(assetUrls).map(([path, url]) => [path.split("/").pop()!, url]),
-);
+const assetMap: Record<string, Img> = {};
+for (const [path, srcset] of Object.entries(srcsets)) {
+  const name = path.split("/").pop()!;
+  assetMap[name] = { src: fallbacks[path], srcset };
+}
+
+const EMPTY: Img = { src: "", srcset: "" };
+const getImg = (filename?: string): Img =>
+  (filename && assetMap[filename]) || EMPTY;
 
 const GridContent: React.FC = () => {
   const canHover = useCanHover();
@@ -163,10 +181,22 @@ const GridContent: React.FC = () => {
       <ControlFilters />
       <Row gutter={{ xs: 4, sm: 4, md: 4, lg: 4, xl: 16 }} className="">
         {paginatedProducts?.map(
-          ({ key, src, secondImage, style, color, category, name }) => {
+          (
+            { key, firstImage, secondImage, style, color, category, name },
+            index,
+          ) => {
             const isHovered = canHover && hoveredProductKey === key;
-            const imageSrc = isHovered ? assetMap[secondImage] : src;
-            const selectionHoveredImg = assetMap[urlHoverImage];
+
+            const primary = getImg(firstImage);
+            const second = getImg(secondImage);
+            const selection = urlHoverImage ? getImg(urlHoverImage) : null;
+
+            const displayed =
+              urlHoverImage && isHovered && selection
+                ? selection
+                : isHovered
+                  ? second
+                  : primary;
 
             const uniqueID = key?.split("F00")[0];
 
@@ -190,14 +220,18 @@ const GridContent: React.FC = () => {
                   canHover ? () => setHoveredProductKey(null) : undefined
                 }
               >
-                <Image
-                  alt="example"
-                  className="cursor-pointer"
-                  src={
-                    urlHoverImage && isHovered ? selectionHoveredImg : imageSrc
-                  }
-                  preview={false}
-                />
+                <div className="bg-gray-100">
+                  <img
+                    alt={name ?? "product"}
+                    className="w-full h-auto cursor-pointer"
+                    src={displayed.src}
+                    srcSet={displayed.srcset}
+                    sizes="(min-width: 992px) 25vw, 50vw"
+                    loading={index < 4 ? "eager" : "lazy"}
+                    {...{ fetchpriority: index < 4 ? "high" : "auto" }}
+                    decoding="async"
+                  />
+                </div>
                 <div className="pl-3 lg:pl-0">
                   {name ? (
                     <p className="font-semibold">{name}</p>

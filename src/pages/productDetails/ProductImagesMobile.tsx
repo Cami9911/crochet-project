@@ -6,6 +6,7 @@ import { useAtomValue } from "jotai";
 const images = import.meta.glob("../../assets/*.{png,jpg,jpeg,webp}", {
   eager: true,
   import: "default",
+  query: { w: "1200", format: "webp" },
 }) as Record<string, string>;
 
 const getImage = (imageName: string) => images[`../../assets/${imageName}`];
