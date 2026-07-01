@@ -8,8 +8,9 @@ const ProductImage: React.FC<{
   isHovered: boolean;
   alt: string;
   eager: boolean;
-}> = ({ primary, hover, isHovered, alt, eager }) => {
-  const hasHover = !!(hover.src || hover.srcset);
+  canHover: boolean;
+}> = ({ primary, hover, isHovered, alt, eager, canHover }) => {
+  const hasHover = canHover && !!(hover.src || hover.srcset);
 
   return (
     <div className="relative bg-gray-100">

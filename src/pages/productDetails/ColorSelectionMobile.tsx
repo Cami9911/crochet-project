@@ -6,14 +6,7 @@ import { useAtomValue, useSetAtom } from "jotai";
 import { selectedColorAtom, selectedProductAtom } from "../../storageAtoms";
 import { capitalizeFirst } from "../../useFunctions";
 import { ro } from "../../translations";
-
-const images = import.meta.glob("../../assets/*.{png,jpg,jpeg,webp}", {
-  eager: true,
-  import: "default",
-  query: { w: "400", format: "webp" },
-}) as Record<string, string>;
-
-const getImage = (imageName: string) => images[`../../assets/${imageName}`];
+import { useThumbnails } from "../../imageLoaders";
 
 const ColorSelectionMobile: React.FC = () => {
   const navigate = useNavigate();
@@ -28,6 +21,9 @@ const ColorSelectionMobile: React.FC = () => {
   const similarProducts = uniqueID
     ? products.filter((p) => p.key.split("F00")[0] === uniqueID)
     : [];
+
+  // Resolve only the thumbnails for the color variants actually shown.
+  const thumbs = useThumbnails(similarProducts.map((p) => p.firstImage));
 
   const changeProduct = (product: productType) => {
     setSelectedProduct(product);
@@ -45,7 +41,7 @@ const ColorSelectionMobile: React.FC = () => {
 
       <div className="flex gap-2 overflow-x-auto">
         {similarProducts.map((product, index) => {
-          const src = getImage(product.firstImage);
+          const src = thumbs[product.firstImage] ?? "";
 
           return (
             <button

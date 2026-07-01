@@ -1,6 +1,5 @@
 import { Row, Col, Pagination } from "antd";
 import { Content } from "antd/es/layout/layout";
-import allProducts from "./AllProductsData";
 import ControlFilters from "./filters/ControlFilters";
 import { routeToFilter } from "./sidemenu/SideMenuFilters";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
@@ -18,35 +17,12 @@ import ColorSelectionWeb from "../pages/productDetails/ColorSelectionWeb";
 import { ro } from "../translations";
 import { capitalizeFirst, useCanHover } from "../useFunctions";
 import ProductImage from "../pages/productDetails/ProductImage";
-
-type Img = { src: string; srcset: string };
-
-// multi-width srcset, all WebP
-const srcsets = import.meta.glob<string>("/src/assets/*.{png,jpg,jpeg,webp}", {
-  eager: true,
-  import: "default",
-  query: { w: "300;500;800;1200", format: "webp", as: "srcset" },
-});
-
-// single mid-width fallback for the src attribute
-const fallbacks = import.meta.glob<string>(
-  "/src/assets/*.{png,jpg,jpeg,webp}",
-  {
-    eager: true,
-    import: "default",
-    query: { w: "500", format: "webp" },
-  },
-);
-
-const assetMap: Record<string, Img> = {};
-for (const [path, srcset] of Object.entries(srcsets)) {
-  const name = path.split("/").pop()!;
-  assetMap[name] = { src: fallbacks[path], srcset };
-}
-
-const EMPTY: Img = { src: "", srcset: "" };
-const getImg = (filename?: string): Img =>
-  (filename && assetMap[filename]) || EMPTY;
+import {
+  useProductImages,
+  usePrewarmSwatches,
+  EMPTY,
+  type Img,
+} from "../imageLoaders";
 
 const GridContent: React.FC = () => {
   const canHover = useCanHover();
@@ -57,7 +33,6 @@ const GridContent: React.FC = () => {
   const [hoveredProductKey, setHoveredProductKey] = useState<string | null>(
     null,
   );
-  // const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 20;
   const currentPage = Number(searchParams.get("page")) || 1;
 
@@ -75,7 +50,6 @@ const GridContent: React.FC = () => {
   const setSelectedColor = useSetAtom(selectedColorAtom);
 
   const { pathname } = useLocation();
-  // const [searchParams] = useSearchParams();
 
   const selectedColors = searchParams.getAll("color");
   const selectedSizes = searchParams.getAll("size");
@@ -87,7 +61,7 @@ const GridContent: React.FC = () => {
   const filteredProducts = useMemo(() => {
     const routePredicate = routeToFilter[pathname] ?? (() => true);
 
-    return allProducts.filter((p) => {
+    return products.filter((p) => {
       const okRoute = routePredicate(p);
 
       const filterColors =
@@ -135,6 +109,53 @@ const GridContent: React.FC = () => {
     return filteredProducts.slice(start, start + pageSize);
   }, [filteredProducts, currentPage]);
 
+  // Only the filenames on the current page. Hover image skipped when !canHover,
+  // so on mobile it's never transformed or fetched.
+  const wantedFilenames = useMemo(() => {
+    const out: string[] = [];
+    paginatedProducts.forEach((p) => {
+      if (p.firstImage) out.push(p.firstImage);
+      if (canHover && p.secondImage) out.push(p.secondImage);
+    });
+    return out;
+  }, [paginatedProducts, canHover]);
+
+  const imgMap = useProductImages(wantedFilenames);
+  const getImg = (filename?: string): Img =>
+    (filename && imgMap[filename]) || EMPTY;
+
+  // Prewarm the swatches ColorSelectionWeb will show on hover, so they are
+  // cached before any card is hovered (no fetch waterfall / pop-in). Matches
+  // ColorSelectionWeb: family is resolved from the full `products` list, so
+  // off-page color variants are included. Skipped entirely when !canHover,
+  // since the swatch overlay only ever appears on hover-capable devices.
+  const swatchPrewarmFilenames = useMemo(() => {
+    if (!canHover) return [];
+
+    const seenFamily = new Set<string>();
+    const seenFile = new Set<string>();
+    const out: string[] = [];
+
+    paginatedProducts.forEach((p) => {
+      const uniqueID = p.key.split("F00")[0];
+      if (seenFamily.has(uniqueID)) return;
+      seenFamily.add(uniqueID);
+
+      products
+        .filter((v) => v.key.split("F00")[0] === uniqueID)
+        .forEach((v) => {
+          if (v.firstImage && !seenFile.has(v.firstImage)) {
+            seenFile.add(v.firstImage);
+            out.push(v.firstImage);
+          }
+        });
+    });
+
+    return out;
+  }, [paginatedProducts, canHover]);
+
+  usePrewarmSwatches(swatchPrewarmFilenames);
+
   const goToDetails = (key: string) => {
     const product = products.find((p) => p.key === key) ?? null;
     setSelectedProduct(product);
@@ -143,10 +164,6 @@ const GridContent: React.FC = () => {
     navigate(`/product-details/${key}`);
     window.scrollTo(0, 0);
   };
-
-  // useEffect(() => {
-  //   setCurrentPage(1);
-  // }, [pathname, searchParams.toString()]);
 
   const filtersKey = useMemo(() => {
     const p = new URLSearchParams(searchParams);
@@ -175,7 +192,7 @@ const GridContent: React.FC = () => {
   }, [filteredProducts.length, setTotalResults]);
 
   return (
-    <Content className="relative">
+    <Content className="relative px-0.5">
       <ControlFilters />
       <Row gutter={{ xs: 4, sm: 4, md: 4, lg: 4, xl: 16 }} className="">
         {paginatedProducts?.map(
@@ -214,6 +231,7 @@ const GridContent: React.FC = () => {
                   primary={primary}
                   hover={second}
                   isHovered={isHovered}
+                  canHover={canHover}
                   alt={name ?? "product"}
                   eager={index < 4}
                 />
@@ -226,7 +244,6 @@ const GridContent: React.FC = () => {
                       {ro.styles[style]}
                     </p>
                   )}
-                  {/* <p className="">{ro.stock[stock]}</p> */}
 
                   {isHovered ? (
                     <ColorSelectionWeb
@@ -265,7 +282,6 @@ const GridContent: React.FC = () => {
         total={filteredProducts.length}
         pageSize={pageSize}
         onChange={(page) => {
-          console.log("page clicked:", page);
           setCurrentPage(page);
           window.scrollTo(0, 0);
         }}
@@ -275,4 +291,5 @@ const GridContent: React.FC = () => {
     </Content>
   );
 };
+
 export default GridContent;

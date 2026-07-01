@@ -1,15 +1,8 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Carousel, Image } from "antd";
 import { selectedProductAtom } from "../../storageAtoms";
 import { useAtomValue } from "jotai";
-
-const images = import.meta.glob("../../assets/*.{png,jpg,jpeg,webp}", {
-  eager: true,
-  import: "default",
-  query: { w: "1200", format: "webp" },
-}) as Record<string, string>;
-
-const getImage = (imageName: string) => images[`../../assets/${imageName}`];
+import { useFullImages } from "../../imageLoaders";
 
 const ProductImagesMobile: React.FC = () => {
   const selectedProduct = useAtomValue(selectedProductAtom);
@@ -18,11 +11,18 @@ const ProductImagesMobile: React.FC = () => {
     console.log(currentSlide);
   };
 
-  const imagesToDisplay = [
-    selectedProduct?.firstImage,
-    selectedProduct?.secondImage,
-    ...(selectedProduct?.images ?? []),
-  ].filter((img): img is string => Boolean(img));
+  const imagesToDisplay = useMemo(
+    () =>
+      [
+        selectedProduct?.firstImage,
+        selectedProduct?.secondImage,
+        ...(selectedProduct?.images ?? []),
+      ].filter((img): img is string => Boolean(img)),
+    [selectedProduct],
+  );
+
+  const srcs = useFullImages(imagesToDisplay);
+  const getImage = (name?: string) => (name && srcs[name]) || "";
 
   return (
     <Image.PreviewGroup
@@ -36,16 +36,20 @@ const ProductImagesMobile: React.FC = () => {
           const src = getImage(p);
           return (
             <div key={index} className="bg-zinc-100 grid!">
-              <Image
-                src={src}
-                alt={`product-${index}`}
-                style={{
-                  width: "700px",
-                  objectFit: "contain",
-                  display: "block",
-                  margin: "0 auto",
-                }}
-              />
+              {src && (
+                <Image
+                  src={src}
+                  alt={`product-${index}`}
+                  loading="lazy"
+                  decoding="async"
+                  style={{
+                    width: "700px",
+                    objectFit: "contain",
+                    display: "block",
+                    margin: "0 auto",
+                  }}
+                />
+              )}
             </div>
           );
         })}

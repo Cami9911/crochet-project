@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Carousel, Col, Grid } from "antd";
 import { productType } from "../../types";
 import { useNavigate } from "react-router-dom";
@@ -6,6 +6,8 @@ import { products } from "../../productData";
 import { selectedProductAtom } from "../../storageAtoms";
 import { useSetAtom } from "jotai";
 import { ro } from "../../translations";
+import { useCanHover } from "../../useFunctions";
+import { useProductImages, EMPTY, type Img } from "../../imageLoaders";
 
 type SimilarProductsProps = {
   similarProducts: productType[];
@@ -14,38 +16,15 @@ type SimilarProductsProps = {
 
 const { useBreakpoint } = Grid;
 
-type Img = { src: string; srcset: string };
-
-const srcsets = import.meta.glob<string>("../../assets/*.{png,jpg,jpeg,webp}", {
-  eager: true,
-  import: "default",
-  query: { w: "300;500;800;1200", format: "webp", as: "srcset" },
-});
-
-const fallbacks = import.meta.glob<string>(
-  "../../assets/*.{png,jpg,jpeg,webp}",
-  {
-    eager: true,
-    import: "default",
-    query: { w: "500", format: "webp" },
-  },
-);
-
-const assetMap: Record<string, Img> = {};
-for (const [path, srcset] of Object.entries(srcsets)) {
-  const name = path.split("/").pop()!;
-  assetMap[name] = { src: fallbacks[path], srcset };
-}
-
-const EMPTY: Img = { src: "", srcset: "" };
-const getImg = (filename?: string): Img =>
-  (filename && assetMap[filename]) || EMPTY;
+const SIZES =
+  "(min-width: 1200px) 16vw, (min-width: 768px) 20vw, (min-width: 576px) 33vw, 50vw";
 
 const ProductImagesExtra: React.FC<SimilarProductsProps> = ({
   similarProducts,
   title,
 }) => {
   const navigate = useNavigate();
+  const canHover = useCanHover();
 
   const [hoveredProductKey, setHoveredProductKey] = useState<string | null>(
     null,
@@ -72,6 +51,20 @@ const ProductImagesExtra: React.FC<SimilarProductsProps> = ({
 
   const slidesToShow = !screens.sm ? 2 : !screens.md ? 3 : !screens.xl ? 5 : 6;
 
+  // Resolve only this carousel's images. Hover image skipped when !canHover.
+  const wantedFilenames = useMemo(() => {
+    const out: string[] = [];
+    similarProducts.forEach((p) => {
+      if (p.firstImage) out.push(p.firstImage);
+      if (canHover && p.secondImage) out.push(p.secondImage);
+    });
+    return out;
+  }, [similarProducts, canHover]);
+
+  const imgMap = useProductImages(wantedFilenames);
+  const getImg = (filename?: string): Img =>
+    (filename && imgMap[filename]) || EMPTY;
+
   return (
     <Col span={24} className="mt-16 px-4 sm:px-0 sm:pl-2 md:px-12 xl:px-40">
       <p className="mb-6 text-xl font-semibold">{title}</p>
@@ -84,32 +77,35 @@ const ProductImagesExtra: React.FC<SimilarProductsProps> = ({
         slidesToScroll={slidesToShow}
       >
         {similarProducts.map((product: productType, index: number) => {
-          const isHovered = hoveredProductKey === product.key;
+          const isHovered = canHover && hoveredProductKey === product.key;
           const primary = getImg(product.firstImage);
           const hover = getImg(product.secondImage);
           const hasHover = !!(hover.src || hover.srcset);
-
-          const SIZES =
-            "(min-width: 1200px) 16vw, (min-width: 768px) 20vw, (min-width: 576px) 33vw, 50vw";
 
           return (
             <div
               key={index}
               onClick={() => loadProduct(product)}
-              onMouseEnter={() => setHoveredProductKey(product.key)}
-              onMouseLeave={() => setHoveredProductKey(null)}
+              onMouseEnter={
+                canHover ? () => setHoveredProductKey(product.key) : undefined
+              }
+              onMouseLeave={
+                canHover ? () => setHoveredProductKey(null) : undefined
+              }
             >
               <div className="px-1">
-                <div className="relative">
-                  <img
-                    src={primary.src}
-                    srcSet={primary.srcset}
-                    sizes={SIZES}
-                    alt={`product-${index}`}
-                    className="block w-full h-auto cursor-pointer"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                <div className="relative bg-gray-100">
+                  {primary.src && (
+                    <img
+                      src={primary.src}
+                      srcSet={primary.srcset}
+                      sizes={SIZES}
+                      alt={`product-${index}`}
+                      className="block w-full h-auto cursor-pointer"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  )}
                   {hasHover && (
                     <img
                       src={hover.src}

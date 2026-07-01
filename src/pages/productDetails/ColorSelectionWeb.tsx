@@ -11,6 +11,7 @@ import {
 } from "../../storageAtoms";
 import { useAtomValue, useSetAtom } from "jotai";
 import { CheckOutlined } from "@ant-design/icons";
+import { useSwatches } from "../../imageLoaders";
 
 const MAX_VISIBLE = 5;
 
@@ -47,13 +48,10 @@ const ColorSelectionWeb: React.FC<ColorSelectionProps> = ({
     ? products.filter((p) => p.key.split("F00")[0] === uniqueID)
     : [];
 
-  const images = import.meta.glob("../../assets/*.{png,jpg,jpeg,webp}", {
-    eager: true,
-    import: "default",
-    query: { w: "200", format: "webp" },
-  }) as Record<string, string>;
-
-  const getImage = (imageName: string) => images[`../../assets/${imageName}`];
+  // Resolve only the swatches for this product's color variants.
+  // Resolve ALL of them (not just the visible 5) so expanding "+N" doesn't
+  // trigger a fresh fetch.
+  const swatches = useSwatches(similarProducts.map((p) => p.firstImage));
 
   const hiddenCount =
     similarProducts.length > MAX_VISIBLE
@@ -113,11 +111,13 @@ const ColorSelectionWeb: React.FC<ColorSelectionProps> = ({
                   setBlurImageAtom(defaultProduct?.key !== item.key);
                 }}
               >
-                <img
-                  src={getImage(item.firstImage)}
-                  alt={item.category}
-                  className="w-full h-full object-contain"
-                />
+                {swatches[item.firstImage] && (
+                  <img
+                    src={swatches[item.firstImage]}
+                    alt={item.category}
+                    className="w-full h-full object-contain"
+                  />
+                )}
                 {defaultProduct?.key === item.key && (
                   <div className="absolute bottom-0 right-0 bg-[#2424245e] flex justify-center h-5 w-5 text-white">
                     <CheckOutlined />
