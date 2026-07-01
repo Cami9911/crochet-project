@@ -9,13 +9,15 @@ import ProductImagesExtra from "./ProductImagesExtra";
 import { useAtomValue } from "jotai";
 import { selectedProductAtom } from "../../storageAtoms";
 import { ro } from "../../translations";
-import { capitalizeFirst } from "../../useFunctions";
+import { capitalizeFirst, useIsDesktop } from "../../useFunctions";
 
 const ProductDetails: React.FC = () => {
   const { id } = useParams();
   const product = products.find((p) => p.key === id);
 
   const selectedProduct = useAtomValue(selectedProductAtom);
+
+  const isDesktop = useIsDesktop();
 
   const productColor = id?.split("F00")[1].toLowerCase();
   const sameColorProducts = productColor
@@ -59,11 +61,13 @@ const ProductDetails: React.FC = () => {
         ]}
       />
       <Row>
-        <ProductImagesWeb />
-
-        <Col span={24} xs={24} md={0}>
-          <ProductImagesMobile />
-        </Col>
+        {isDesktop ? (
+          <ProductImagesWeb />
+        ) : (
+          <Col span={24}>
+            <ProductImagesMobile />
+          </Col>
+        )}
 
         <ProductInfo />
       </Row>

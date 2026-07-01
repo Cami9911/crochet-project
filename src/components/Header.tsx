@@ -55,7 +55,8 @@ const Header: React.FC = () => {
           <Col>
             <Button
               type="link"
-              className="pl-0!"
+              size="large"
+              className="px-2!"
               onClick={() => {
                 setIsOpenContactModal(true);
               }}
@@ -67,18 +68,19 @@ const Header: React.FC = () => {
             <Button
               type="link"
               size="large"
-              icon={<WhatsAppOutlined />}
+              className="px-1!"
+              icon={<WhatsAppOutlined className="text-[18px]!" />}
               href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Buna! As dori sa aflu mai multe detalii despre produsele tale!")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-4!"
             />
           </Col>
           <Col>
             <Button
               type="link"
               size="large"
-              icon={<InstagramOutlined />}
+              className="px-1!"
+              icon={<InstagramOutlined className="text-[18px]!" />}
               href="https://www.instagram.com/stelas.crochet/"
               target="_blank"
               rel="noopener noreferrer"
@@ -88,11 +90,11 @@ const Header: React.FC = () => {
             <Button
               type="link"
               size="large"
-              icon={<FacebookOutlined />}
+              className="pl-2! w-8!"
+              icon={<FacebookOutlined className="text-[18px]!" />}
               href="https://www.facebook.com/profile.php?id=61559640265528"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-4!"
             />
           </Col>
         </Row>

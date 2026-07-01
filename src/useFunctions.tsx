@@ -19,3 +19,19 @@ export const useCanHover = () => {
 
   return canHover;
 };
+
+export const useIsDesktop = (query = "(min-width: 768px)") => {
+  const [matches, setMatches] = useState(
+    () => window.matchMedia(query).matches, // sync read → no flash
+  );
+
+  useEffect(() => {
+    const mql = window.matchMedia(query);
+    const onChange = () => setMatches(mql.matches);
+    mql.addEventListener("change", onChange);
+    setMatches(mql.matches);
+    return () => mql.removeEventListener("change", onChange);
+  }, [query]);
+
+  return matches;
+};

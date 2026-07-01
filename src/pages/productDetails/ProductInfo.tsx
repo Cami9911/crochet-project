@@ -12,7 +12,7 @@ import { openContactModalAtom, selectedColorAtom } from "../../storageAtoms";
 import { useAtomValue, useSetAtom } from "jotai";
 import { ro } from "../../translations";
 import ContactModal from "../../components/ContactModal";
-import { capitalizeFirst } from "../../useFunctions";
+import { capitalizeFirst, useIsDesktop } from "../../useFunctions";
 
 const ProductInfo: React.FC = () => {
   // const [activeKey, setActiveKey] = useState<string | string[]>([""]);
@@ -22,6 +22,8 @@ const ProductInfo: React.FC = () => {
 
   const { id } = useParams();
   const product = products.find((p) => p.key === id);
+
+  const isDesktop = useIsDesktop();
 
   // const items: CollapseProps["items"] = [
   //   {
@@ -74,23 +76,25 @@ const ProductInfo: React.FC = () => {
             {product?.name}
           </h1>
 
-          <div
-            className="hidden md:block mt-12 "
-            data-testid="product-info__color-selection"
-          >
-            <h2 className="mb-2 flex">
-              CULOARE:{" "}
-              {selectedColor ? capitalizeFirst(ro.colors[selectedColor]) : ""}
-            </h2>
-            <ColorSelectionWeb />
-          </div>
-
-          <div
-            className="block md:hidden"
-            data-testid="product-info__color-selection"
-          >
-            <ColorSelectionMobile />
-          </div>
+          {isDesktop ? (
+            <div
+              className="hidden md:block mt-12 "
+              data-testid="product-info__color-selection"
+            >
+              <h2 className="mb-2 flex">
+                CULOARE:{" "}
+                {selectedColor ? capitalizeFirst(ro.colors[selectedColor]) : ""}
+              </h2>
+              <ColorSelectionWeb />
+            </div>
+          ) : (
+            <div
+              className="block md:hidden"
+              data-testid="product-info__color-selection"
+            >
+              <ColorSelectionMobile />
+            </div>
+          )}
 
           <Button
             size="large"
