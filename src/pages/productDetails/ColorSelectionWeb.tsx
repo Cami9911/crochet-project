@@ -11,12 +11,22 @@ import {
 } from "../../storageAtoms";
 import { useAtomValue, useSetAtom } from "jotai";
 import { CheckOutlined } from "@ant-design/icons";
-import { useSwatches } from "../../imageLoaders";
+import { useSwatchUrl } from "../../SwatchCache";
 
 const MAX_VISIBLE = 5;
 
 type ColorSelectionProps = {
   hoverProductKey?: string;
+};
+
+// Reads the swatch URL from the prewarm cache. When GridContent has already
+// warmed this page's swatches (the normal case), the URL is present on the
+// first render and the image paints instantly — no fetch, no pop-in. The box
+// around it already reserves space via aspect-3/4, so nothing shifts.
+const SwatchImg: React.FC<{ name: string; alt: string }> = ({ name, alt }) => {
+  const src = useSwatchUrl(name);
+  if (!src) return null;
+  return <img src={src} alt={alt} className="w-full h-full object-contain" />;
 };
 
 const ColorSelectionWeb: React.FC<ColorSelectionProps> = ({
@@ -47,11 +57,6 @@ const ColorSelectionWeb: React.FC<ColorSelectionProps> = ({
   const similarProducts = uniqueID
     ? products.filter((p) => p.key.split("F00")[0] === uniqueID)
     : [];
-
-  // Resolve only the swatches for this product's color variants.
-  // Resolve ALL of them (not just the visible 5) so expanding "+N" doesn't
-  // trigger a fresh fetch.
-  const swatches = useSwatches(similarProducts.map((p) => p.firstImage));
 
   const hiddenCount =
     similarProducts.length > MAX_VISIBLE
@@ -111,13 +116,7 @@ const ColorSelectionWeb: React.FC<ColorSelectionProps> = ({
                   setBlurImageAtom(defaultProduct?.key !== item.key);
                 }}
               >
-                {swatches[item.firstImage] && (
-                  <img
-                    src={swatches[item.firstImage]}
-                    alt={item.category}
-                    className="w-full h-full object-contain"
-                  />
-                )}
+                <SwatchImg name={item.firstImage} alt={item.category} />
                 {defaultProduct?.key === item.key && (
                   <div className="absolute bottom-0 right-0 bg-[#2424245e] flex justify-center h-5 w-5 text-white">
                     <CheckOutlined />

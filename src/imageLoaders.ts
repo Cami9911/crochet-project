@@ -77,22 +77,23 @@ function useSingleSrc(
   filenames: (string | undefined)[],
 ): Record<string, string> {
   const [resolved, setResolved] = useState<Record<string, string>>({});
-  const key = filenames.filter(Boolean).join("|"); // stable dep
+  const key = filenames.filter(Boolean).join("|");
 
   useEffect(() => {
     let cancelled = false;
     const names = key ? key.split("|") : [];
 
-    Promise.all(
-      names.map(async (name) => {
-        const loader = map[name];
-        return [name, loader ? await loader() : ""] as const;
-      }),
-    ).then((entries) => {
-      // merge so previously resolved srcs stay available (avoids blank flashes
-      // when the requested set changes, e.g. on hover)
+    // Commit each URL the moment its own loader resolves, so the first image
+    // paints immediately instead of waiting for the whole batch (e.g. the
+    // heavy second image) to finish.
+    names.forEach(async (name) => {
+      const loader = map[name];
+      if (!loader) return;
+      const url = await loader();
       if (!cancelled) {
-        setResolved((prev) => ({ ...prev, ...Object.fromEntries(entries) }));
+        setResolved((prev) =>
+          prev[name] === url ? prev : { ...prev, [name]: url },
+        );
       }
     });
 
@@ -117,17 +118,13 @@ export function useProductImages(
     let cancelled = false;
     const names = key ? key.split("|") : [];
 
-    Promise.all(
-      names.map(async (name) => {
-        const ss = srcsetMap[name];
-        const fb = fallbackMap[name];
-        if (!ss || !fb) return [name, EMPTY] as const;
-        const [src, srcset] = await Promise.all([fb(), ss()]);
-        return [name, { src, srcset } as Img] as const;
-      }),
-    ).then((entries) => {
+    names.forEach(async (name) => {
+      const ss = srcsetMap[name];
+      const fb = fallbackMap[name];
+      if (!ss || !fb) return;
+      const [src, srcset] = await Promise.all([fb(), ss()]);
       if (!cancelled) {
-        setMap((prev) => ({ ...prev, ...Object.fromEntries(entries) }));
+        setMap((prev) => ({ ...prev, [name]: { src, srcset } }));
       }
     });
 

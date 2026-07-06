@@ -6,10 +6,16 @@ import {
   urlHoverImageAtom,
 } from "../../storageAtoms";
 import { useAtomValue } from "jotai";
-import { useEffect, useMemo, useState } from "react";
-import { useLargeImages, useDetailThumbs } from "../../imageLoaders";
+import { useMemo, useState } from "react";
+import {
+  useLargeImages,
+  useDetailThumbs,
+  useProductImages, // ← for the instant w500 backdrop
+} from "../../imageLoaders";
 
 const MAX_VISIBLE = 3;
+
+const SIZES = "(min-width: 992px) 50vw, 100vw";
 
 const ProductImagesWeb: React.FC = () => {
   const [showAll, setShowAll] = useState(false);
@@ -24,17 +30,14 @@ const ProductImagesWeb: React.FC = () => {
   const hiddenCount =
     imagesLength > MAX_VISIBLE ? imagesLength - MAX_VISIBLE : 0;
 
-  const displayedProducts = showAll
-    ? selectedProduct?.images
-    : selectedProduct?.images.slice(0, MAX_VISIBLE);
+  const displayedProducts = useMemo(
+    () =>
+      showAll
+        ? (selectedProduct?.images ?? [])
+        : (selectedProduct?.images?.slice(0, MAX_VISIBLE) ?? []),
+    [showAll, selectedProduct],
+  );
 
-  useEffect(() => {
-    setShowAll(false);
-  }, [selectedProduct]);
-
-  // Large images we may need: the two main shots + whatever is being hovered
-  // from the color selector. Resolved lazily; the merge in useSingleSrc keeps
-  // earlier ones around so hovering doesn't blank the main image.
   const largeNeeded = useMemo(() => {
     const out: string[] = [];
     if (selectedProduct?.firstImage) out.push(selectedProduct.firstImage);
@@ -45,23 +48,27 @@ const ProductImagesWeb: React.FC = () => {
 
   const largeSrcs = useLargeImages(largeNeeded);
 
-  // Resolve thumbs for the whole gallery so "show more" doesn't refetch.
-  const thumbNeeded = useMemo(
-    () => selectedProduct?.images ?? [],
-    [selectedProduct],
-  );
-  const thumbSrcs = useDetailThumbs(thumbNeeded);
+  // Instant backdrop: the w500 { src, srcset } is already cached from the grid
+  // page for firstImage/secondImage, so it paints on the first render with no
+  // round-trip. The w1400 fades in on top once it resolves.
+  const backdropSrcs = useProductImages(largeNeeded); // ←
+
+  const thumbSrcs = useDetailThumbs(displayedProducts);
 
   const getLarge = (name?: string) => (name && largeSrcs[name]) || "";
   const getThumb = (name?: string) => (name && thumbSrcs[name]) || "";
+  const getBackdrop = (name?: string) =>
+    (name && backdropSrcs[name]) || undefined; // ← { src, srcset } | undefined
 
-  // Main image: prefer the hovered variant; fall back to the product's first
-  // image while the hovered one is still resolving (no blank flash).
-  const mainSrc = urlHoverImage
+  const mainName = urlHoverImage || selectedProduct?.firstImage;
+  const mainLarge = urlHoverImage
     ? getLarge(urlHoverImage) || getLarge(selectedProduct?.firstImage)
     : getLarge(selectedProduct?.firstImage);
+  const mainBackdrop = getBackdrop(mainName);
 
-  const secondSrc = getLarge(selectedProduct?.secondImage);
+  const secondName = selectedProduct?.secondImage;
+  const secondLarge = getLarge(secondName);
+  const secondBackdrop = getBackdrop(secondName);
 
   return (
     <Col
@@ -78,31 +85,75 @@ const ProductImagesWeb: React.FC = () => {
       >
         <Row gutter={3}>
           <Col span={24} lg={{ span: 12 }}>
-            {mainSrc && (
-              <Image
-                src={mainSrc}
-                alt="none"
-                style={{
-                  height: "80vh",
-                  width: "auto",
-                  objectFit: "cover",
-                }}
-              />
-            )}
+            <div className="relative bg-gray-100" style={{ height: "80vh" }}>
+              {/* instant low-res backdrop (cached w500 from the grid) */}
+              {mainBackdrop && (
+                <img
+                  src={mainBackdrop.src}
+                  srcSet={mainBackdrop.srcset}
+                  sizes={SIZES}
+                  alt=""
+                  aria-hidden
+                  className="absolute inset-0 m-auto"
+                  style={{
+                    height: "80vh",
+                    width: "auto",
+                    objectFit: "cover",
+                  }}
+                  decoding="async"
+                />
+              )}
+              {/* sharp w1400, fades in on top when resolved */}
+              {mainLarge && (
+                <Image
+                  src={mainLarge}
+                  alt="none"
+                  loading="eager"
+                  {...{ fetchpriority: "high" }}
+                  className="relative transition-opacity duration-200 ease-out"
+                  style={{
+                    height: "80vh",
+                    width: "auto",
+                    objectFit: "cover",
+                  }}
+                />
+              )}
+            </div>
           </Col>
           <Col span={24} lg={{ span: 12 }}>
-            {secondSrc && (
-              <Image
-                src={secondSrc}
-                alt="img"
-                style={{
-                  height: "80vh",
-                  width: "auto",
-                  objectFit: "cover",
-                  opacity: blurImage ? 0.5 : 1,
-                }}
-              />
-            )}
+            <div className="relative bg-gray-100" style={{ height: "80vh" }}>
+              {secondBackdrop && (
+                <img
+                  src={secondBackdrop.src}
+                  srcSet={secondBackdrop.srcset}
+                  sizes={SIZES}
+                  alt=""
+                  aria-hidden
+                  className="absolute inset-0 m-auto"
+                  style={{
+                    height: "80vh",
+                    width: "auto",
+                    objectFit: "cover",
+                    opacity: blurImage ? 0.5 : 1,
+                  }}
+                  decoding="async"
+                />
+              )}
+              {secondLarge && (
+                <Image
+                  src={secondLarge}
+                  alt="img"
+                  {...{ fetchpriority: "low" }}
+                  className="relative transition-opacity duration-200 ease-out"
+                  style={{
+                    height: "80vh",
+                    width: "auto",
+                    objectFit: "cover",
+                    opacity: blurImage ? 0.5 : 1,
+                  }}
+                />
+              )}
+            </div>
           </Col>
         </Row>
         <Row gutter={3}>
@@ -114,6 +165,7 @@ const ProductImagesWeb: React.FC = () => {
                   <Image
                     src={thumb}
                     alt="none"
+                    loading="lazy"
                     style={{
                       opacity: blurImage ? 0.5 : 1,
                     }}
