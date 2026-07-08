@@ -3,7 +3,7 @@ import { Content } from "antd/es/layout/layout";
 import ControlFilters from "./filters/ControlFilters";
 import { routeToFilter } from "./sidemenu/SideMenuFilters";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { useSetAtom } from "jotai";
 import {
   selectedColorAtom,
@@ -23,6 +23,21 @@ import {
   EMPTY,
   type Img,
 } from "../imageLoaders";
+
+// How many cards resolve their images immediately, and how many more are
+// revealed each time the scroll sentinel comes into view.
+const INITIAL_COUNT = 8;
+const BATCH = 8;
+
+// Module-level so it survives GridContent unmount (grid -> details -> back).
+// Keyed by the current view (filters + page) so returning to the same view
+// restores how far you'd scrolled/revealed, but navigating to a different
+// view starts fresh.
+const gridViewState: { key: string; activeCount: number; scrollY: number } = {
+  key: "",
+  activeCount: INITIAL_COUNT,
+  scrollY: 0,
+};
 
 const GridContent: React.FC = () => {
   const canHover = useCanHover();
@@ -109,16 +124,91 @@ const GridContent: React.FC = () => {
     return filteredProducts.slice(start, start + pageSize);
   }, [filteredProducts, currentPage]);
 
-  // Only the filenames on the current page. Hover image skipped when !canHover,
+  const filtersKey = useMemo(() => {
+    const p = new URLSearchParams(searchParams);
+    p.delete("page");
+    return `${pathname}?${p.toString()}`;
+  }, [pathname, searchParams]);
+
+  // Identifies "this exact view". Same key on remount => back-navigation, so
+  // we restore. Different key => real page/filter change, so we reset.
+  const viewKey = `${filtersKey}|page=${currentPage}`;
+
+  // --- Lazy reveal ----------------------------------------------------------
+  // Only the first `activeCount` cards render (and therefore only their images
+  // resolve). A sentinel after the last active card grows this as the user
+  // scrolls, so images beyond the first 8 aren't transformed/fetched until
+  // they're approached. Seeded from the module store so a return visit keeps
+  // however many were already revealed.
+  const [activeCount, setActiveCount] = useState(() =>
+    gridViewState.key === viewKey ? gridViewState.activeCount : INITIAL_COUNT,
+  );
+
+  // Keep the module store in sync with the live value.
+  useEffect(() => {
+    gridViewState.key = viewKey;
+    gridViewState.activeCount = activeCount;
+  }, [viewKey, activeCount]);
+
+  // Reset ONLY on a genuine view change (not on remount). On the first render
+  // prevViewKey === viewKey, so back-navigation doesn't trip this.
+  const prevViewKey = useRef(viewKey);
+  useEffect(() => {
+    if (prevViewKey.current !== viewKey) {
+      prevViewKey.current = viewKey;
+      setActiveCount(INITIAL_COUNT);
+      gridViewState.scrollY = 0;
+      window.scrollTo(0, 0);
+    }
+  }, [viewKey]);
+
+  // Restore scroll position on mount when returning to the same view.
+  const mountViewKey = useRef(viewKey);
+  useLayoutEffect(() => {
+    if (
+      gridViewState.key === mountViewKey.current &&
+      gridViewState.scrollY > 0
+    ) {
+      window.scrollTo(0, gridViewState.scrollY);
+    }
+    // Run once on mount only.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const activeProducts = useMemo(
+    () => paginatedProducts.slice(0, activeCount),
+    [paginatedProducts, activeCount],
+  );
+
+  const sentinelRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    const el = sentinelRef.current;
+    if (!el) return;
+    if (activeCount >= paginatedProducts.length) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setActiveCount((c) => Math.min(c + BATCH, paginatedProducts.length));
+        }
+      },
+      // Start loading the next batch ~200px before the sentinel is on screen.
+      { rootMargin: "200px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [activeCount, paginatedProducts.length]);
+
+  // Only the filenames of ACTIVE cards. Hover image skipped when !canHover,
   // so on mobile it's never transformed or fetched.
   const wantedFilenames = useMemo(() => {
     const out: string[] = [];
-    paginatedProducts.forEach((p) => {
+    activeProducts.forEach((p) => {
       if (p.firstImage) out.push(p.firstImage);
       if (canHover && p.secondImage) out.push(p.secondImage);
     });
     return out;
-  }, [paginatedProducts, canHover]);
+  }, [activeProducts, canHover]);
 
   const imgMap = useProductImages(wantedFilenames);
   const getImg = (filename?: string): Img =>
@@ -127,8 +217,10 @@ const GridContent: React.FC = () => {
   // Prewarm the swatches ColorSelectionWeb will show on hover, so they are
   // cached before any card is hovered (no fetch waterfall / pop-in). Matches
   // ColorSelectionWeb: family is resolved from the full `products` list, so
-  // off-page color variants are included. Skipped entirely when !canHover,
-  // since the swatch overlay only ever appears on hover-capable devices.
+  // off-page color variants are included. Only warms swatches for ACTIVE cards,
+  // so it grows with the scroll reveal rather than warming the whole page up
+  // front. Skipped entirely when !canHover, since the swatch overlay only ever
+  // appears on hover-capable devices.
   const swatchPrewarmFilenames = useMemo(() => {
     if (!canHover) return [];
 
@@ -136,7 +228,7 @@ const GridContent: React.FC = () => {
     const seenFile = new Set<string>();
     const out: string[] = [];
 
-    paginatedProducts.forEach((p) => {
+    activeProducts.forEach((p) => {
       const uniqueID = p.key.split("F00")[0];
       if (seenFamily.has(uniqueID)) return;
       seenFamily.add(uniqueID);
@@ -152,11 +244,14 @@ const GridContent: React.FC = () => {
     });
 
     return out;
-  }, [paginatedProducts, canHover]);
+  }, [activeProducts, canHover]);
 
   usePrewarmSwatches(swatchPrewarmFilenames);
 
   const goToDetails = (key: string) => {
+    // Save scroll position before leaving so we can restore it on the way back.
+    gridViewState.scrollY = window.scrollY;
+
     const product = products.find((p) => p.key === key) ?? null;
     setSelectedProduct(product);
     setSelectedColor(product?.color);
@@ -164,12 +259,6 @@ const GridContent: React.FC = () => {
     navigate(`/product-details/${key}`);
     window.scrollTo(0, 0);
   };
-
-  const filtersKey = useMemo(() => {
-    const p = new URLSearchParams(searchParams);
-    p.delete("page");
-    return `${pathname}?${p.toString()}`;
-  }, [pathname, searchParams]);
 
   const prevFiltersKey = useRef(filtersKey);
   useEffect(() => {
@@ -195,7 +284,7 @@ const GridContent: React.FC = () => {
     <Content className="relative px-0.5">
       <ControlFilters />
       <Row gutter={{ xs: 4, sm: 4, md: 4, lg: 4, xl: 16 }} className="">
-        {paginatedProducts?.map(
+        {activeProducts?.map(
           (
             { key, firstImage, secondImage, style, color, category, name },
             index,
@@ -277,6 +366,11 @@ const GridContent: React.FC = () => {
           },
         )}
       </Row>
+
+      {activeCount < paginatedProducts.length && (
+        <div ref={sentinelRef} aria-hidden className="h-1 w-full" />
+      )}
+
       <Pagination
         current={currentPage}
         total={filteredProducts.length}
