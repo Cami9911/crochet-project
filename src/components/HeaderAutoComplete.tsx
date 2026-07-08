@@ -149,6 +149,15 @@ const HeaderAutoComplete: React.FC = () => {
     setValue("");
   };
 
+  const handleKeyPress: AutoCompleteProps["onInputKeyDown"] = (ev) => {
+    if (ev.key !== "Enter") return;
+
+    const first = options?.[0];
+    if (first) {
+      onSelect(String(first.value)); // go to best match
+    }
+  };
+
   return (
     <AutoComplete
       value={value}
@@ -157,6 +166,7 @@ const HeaderAutoComplete: React.FC = () => {
       className="w-full"
       onSelect={onSelect}
       onChange={onChange}
+      onInputKeyDown={handleKeyPress}
       placeholder="Caută dupa culoare, stil, tipul de produs"
     />
   );
