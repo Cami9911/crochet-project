@@ -2,7 +2,7 @@ import { Radio, RadioChangeEvent } from "antd";
 import "./ColorSelection.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import { products } from "../../productData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   blurImageAtom,
   selectedColorAtom,
@@ -74,6 +74,16 @@ const ColorSelectionWeb: React.FC<ColorSelectionProps> = ({
     navigate(`/product-details/${e.target.value}`);
   };
 
+  useEffect(() => {
+    if (!id) return;
+    const product = products.find((p) => p.key === id);
+
+    if (product) {
+      setSelectedProduct(product);
+      setSelectedColor(product.color);
+    }
+  }, [id, setSelectedProduct, setSelectedColor]);
+
   return (
     <div className=" flex flex-col">
       <Radio.Group
@@ -99,15 +109,11 @@ const ColorSelectionWeb: React.FC<ColorSelectionProps> = ({
                     : "w-20 aspect-3/4 relative"
                 }
                 style={{
-                  border:
-                    defaultProduct?.key === item.key
-                      ? "1px solid #000"
-                      : "1px solid #979797",
                   filter:
                     selectionHoveredKey === item.key
                       ? "brightness(0.8)"
                       : "brightness(1)",
-                  transition: "filter 0.2s ease, border-color 0.2s ease",
+                  transition: "filter 0.2s ease",
                 }}
                 onMouseEnter={() => {
                   setSelectedColor(item.color);
@@ -117,6 +123,17 @@ const ColorSelectionWeb: React.FC<ColorSelectionProps> = ({
                 }}
               >
                 <SwatchImg name={item.firstImage} alt={item.category} />
+                {/* border overlay — sits on top of the image */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    border:
+                      defaultProduct?.key === item.key
+                        ? "1px solid #000"
+                        : "1px solid #979797",
+                    transition: "border-color 0.2s ease",
+                  }}
+                />
                 {defaultProduct?.key === item.key && (
                   <div className="absolute bottom-0 right-0 bg-[#2424245e] flex justify-center h-5 w-5 text-white">
                     <CheckOutlined />

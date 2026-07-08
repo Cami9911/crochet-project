@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { products } from "../../productData";
 import { productType } from "../../types";
@@ -31,6 +31,16 @@ const ColorSelectionMobile: React.FC = () => {
     navigate(`/product-details/${product.key}`);
     window.scrollTo(0, 0);
   };
+
+  useEffect(() => {
+    if (!id) return;
+    const product = products.find((p) => p.key === id);
+
+    if (product) {
+      setSelectedProduct(product);
+      setSelectedColor(product.color);
+    }
+  }, [id, setSelectedProduct, setSelectedColor]);
 
   return (
     <div className="max-h-48 my-8  ">
