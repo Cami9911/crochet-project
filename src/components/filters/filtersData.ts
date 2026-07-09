@@ -75,7 +75,7 @@ export const colors = [
 
 export const sizes = [
   {
-    name: "Mica",
+    name: "Mică",
     key: "small",
   },
   {
@@ -87,15 +87,15 @@ export const sizes = [
     key: "big",
   },
   {
-    name: "Marime universala",
+    name: "Mărime universala",
     key: "universal",
   },
 ];
 
 export const handles = [
-  { name: "Bareta umar", key: "strap" },
-  { name: "Maner", key: "handle" },
-  { name: "Bareta umar si maner", key: "strap-handle" },
+  { name: "Baretă umăr", key: "strap" },
+  { name: "Mâner", key: "handle" },
+  { name: "Baretă umăr și mâner", key: "strap-handle" },
 ];
 
 export const styles = [
@@ -114,17 +114,17 @@ export const filters = [
     key: "color",
     name: "Culoare",
   },
-  {
-    key: "material",
-    name: "Material",
-  },
+  // {
+  //   key: "material",
+  //   name: "Material",
+  // },
   {
     key: "size",
     name: "Dimensiune",
   },
   {
     key: "handle",
-    name: "Tipul manerului genții",
+    name: "Tipul mânerului genții",
   },
   {
     key: "style",
@@ -132,12 +132,12 @@ export const filters = [
   },
   {
     key: "category",
-    name: "Categorie",
+    name: "Tip produs",
   },
-  {
-    key: "stock",
-    name: "In stoc",
-  },
+  // {
+  //   key: "stock",
+  //   name: "In stoc",
+  // },
 ];
 
 export const stock = [
@@ -175,11 +175,11 @@ export const categories = [
     key: "berets",
   },
   {
-    name: "Palarii",
+    name: "Pălării",
     key: "hats",
   },
   {
-    name: "Căciulite copii",
+    name: "Căciulițe copii",
     key: "beanies",
   },
 ];

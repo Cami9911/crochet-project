@@ -8,9 +8,10 @@ export const ro = {
     shoes: "pantofi",
     boots: "ghete",
     sandals: "sandale",
+    beanies: "căciulițe copii",
   } as Record<string, string>,
   breadcrumb: {
-    bags: "genti",
+    bags: "genți",
     backpacks: "ghiozdane",
     wallets: "portofele",
     berets: "berete",
@@ -18,6 +19,7 @@ export const ro = {
     shoes: "pantofi",
     boots: "ghete",
     sandals: "sandale",
+    beanies: "căciulițe copii",
   } as Record<string, string>,
   colors: {
     green: "verde",

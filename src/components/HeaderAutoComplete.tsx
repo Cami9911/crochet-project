@@ -6,6 +6,7 @@ import { ro } from "../translations";
 import { useNavigate } from "react-router-dom";
 import { selectedProductAtom } from "../storageAtoms";
 import { useSetAtom } from "jotai";
+import NotFound from "../pages/NotFound";
 
 type OptionType = NonNullable<AutoCompleteProps["options"]>[number];
 
@@ -25,6 +26,7 @@ const HeaderAutoComplete: React.FC = () => {
 
   const [value, setValue] = useState("");
   const [options, setOptions] = useState<AutoCompleteProps["options"]>([]);
+  const [showNotFound, setShowNotFound] = useState(false);
 
   const setSelectedProduct = useSetAtom(selectedProductAtom);
 
@@ -40,9 +42,6 @@ const HeaderAutoComplete: React.FC = () => {
       const similarColors = product.similarColors.map(
         (color) => ro.colors[color] || color,
       );
-      const handleTranslated = product.handle.map(
-        (handle) => ro.handles[handle] || handle,
-      );
 
       return {
         product,
@@ -53,7 +52,7 @@ const HeaderAutoComplete: React.FC = () => {
           size: normalize(ro.sizes[product.size] || ""),
           style: normalize(ro.styles[product.style] || ""),
           similarColors: similarColors.map(normalize),
-          handle: handleTranslated.map(normalize),
+          handle: normalize(ro.handles[product.handle] || ""),
         },
       };
     });
@@ -66,6 +65,7 @@ const HeaderAutoComplete: React.FC = () => {
 
     if (trimmed.length <= 2) {
       setOptions([]);
+      setShowNotFound(false);
       return;
     }
 
@@ -104,7 +104,7 @@ const HeaderAutoComplete: React.FC = () => {
             score += MATCH_SCORE.similarColors;
             wordMatched = true;
           }
-          if (fields.handle.some((h) => h.includes(word))) {
+          if (fields.handle.includes(word)) {
             score += MATCH_SCORE.handle;
             wordMatched = true;
           }
@@ -138,6 +138,7 @@ const HeaderAutoComplete: React.FC = () => {
       );
 
     setOptions(scored);
+    setShowNotFound(scored.length === 0);
   };
 
   const onSelect = (selectedValue: string) => {
@@ -164,6 +165,7 @@ const HeaderAutoComplete: React.FC = () => {
       options={options}
       size="large"
       className="w-full"
+      notFoundContent={showNotFound ? <NotFound /> : null}
       onSelect={onSelect}
       onChange={onChange}
       onInputKeyDown={handleKeyPress}

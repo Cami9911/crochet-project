@@ -35,7 +35,7 @@ const FilterDrawerFooter: React.FC<drawerFooterProps> = ({ handleClose }) => {
           styles={{ root: { backgroundColor: "#171717" } }}
           onClick={() => handleClose()}
         >
-          Inapoi la produse
+          Înapoi la produse
         </Button>
       )}
       {isFilterSelected && (

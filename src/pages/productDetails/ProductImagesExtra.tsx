@@ -85,6 +85,7 @@ const ProductImagesExtra: React.FC<SimilarProductsProps> = ({
             className="mb-2 w-full"
             arrows
             dots={false}
+            infinite={false}
             lazyLoad="ondemand" // ← added: only visible slides render their <img>
             slidesToShow={slidesToShow}
             slidesToScroll={slidesToShow}

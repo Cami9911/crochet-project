@@ -8,6 +8,7 @@ import {
   isOpenSorterDrawerAtom,
   selectedFilterAtom,
 } from "../../storageAtoms";
+import { FilterOutlined } from "@ant-design/icons";
 
 const ControlFilters: React.FC = () => {
   const setisOpenFilterDrawer = useSetAtom(isOpenFilterDrawerAtom);
@@ -44,10 +45,13 @@ const ControlFilters: React.FC = () => {
           Sorteaza
         </Button> */}
         <Button
-          className="filter-btn w-60 sm:w-70 sm:h-10!"
+          className="filter-btn w-60 sm:w-70 "
           color="default"
           variant="solid"
+          size="large"
+          shape="round"
           onClick={showFilterDrawer}
+          icon={<FilterOutlined />}
         >
           Filtreaza
         </Button>

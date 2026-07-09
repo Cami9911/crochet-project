@@ -12,7 +12,7 @@ export type productType = {
   searchWords?: string[];
   size: string;
   material: string;
-  handle: string[];
+  handle: string;
   style: string;
   firstImage: string;
   secondImage: string;
