@@ -4,7 +4,7 @@ import type { AutoCompleteProps } from "antd";
 import { products } from "../productData";
 import { ro } from "../translations";
 import { useNavigate } from "react-router-dom";
-import { selectedProductAtom } from "../storageAtoms";
+import { searchInputValueAtom, selectedProductAtom } from "../storageAtoms";
 import { useSetAtom } from "jotai";
 import NotFound from "../pages/NotFound";
 
@@ -28,6 +28,7 @@ const HeaderAutoComplete: React.FC = () => {
   const [options, setOptions] = useState<AutoCompleteProps["options"]>([]);
   const [showNotFound, setShowNotFound] = useState(false);
 
+  const setSearchInputValue = useSetAtom(searchInputValueAtom);
   const setSelectedProduct = useSetAtom(selectedProductAtom);
 
   const normalize = (value: string) =>
@@ -60,6 +61,7 @@ const HeaderAutoComplete: React.FC = () => {
 
   const onChange = (searchValue: string) => {
     setValue(searchValue);
+    setSearchInputValue(searchValue);
 
     const trimmed = searchValue.trim();
 

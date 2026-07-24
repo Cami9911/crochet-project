@@ -1,19 +1,18 @@
-import { Button, Flex } from "antd";
+import { useAtomValue } from "jotai";
+import { searchInputValueAtom } from "../storageAtoms";
+import { Flex } from "antd";
 
 const NotFound = () => {
+  const searchInputValue = useAtomValue(searchInputValueAtom);
+
   return (
-    <div>
-      <span>Nu există rezultate pentru</span>
+    <Flex vertical className="text-black">
+      <span>Nu există rezultate pentru "{searchInputValue}"</span>
       <span>
-        Din păcate, nu am găsit exact ceea ce cauți. Dar nu-i nimic! Descoperă
-        ce am pregătit pentru tine.
+        Asigură-te că fraza tastată este corectă sau încearcă să introduci una
+        diferită.
       </span>
-      <Flex>
-        <Button>Genti</Button>
-        <Button>Pantofi</Button>
-      </Flex>
-      <Button>Înapoi la pagina principală</Button>
-    </div>
+    </Flex>
   );
 };
 export default NotFound;

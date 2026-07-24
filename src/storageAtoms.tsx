@@ -35,3 +35,8 @@ export const openContactModalAtom = atomWithStorage<boolean>(
   "openContactModal",
   false,
 );
+
+export const searchInputValueAtom = atomWithStorage<string>(
+  "searchInputValue",
+  "",
+);
