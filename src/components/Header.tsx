@@ -7,7 +7,7 @@ import {
 } from "@ant-design/icons";
 import logoUrl from "../assets/stelas-crochet-v2.svg";
 import { useNavigate } from "react-router-dom";
-import { openContactModalAtom } from "../storageAtoms";
+import { openContactModalAtom } from "../atoms";
 import { useSetAtom } from "jotai";
 
 const whatsappNumber = +40745109860;

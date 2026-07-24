@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import FooterCmp from "./components/Footer";
 import ProductDetails from "./pages/productDetails/ProductDetails";
 import Contact from "./pages/contact/Contact";
+import ContactModal from "./components/ContactModal";
 
 const MainDashboardEntry = () => {
   return (
@@ -30,6 +31,7 @@ const MainDashboardEntry = () => {
       <Layout>
         <div className="bg-white-bg sticky top-0 z-1000 " id="main-header">
           <Header></Header>
+          <ContactModal />
           <Divider className="mt-4! mb-0! sm:my-6!" />
         </div>
         <Layout className="">

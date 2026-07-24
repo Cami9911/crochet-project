@@ -1,4 +1,4 @@
-import { Row, Col, Pagination } from "antd";
+import { Row, Col, Pagination, Breadcrumb } from "antd";
 import { Content } from "antd/es/layout/layout";
 import ControlFilters from "./filters/ControlFilters";
 import { routeToFilter } from "./sidemenu/SideMenuFilters";
@@ -282,6 +282,17 @@ const GridContent: React.FC = () => {
   return (
     <Content className="relative px-0.5">
       <ControlFilters />
+      {(selectedCategories.length > 0 || pathname !== "/") && (
+        <Breadcrumb
+          separator=">"
+          className="py-2! sm:mb-6! px-4! sm:px-2! md:px-12! xl:px-40!"
+          items={[
+            {
+              title: <a href="/">{"<"} Toate produsele</a>,
+            },
+          ]}
+        />
+      )}
       <Row gutter={{ xs: 4, sm: 4, md: 4, lg: 4, xl: 16 }} className="">
         {activeProducts?.map(
           (

@@ -150,6 +150,9 @@ const HeaderAutoComplete: React.FC = () => {
 
     navigate(`/product-details/${selectedValue}`);
     setValue("");
+    setSearchInputValue("");
+    setOptions([]);
+    setShowNotFound(false);
   };
 
   const handleKeyPress: AutoCompleteProps["onInputKeyDown"] = (ev) => {

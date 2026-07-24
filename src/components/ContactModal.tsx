@@ -1,16 +1,11 @@
 import React from "react";
 import { Modal } from "antd";
-import { openContactModalAtom } from "../storageAtoms";
-import { useAtomValue, useSetAtom } from "jotai";
+import { openContactModalAtom } from "../atoms";
+import { useAtom } from "jotai";
 import ContactOptions from "./ContactOptions";
 
 const ContactModal: React.FC = () => {
-  const isOpenContactModal = useAtomValue(openContactModalAtom);
-  const setIsOpenContactModal = useSetAtom(openContactModalAtom);
-
-  const handleCancel = () => {
-    setIsOpenContactModal(false);
-  };
+  const [isOpen, setIsOpen] = useAtom(openContactModalAtom);
 
   return (
     <>
@@ -24,8 +19,8 @@ const ContactModal: React.FC = () => {
           </div>
         }
         closable={{ "aria-label": "Custom Close Button" }}
-        open={isOpenContactModal}
-        onCancel={handleCancel}
+        open={isOpen}
+        onCancel={() => setIsOpen(false)}
         footer={false}
       >
         <ContactOptions />

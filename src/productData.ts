@@ -1620,7 +1620,7 @@ export const products: productType[] = [
   },
   {
     key: "P32F00RED",
-    name: "Gentută cu maner din perle",
+    name: "Gentuţă cu mâner din perle",
     category: "bags",
     color: "red",
     searchWords: [

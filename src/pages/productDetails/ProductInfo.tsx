@@ -8,10 +8,10 @@ import { products } from "../../productData";
 
 import { useParams } from "react-router-dom";
 import ColorSelectionMobile from "./ColorSelectionMobile";
-import { openContactModalAtom, selectedColorAtom } from "../../storageAtoms";
+import { selectedColorAtom } from "../../storageAtoms";
+import { openContactModalAtom } from "../../atoms";
 import { useAtomValue, useSetAtom } from "jotai";
 import { ro } from "../../translations";
-import ContactModal from "../../components/ContactModal";
 import { capitalizeFirst, useIsDesktop } from "../../useFunctions";
 
 const ProductInfo: React.FC = () => {
@@ -126,7 +126,6 @@ const ProductInfo: React.FC = () => {
           /> */}
         </div>
       </div>
-      <ContactModal />
     </Col>
   );
 };
