@@ -1,8 +1,27 @@
 {
   "name": "crochet-project",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Catalog website for a handmade crochet business — browse, filter, and search products by category, color, and style.",
+  "author": "Tirnovan Camelia-Elena",
+  "license": "UNLICENSED",
   "type": "module",
+  "keywords": [
+    "crochet",
+    "catalog",
+    "e-commerce",
+    "react",
+    "typescript",
+    "vite"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cami9911/crochet-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Cami9911/crochet-project/issues"
+  },
+  "homepage": "https://github.com/Cami9911/crochet-project#readme",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
