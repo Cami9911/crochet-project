@@ -12,9 +12,10 @@ const ContactModal: React.FC = () => {
       <Modal
         title={
           <div>
-            <p className="m-0">Contactează-mă acum</p>
+            <p className="m-0">Găsește-mă pe social media</p>
             <p className="mt-1 text-sm font-normal text-gray-400">
-              Alege o metodă de contact
+              Urmărește-mă pentru noutăți, creații noi și videouri cu produsele
+              mele
             </p>
           </div>
         }

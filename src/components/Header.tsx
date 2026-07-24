@@ -3,14 +3,12 @@ import HeaderAutoComplete from "./HeaderAutoComplete";
 import {
   FacebookOutlined,
   InstagramOutlined,
-  WhatsAppOutlined,
+  // WhatsAppOutlined,
 } from "@ant-design/icons";
 import logoUrl from "../assets/stelas-crochet-v2.svg";
 import { useNavigate } from "react-router-dom";
 import { openContactModalAtom } from "../atoms";
 import { useSetAtom } from "jotai";
-
-const whatsappNumber = +40745109860;
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
@@ -61,10 +59,10 @@ const Header: React.FC = () => {
                 setIsOpenContactModal(true);
               }}
             >
-              Contact
+              Urmărește-mă
             </Button>
           </Col>
-          <Col>
+          {/* <Col>
             <Button
               type="link"
               size="large"
@@ -74,7 +72,7 @@ const Header: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             />
-          </Col>
+          </Col> */}
           <Col>
             <Button
               type="link"

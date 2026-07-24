@@ -105,7 +105,7 @@ const ProductInfo: React.FC = () => {
               setIsOpenContactModal(true);
             }}
           >
-            Contactează-mă acum
+            Urmărește-mă
           </Button>
 
           {/* <Collapse

@@ -1,11 +1,9 @@
 import {
   FacebookOutlined,
   InstagramOutlined,
-  WhatsAppOutlined,
+  // WhatsAppOutlined,
 } from "@ant-design/icons";
 import { Button, Card, Col, ConfigProvider, Divider, Row } from "antd";
-
-const whatsappNumber = +40745109860;
 
 const ContactData = () => {
   return (
@@ -19,7 +17,7 @@ const ContactData = () => {
       }}
     >
       <Card>
-        <Row>
+        {/* <Row>
           <Col>
             <Button
               type="link"
@@ -33,7 +31,7 @@ const ContactData = () => {
             </Button>
           </Col>
         </Row>
-        <Divider />
+        <Divider /> */}
         <Row>
           <Col>
             <Button
