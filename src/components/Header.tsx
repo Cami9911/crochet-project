@@ -5,7 +5,7 @@ import {
   InstagramOutlined,
   WhatsAppOutlined,
 } from "@ant-design/icons";
-import logoUrl from "../assets/stelas_crochet.svg";
+import logoUrl from "../assets/stelas-crochet-v2.svg";
 import { useNavigate } from "react-router-dom";
 import { openContactModalAtom } from "../storageAtoms";
 import { useSetAtom } from "jotai";
@@ -34,7 +34,7 @@ const Header: React.FC = () => {
             navigate(`/`);
           }}
         >
-          <img src={logoUrl} alt="Stela's Crochet" className=" w-22 md:w-25 " />
+          <img src={logoUrl} alt="Stela's Crochet" className=" w-18 md:w-28 " />
         </Button>
       </Col>
 

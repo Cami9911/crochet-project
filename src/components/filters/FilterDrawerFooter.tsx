@@ -56,11 +56,18 @@ const FilterDrawerFooter: React.FC<drawerFooterProps> = ({ handleClose }) => {
       {isFilterSelected && (
         <Button
           className="w-full"
-          type="primary"
-          styles={{ root: { backgroundColor: "#171717" } }}
+          variant="solid"
+          color="default"
           onClick={() => handleClose()}
+          disabled={totalResults < 1}
         >
-          Vezi <Badge count={totalResults} />
+          {totalResults > 0 ? (
+            <>
+              Vezi <Badge count={totalResults} />{" "}
+            </>
+          ) : (
+            <>Nu sunt produse</>
+          )}
         </Button>
       )}
     </Flex>

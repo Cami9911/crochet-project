@@ -37,7 +37,7 @@ const ProductImagesMobile: React.FC = () => {
           console.log(`current index: ${current}, prev index: ${prev}`),
       }}
     >
-      <Carousel afterChange={onChange} className="mb-2">
+      <Carousel afterChange={onChange} className="mb-2" infinite={false}>
         {imagesToDisplay.map((p: string, index: number) => {
           const src = getImage(p);
           const backdrop = getBackdrop(p);

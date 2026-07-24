@@ -86,10 +86,10 @@ export const sizes = [
     name: "Mare",
     key: "big",
   },
-  {
-    name: "Mărime universala",
-    key: "universal",
-  },
+  // {
+  //   name: "Mărime universala",
+  //   key: "universal",
+  // },
 ];
 
 export const handles = [
@@ -120,11 +120,11 @@ export const filters = [
   // },
   {
     key: "size",
-    name: "Dimensiune",
+    name: "Dimensiune geantă",
   },
   {
     key: "handle",
-    name: "Tipul mânerului genții",
+    name: "Tip mâner geantă",
   },
   {
     key: "style",
