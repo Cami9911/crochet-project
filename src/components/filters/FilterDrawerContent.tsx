@@ -3,7 +3,7 @@ import { selectedFilterAtom } from "../../storageAtoms";
 import { Badge, Table, TableProps } from "antd";
 import { RightOutlined } from "@ant-design/icons";
 import ColorsFilter from "./ColorsFilter";
-import { useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import FiltersSelection from "./FiltersSelection";
 import {
   filters,
@@ -20,6 +20,12 @@ const FilterDrawerContent: React.FC = () => {
   const setSelectedFilter = useSetAtom(selectedFilterAtom);
 
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const { pathname } = useLocation();
+
+  const visibleFilters = filters.filter(
+    (f) => !(f.name.includes("Tip produs") && pathname !== "/"),
+  );
 
   const toggleFilters = (filter: string, paramName: string) => {
     const current = new Set(searchParams.getAll(filter)); //negru
@@ -45,6 +51,7 @@ const FilterDrawerContent: React.FC = () => {
       width: "85%",
       render: (_, value) => {
         const selectionCount = searchParams.getAll(value.key).length;
+
         return (
           <div>
             <span className="p-2">{value.name}</span>
@@ -66,7 +73,7 @@ const FilterDrawerContent: React.FC = () => {
         <Table<FilterProps>
           className={"filter-grid"}
           columns={columns}
-          dataSource={filters}
+          dataSource={visibleFilters}
           pagination={false}
           showHeader={false}
           // rowClassName={(record) =>
