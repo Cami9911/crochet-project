@@ -50,7 +50,7 @@ const ProductDetails: React.FC = () => {
           },
           {
             title: (
-              <a href={"/" + product?.category}>
+              <a href={"/?category=" + product?.category}>
                 {capitalizeFirst(ro.breadcrumb[product?.category || ""])}
               </a>
             ),

@@ -30,7 +30,10 @@ const FilterDrawer: React.FC<FilterDrawerProps> = ({ handleClose }) => {
               type="text"
               className="text-grey-icons! -ml-2 max-h-6"
               onClick={() => {
-                setSelectedFilter({ key: "all-filters", name: "all-filters" });
+                setSelectedFilter({
+                  key: "all-filters",
+                  name: "all-filters",
+                });
               }}
               icon={<LeftOutlined />}
             ></Button>

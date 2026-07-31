@@ -31,6 +31,7 @@ export const ro = {
     black: "negru",
     burgundy: "vișiniu",
     pink: "roz",
+    cakepink: "roz prăjiturică",
     turquoise: "turcoaz",
     blue: "albastru",
     darkblue: "albastru închis",

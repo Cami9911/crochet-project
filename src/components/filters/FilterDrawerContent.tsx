@@ -21,6 +21,12 @@ const FilterDrawerContent: React.FC = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
+  // const { pathname } = useLocation();
+
+  // const visibleFilters = filters.filter(
+  //   (f) => !(f.name.includes("Tip produs") && pathname !== "/"),
+  // );
+
   const toggleFilters = (filter: string, paramName: string) => {
     const current = new Set(searchParams.getAll(filter)); //negru
     const next = new URLSearchParams(searchParams); //create a copy of all url params
@@ -45,6 +51,7 @@ const FilterDrawerContent: React.FC = () => {
       width: "85%",
       render: (_, value) => {
         const selectionCount = searchParams.getAll(value.key).length;
+
         return (
           <div>
             <span className="p-2">{value.name}</span>

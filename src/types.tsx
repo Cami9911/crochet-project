@@ -20,6 +20,7 @@ export type productType = {
   description?: DescriptionItem;
   materials?: string;
   stock: string;
+  date?: string;
 };
 
 type DescriptionItem = {
