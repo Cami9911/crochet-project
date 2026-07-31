@@ -282,7 +282,7 @@ const GridContent: React.FC = () => {
   return (
     <Content className="relative px-0.5">
       <ControlFilters />
-      {(selectedCategories.length > 0 || (pathname !== "/" && !canHover)) && (
+      {(selectedCategories.length > 0 || pathname !== "/") && (
         <Breadcrumb
           separator=">"
           className="py-2! sm:mb-6! px-4! sm:px-2! md:px-12! xl:px-40!"

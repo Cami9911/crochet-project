@@ -5,7 +5,7 @@ import { isOpenFilterDrawerAtom, selectedFilterAtom } from "../../storageAtoms";
 import FilterDrawerFooter from "./FilterDrawerFooter";
 import FilterDrawerContent from "./FilterDrawerContent";
 import { LeftOutlined } from "@ant-design/icons";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 interface FilterDrawerProps {
   handleClose: () => void;
@@ -21,26 +21,23 @@ const FilterDrawer: React.FC<FilterDrawerProps> = ({ handleClose }) => {
 
   const selectionCount = searchParams.getAll(selectedFilter.key).length;
 
-  const { pathname } = useLocation();
-
   return (
     <Drawer
       title={
         <div className="drawer-header flex">
-          {selectedFilter.name !== "all-filters" &&
-            ["/", "/bags"].includes(pathname) && (
-              <Button
-                type="text"
-                className="text-grey-icons! -ml-2 max-h-6"
-                onClick={() => {
-                  setSelectedFilter({
-                    key: "all-filters",
-                    name: "all-filters",
-                  });
-                }}
-                icon={<LeftOutlined />}
-              ></Button>
-            )}
+          {selectedFilter.name !== "all-filters" && (
+            <Button
+              type="text"
+              className="text-grey-icons! -ml-2 max-h-6"
+              onClick={() => {
+                setSelectedFilter({
+                  key: "all-filters",
+                  name: "all-filters",
+                });
+              }}
+              icon={<LeftOutlined />}
+            ></Button>
+          )}
           <div>
             <span className="drawer-title mr-2">
               {selectedFilter.name === "all-filters"

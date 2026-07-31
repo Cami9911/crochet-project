@@ -9,39 +9,39 @@ const items: MenuProps["items"] = [
     label: "Toate produsele",
   },
   {
-    key: "/bags",
+    key: "/?category=bags",
     label: "Genți",
   },
   {
-    key: "/backpacks",
+    key: "/?category=backpacks",
     label: "Ghiozdane",
   },
   {
-    key: "/shoes",
+    key: "/?category=shoes",
     label: "Pantofi",
   },
   {
-    key: "/sandals",
+    key: "/?category=sandals",
     label: "Sandale",
   },
   {
-    key: "/boots",
+    key: "/?category=boots",
     label: "Ghete",
   },
   {
-    key: "/wallets",
+    key: "/?category=wallets",
     label: "Portofele",
   },
   {
-    key: "/berets",
+    key: "/?category=berets",
     label: "Berete",
   },
   {
-    key: "/beanies",
+    key: "/?category=beanies",
     label: "Căciulițe copii",
   },
   {
-    key: "/hats",
+    key: "/?category=hats",
     label: "Pălării",
   },
 ];

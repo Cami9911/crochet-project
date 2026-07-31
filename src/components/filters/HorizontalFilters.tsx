@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { Badge, Button, Flex } from "antd";
 import { useSetAtom } from "jotai";
 import { isOpenFilterDrawerAtom, selectedFilterAtom } from "../../storageAtoms";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { filters } from "./filtersData";
 
 const HorizontalFilters: React.FC = () => {
@@ -10,7 +10,7 @@ const HorizontalFilters: React.FC = () => {
   const setIsOpenFilterDrawer = useSetAtom(isOpenFilterDrawerAtom);
   const [searchParams] = useSearchParams();
   const filtersRef = useRef<HTMLDivElement>(null);
-  const { pathname } = useLocation();
+  // const { pathname } = useLocation();
 
   useEffect(() => {
     const header = document.getElementById("main-header");
@@ -31,10 +31,10 @@ const HorizontalFilters: React.FC = () => {
       <div className="hidden ml-3 lg:ml-0 sm:flex pb-2 mb-2 gap-4 overflow-x-auto whitespace-nowrap lg:max-w-full min-[880px]:max-w-full min-[768px]:max-w-9/10 min-[640px]:max-w-sm min-[460px]:max-w-124 max-w-64">
         {filters.map(({ key, name }) => {
           // <Col className="mb-2 pb-2">
-          if (name.includes("geantă") && !["/", "/bags"].includes(pathname))
-            return;
+          // if (name.includes("geantă") && !["/", "/bags"].includes(pathname))
+          //   return;
 
-          if (name === "Tip produs" && pathname !== "/") return;
+          // if (name === "Tip produs" && pathname !== "/") return;
 
           return (
             <Button
