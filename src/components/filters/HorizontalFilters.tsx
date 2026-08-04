@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Badge, Button, Flex, Select } from "antd";
 import { useSetAtom } from "jotai";
 import { isOpenFilterDrawerAtom, selectedFilterAtom } from "../../storageAtoms";
@@ -8,8 +8,10 @@ import { filters } from "./filtersData";
 const HorizontalFilters: React.FC = () => {
   const setSelectedFilter = useSetAtom(selectedFilterAtom);
   const setIsOpenFilterDrawer = useSetAtom(isOpenFilterDrawerAtom);
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const filtersRef = useRef<HTMLDivElement>(null);
+
+  const [sortValue, setSortValue] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     const header = document.getElementById("main-header");
@@ -25,7 +27,17 @@ const HorizontalFilters: React.FC = () => {
         <Select
           placeholder="Sorteaza"
           style={{ width: 120 }}
-          // onChange={handleChange}
+          value={sortValue}
+          onChange={(value) => {
+            if (value === "default") {
+              setSortValue(undefined);
+              searchParams.delete("sort");
+            } else {
+              setSortValue(value);
+              searchParams.set("sort", value);
+            }
+            setSearchParams(searchParams);
+          }}
           options={[
             { value: "default", label: "Implicit" },
             { value: "newest", label: "Cele mai noi" },

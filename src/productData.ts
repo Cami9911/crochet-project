@@ -723,6 +723,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "21.06.2026",
   },
   {
     key: "S2F00GREY",
@@ -748,6 +749,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "08.05.2026",
   },
   {
     key: "P26F00CREAM",
@@ -785,6 +787,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "18.04.2025",
   },
   {
     key: "BTS1F00GREY",
@@ -821,6 +824,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "31.10.2025",
   },
   {
     key: "S1F00DARKBEIGE",
@@ -857,6 +861,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "25.04.2026",
   },
   {
     key: "B2F00PINK",
@@ -882,6 +887,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "04.12.2025",
   },
   {
     key: "P29F00GREEN",
@@ -918,6 +924,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "14.12.2025",
   },
 
   {
@@ -958,6 +965,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "29.03.2026",
   },
 
   {
@@ -996,6 +1004,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "25.05.2025",
   },
   {
     key: "B4F00PINK",
@@ -1030,6 +1039,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "02.12.2025",
   },
   {
     key: "B4F00WHITE",
@@ -1064,6 +1074,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "03.12.2025",
   },
   {
     key: "C1F00PINK",
@@ -1089,8 +1100,8 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "19.11.2025",
   },
-
   {
     key: "B1F00PINK",
     name: "Beretă pentru copii",
@@ -1124,6 +1135,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "04.12.2025",
   },
   {
     key: "P30F00BURGUNDY",
@@ -1161,6 +1173,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "08.12.2025",
   },
   {
     key: "P17F00GREY",
@@ -1197,6 +1210,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "16.04.2026",
   },
   {
     key: "B2F00GREY",
@@ -1222,6 +1236,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "true",
+    date: "06.03.2026",
   },
   {
     key: "P21F00RED",
@@ -1260,6 +1275,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "05.04.2026",
   },
   {
     key: "P18F00GREY",
@@ -1296,6 +1312,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "21.03.2026",
   },
 
   {
@@ -1340,6 +1357,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "18.03.2026",
   },
 
   {
@@ -1376,6 +1394,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "23.04.2026",
   },
   {
     key: "P1F00BEIGE",

@@ -72,11 +72,12 @@ const GridContent: React.FC = () => {
   const selectedStyles = searchParams.getAll("style");
   const selectedStock = searchParams.getAll("stock");
   const selectedCategories = searchParams.getAll("category");
+  const selectedSort = searchParams.get("sort");
 
   const filteredProducts = useMemo(() => {
     const routePredicate = routeToFilter[pathname] ?? (() => true);
 
-    return products.filter((p) => {
+    const result = products.filter((p) => {
       const okRoute = routePredicate(p);
 
       const filterColors =
@@ -108,6 +109,17 @@ const GridContent: React.FC = () => {
         filterCategories
       );
     });
+
+    if (selectedSort === "newest") {
+      const toTime = (d?: string) => {
+        if (!d) return 0;
+        const [day, month, year] = d.split(".").map(Number);
+        return new Date(year, month - 1, day).getTime();
+      };
+      result.sort((a, b) => toTime(b.date) - toTime(a.date));
+    }
+
+    return result;
   }, [
     pathname,
     selectedColors,
@@ -116,6 +128,7 @@ const GridContent: React.FC = () => {
     selectedStyles,
     selectedStock,
     selectedCategories,
+    selectedSort,
   ]);
 
   const paginatedProducts = useMemo(() => {
