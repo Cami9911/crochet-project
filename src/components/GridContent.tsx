@@ -110,13 +110,18 @@ const GridContent: React.FC = () => {
       );
     });
 
+    const toTime = (d?: string) => {
+      if (!d) return 0;
+      const [day, month, year] = d.split(".").map(Number);
+      return new Date(year, month - 1, day).getTime();
+    };
+
     if (selectedSort === "newest") {
-      const toTime = (d?: string) => {
-        if (!d) return 0;
-        const [day, month, year] = d.split(".").map(Number);
-        return new Date(year, month - 1, day).getTime();
-      };
       result.sort((a, b) => toTime(b.date) - toTime(a.date));
+    }
+
+    if (selectedSort === "oldest") {
+      result.sort((a, b) => toTime(a.date) - toTime(b.date));
     }
 
     return result;

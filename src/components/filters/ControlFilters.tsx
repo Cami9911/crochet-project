@@ -8,7 +8,8 @@ import {
   isOpenSorterDrawerAtom,
   selectedFilterAtom,
 } from "../../storageAtoms";
-import { FilterOutlined } from "@ant-design/icons";
+import FilterIcon from "../../assets/icons/filter.svg?react";
+import SortIcon from "../../assets/icons/sort.svg?react";
 
 const ControlFilters: React.FC = () => {
   const setisOpenFilterDrawer = useSetAtom(isOpenFilterDrawerAtom);
@@ -25,9 +26,9 @@ const ControlFilters: React.FC = () => {
     setisOpenFilterDrawer(false);
   };
 
-  // const showSorterDrawer = () => {
-  //   setIsOpenedSorterDrawer(true);
-  // };
+  const showSorterDrawer = () => {
+    setIsOpenedSorterDrawer(true);
+  };
 
   const onCloseSorterDrawer = () => {
     setIsOpenedSorterDrawer(false);
@@ -36,24 +37,27 @@ const ControlFilters: React.FC = () => {
   return (
     <>
       <div className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex">
-        {/* <Button
-          className="sort-btn rounded-r-none! border-r-[0.25px]! border-r-white! w-40 sm:w-56 sm:h-10!"
+        <Button
+          className="sort-btn rounded-r-none! border-r-[0.25px]! border-r-gray-400! border-white!  w-40 sm:w-56 "
           color="default"
           variant="solid"
+          size="large"
+          shape="round"
           onClick={showSorterDrawer}
+          icon={<SortIcon width={16} height={16} />}
         >
-          Sorteaza
-        </Button> */}
+          Sortează
+        </Button>
         <Button
-          className="filter-btn w-60 sm:w-70 "
+          className="filter-btn rounded-l-none! border-r-[0.25px]! border-l-gray-400! border-white! w-40 sm:w-56"
           color="default"
           variant="solid"
           size="large"
           shape="round"
           onClick={showFilterDrawer}
-          icon={<FilterOutlined />}
+          icon={<FilterIcon width={16} height={16} />}
         >
-          Filtreaza
+          Filtrează
         </Button>
       </div>
       <FilterDrawer handleClose={onCloseFilterDrawer} />

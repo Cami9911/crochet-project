@@ -48,10 +48,22 @@ const items: MenuProps["items"] = [
 
 const SideMenu = () => {
   const navigate = useNavigate();
-  const { pathname } = useLocation();
+  const { search } = useLocation();
+  const searchParams = new URLSearchParams(search);
+  const category = searchParams.get("category");
+
+  const selectedKey = category ? `/?category=${category}` : "/";
 
   const handleMenuClick: MenuProps["onClick"] = ({ key }) => {
-    navigate(key);
+    // start from the params encoded in the menu key (category or nothing)
+    const nextParams = new URLSearchParams(key.split("?")[1] ?? "");
+
+    // carry over the current sort, if any
+    const sort = searchParams.get("sort");
+    if (sort) nextParams.set("sort", sort);
+
+    const qs = nextParams.toString();
+    navigate(qs ? `/?${qs}` : "/");
   };
 
   return (
@@ -67,7 +79,7 @@ const SideMenu = () => {
       <Menu
         // mode="inline"
         className="side-menu pt-8 bg-white-bg border-0!"
-        selectedKeys={[pathname]}
+        selectedKeys={[selectedKey]}
         defaultOpenKeys={["/all"]}
         style={{ height: "100%" }}
         items={items}

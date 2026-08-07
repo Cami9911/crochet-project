@@ -1,7 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { Badge, Button, Flex, Select } from "antd";
-import { useSetAtom } from "jotai";
-import { isOpenFilterDrawerAtom, selectedFilterAtom } from "../../storageAtoms";
+import { useAtom, useSetAtom } from "jotai";
+import {
+  isOpenFilterDrawerAtom,
+  selectedFilterAtom,
+  selectedSorterAtom,
+} from "../../storageAtoms";
 import { useSearchParams } from "react-router-dom";
 import { filters } from "./filtersData";
 
@@ -11,7 +15,7 @@ const HorizontalFilters: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const filtersRef = useRef<HTMLDivElement>(null);
 
-  const [sortValue, setSortValue] = useState<string | undefined>(undefined);
+  const [selectedSorter, setSelectedSorter] = useAtom(selectedSorterAtom);
 
   useEffect(() => {
     const header = document.getElementById("main-header");
@@ -26,21 +30,22 @@ const HorizontalFilters: React.FC = () => {
       <div className="hidden ml-3 lg:ml-0 sm:flex pb-2 mb-2 gap-4 overflow-x-auto whitespace-nowrap lg:max-w-full min-[880px]:max-w-full min-[768px]:max-w-9/10 min-[640px]:max-w-sm min-[460px]:max-w-124 max-w-64">
         <Select
           placeholder="Sorteaza"
+          allowClear
           style={{ width: 120 }}
-          value={sortValue}
+          value={selectedSorter === "default" ? undefined : selectedSorter}
           onChange={(value) => {
-            if (value === "default") {
-              setSortValue(undefined);
+            const key = value ?? "default";
+            if (key === "default") {
               searchParams.delete("sort");
             } else {
-              setSortValue(value);
-              searchParams.set("sort", value);
+              searchParams.set("sort", key);
             }
+            setSelectedSorter(key);
             setSearchParams(searchParams);
           }}
           options={[
-            { value: "default", label: "Implicit" },
             { value: "newest", label: "Cele mai noi" },
+            { value: "oldest", label: "Cele mai vechi" },
           ]}
         />
         {/* <Divider vertical /> */}
