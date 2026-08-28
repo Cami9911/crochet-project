@@ -2,6 +2,45 @@ import { productType } from "./types";
 
 export const products: productType[] = [
   {
+    key: "P39F00GREY",
+    name: "Gentuță clutch de ocazie",
+    category: "bags",
+    color: "grey",
+    searchWords: [
+      "de",
+      "pentru",
+      "poseta",
+      "geanta",
+      "gentuta",
+      "clutch",
+      "ocazie",
+      "eveniment",
+      "nunta",
+      "elegant",
+      "gri",
+      "mana",
+    ],
+    similarColors: ["cream", "beige", "white"],
+    size: "small",
+    material: "-",
+    handle: "handle",
+    style: "clutch",
+    firstImage: "P39GREY1.jpg",
+    secondImage: "P39GREY2.jpg",
+    images: ["P39GREY3.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
+    materials: "Este confectionata din",
+    stock: "false",
+    date: "03.08.2026",
+  },
+  {
     key: "P15F00BLACK",
     name: "Geantă clutch de ocazie",
     category: "bags",
@@ -2131,6 +2170,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "true",
+    date: "26.12.2024",
   },
   {
     key: "S3F00GREY",
@@ -2156,6 +2196,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "04.08.2025",
   },
   {
     key: "S4F00CREAM",
@@ -2181,6 +2222,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "05.08.2025",
   },
   {
     key: "S4F00BROWN",
@@ -2206,6 +2248,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "19.07.2025",
   },
   {
     key: "SDL3F00CREAM",
@@ -2241,6 +2284,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "09.07.2026",
   },
   {
     key: "P6F00ORANGE",
@@ -2276,6 +2320,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "true",
+    date: "19.07.2024",
   },
   {
     key: "S5F00CREAM",
@@ -2301,6 +2346,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "17.07.2025",
   },
   {
     key: "W3F00BROWN",
@@ -2326,6 +2372,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "true",
+    date: "12.05.2025",
   },
   {
     key: "S5F00BLUE",
@@ -2360,6 +2407,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "04.07.2025",
   },
   {
     key: "W6F00BROWN",
@@ -2385,6 +2433,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "true",
+    date: "12.05.2024",
   },
   {
     key: "P5F00CREAM",
@@ -2410,6 +2459,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "true",
+    date: "12.09.2025",
   },
   {
     key: "P33F00BROWN",
@@ -2445,6 +2495,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "true",
+    date: "30.08.2025",
   },
   {
     key: "P5F00PINK",
@@ -2482,6 +2533,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "true",
+    date: "03.10.2025",
   },
   {
     key: "P5F00RED",
@@ -2516,6 +2568,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "true",
+    date: "05.12.2024",
   },
   {
     key: "P6F00GREEN",
@@ -2553,6 +2606,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "true",
+    date: "09.05.2024",
   },
   {
     key: "S2F00BEIGE",
@@ -2588,6 +2642,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "09.05.2026",
   },
   {
     key: "B1F00RED",
@@ -2613,6 +2668,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "01.11.2024",
   },
   {
     key: "S2F00PINK",
@@ -2648,6 +2704,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "28.08.2025",
   },
   {
     key: "B2F00BLUE",
@@ -2673,6 +2730,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "true",
+    date: "19.03.2025",
   },
   {
     key: "SDL1F00PINK",
@@ -2706,6 +2764,7 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "false",
+    date: "09.08.2025",
   },
   {
     key: "SDL2F00PINK",
@@ -3018,6 +3077,32 @@ export const products: productType[] = [
     },
     materials: "Este confectionata din",
     stock: "true",
+  },
+  {
+    key: "S5F00BLACK",
+    name: "Pantofi model 5",
+    category: "shoes",
+    color: "black",
+    searchWords: ["pantofi", "balerini", "papuci", "negri", "talpa", "sandale"],
+    similarColors: ["grey", "white"],
+    size: "universal",
+    material: "-",
+    handle: "",
+    style: "",
+    firstImage: "S5BLACK1.jpg",
+    secondImage: "S5BLACK2.jpg",
+    images: ["S5BLACK3.jpg"],
+    description: {
+      generalDescription:
+        "Geantă de umăr cu finisaj moale și velurat, cu închizătoare de metal în partea de sus. Pliuri cusute și șnur în partea de sus, curea de umăr reglabilă cu cataramă metalică la un capăt. Căptușită.",
+      length: 24,
+      width: 20,
+      height: 20,
+      accesorii: "geanta de umar",
+    },
+    materials: "Este confectionata din",
+    stock: "false",
+    date: "03.08.2026",
   },
   {
     key: "P5F00BLACK",
