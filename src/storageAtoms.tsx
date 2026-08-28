@@ -35,3 +35,8 @@ export const searchInputValueAtom = atomWithStorage<string>(
   "searchInputValue",
   "",
 );
+
+export const selectedSorterAtom = atomWithStorage<string>(
+  "selectedSorter",
+  "default",
+);

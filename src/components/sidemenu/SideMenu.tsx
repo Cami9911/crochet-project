@@ -55,7 +55,15 @@ const SideMenu = () => {
   const selectedKey = category ? `/?category=${category}` : "/";
 
   const handleMenuClick: MenuProps["onClick"] = ({ key }) => {
-    navigate(key);
+    // start from the params encoded in the menu key (category or nothing)
+    const nextParams = new URLSearchParams(key.split("?")[1] ?? "");
+
+    // carry over the current sort, if any
+    const sort = searchParams.get("sort");
+    if (sort) nextParams.set("sort", sort);
+
+    const qs = nextParams.toString();
+    navigate(qs ? `/?${qs}` : "/");
   };
 
   return (
