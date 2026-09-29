@@ -12,8 +12,16 @@ export const colors = [
     code: "rgb(216, 211, 217)",
   },
   {
+    name: "greige",
+    code: "rgb(217 215 211)",
+  },
+  {
     name: "cream",
     code: "rgb(245, 245, 220)",
+  },
+  {
+    name: "darkcream",
+    code: "rgb(219 212 192)",
   },
   {
     name: "beige",
@@ -29,6 +37,10 @@ export const colors = [
   },
   {
     name: "brown",
+    code: "rgb(115, 69, 38)",
+  },
+  {
+    name: "coffee",
     code: "rgb(115, 69, 38)",
   },
   {
